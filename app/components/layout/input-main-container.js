@@ -145,9 +145,12 @@ export default class InputMainContainer extends SafeComponent {
             em: { mark: 'em' },
             emoji: {
                 node: 'emoji',
-                getAttrs: (/* tok */) => ({
-                    shortname: ':star_struck:'
-                })
+                getAttrs: tok => {
+                    console.log(tok);
+                    return {
+                        shortname: ':star_struck:'
+                    };
+                }
             },
             strong: { mark: 'strong' }
             /* link: {

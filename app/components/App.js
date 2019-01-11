@@ -15,6 +15,7 @@ import {
 // import RNShakeEvent from 'react-native-shake-event';
 import KeyEvent from 'react-native-key-event';
 import { observer } from 'mobx-react/native';
+import emojione from 'emojione';
 import SafeComponent from './shared/safe-component';
 import PopupLayout from './layout/popup-layout';
 import ModalLayout from './layout/modal-layout';
@@ -181,3 +182,5 @@ export default class App extends SafeComponent {
         );
     }
 }
+
+global.emojione = emojione;
