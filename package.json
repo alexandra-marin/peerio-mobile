@@ -105,6 +105,7 @@
     "prop-types": "15.5.10",
     "prosemirror-markdown": "1.2.2",
     "prosemirror-model": "1.6.4",
+    "prosemirror-react-renderer": "github:PeerioTechnologies/prosemirror-react-renderer",
     "random-words": "0.0.1",
     "randomstring": "1.1.5",
     "react": "16.3.1",

@@ -50,4 +50,5 @@ const mocks = {
 };
 
 // switch this to mocks item to test [TODO: replace with storybooks]
-export default MockChannelView;
+// export default MockChannelView;
+export default null;
