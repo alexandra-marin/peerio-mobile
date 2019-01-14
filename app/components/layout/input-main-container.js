@@ -5,6 +5,7 @@ import { MarkdownParser } from 'prosemirror-markdown';
 import { Schema } from 'prosemirror-model';
 import markdownit from 'markdown-it';
 import markdownItEmoji from 'markdown-it-emoji';
+import emojione from 'emojione';
 import SafeComponent from '../shared/safe-component';
 import InputMain from './input-main';
 import chatState from '../messaging/chat-state';
@@ -146,9 +147,12 @@ export default class InputMainContainer extends SafeComponent {
             emoji: {
                 node: 'emoji',
                 getAttrs: tok => {
-                    console.log(tok);
+                    const { content } = tok;
+                    console.log(content);
+                    const emojiShortName = emojione.toShort(content);
+                    console.log(emojiShortName);
                     return {
-                        shortname: ':star_struck:'
+                        shortname: emojiShortName
                     };
                 }
             },
