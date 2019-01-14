@@ -38,6 +38,21 @@ const markDownToProseMirrorSchema = new Schema({
                 shortname: { default: ':laughing:' }
             },
             parseDOM: [{ tag: 'emoji' }]
+        },
+
+        link: {
+            inline: true,
+            group: 'inline',
+            attrs: {
+                href: { default: 'https://www.ya.ru/' }
+            },
+            parseDOM: [
+                {
+                    // this is to support our hacky way to get links from markdown
+                    // tag: 'a[href]',
+                    tag: 'link'
+                }
+            ]
         }
     },
 
@@ -52,34 +67,17 @@ const markDownToProseMirrorSchema = new Schema({
 
         strong: {
             parseDOM: [{ tag: 'b' }, { tag: 'strong' }]
-        },
-
-        link: {
-            attrs: {
-                href: {},
-                title: { default: null }
-            },
-            inclusive: false,
-            parseDOM: [
-                {
-                    tag: 'a[href]',
-                    getAttrs(dom) {
-                        return { href: dom.getAttribute('href'), title: dom.getAttribute('title') };
-                    }
-                }
-            ]
-        },
-
+        }
+        /*
         code: {
             parseDOM: [{ tag: 'code' }]
-        }
+        } */
     }
 });
 
 const markDownSchema = {
     blockquote: { block: 'blockquote' },
     paragraph: { block: 'paragraph' },
-    // heading: { block: 'heading', getAttrs: tok => ({ level: +tok.tag.slice(1) }) },
     hardbreak: { node: 'hard_break' },
     em: { mark: 'em' },
     s: { mark: 'strike' },
@@ -95,14 +93,17 @@ const markDownSchema = {
             };
         }
     },
-    strong: { mark: 'strong' }
-    /* link: {
-            mark: 'link',
-            getAttrs: tok => ({
-                href: tok.attrGet('href'),
-                title: tok.attrGet('title') || null
-            })
-        } */
+    strong: { mark: 'strong' },
+    link: {
+        node: 'link',
+        getAttrs: tok => {
+            console.log('get attributes for link');
+            console.log(JSON.stringify(tok));
+            return {
+                href: tok.attrs.href
+            };
+        }
+    }
 };
 
 export { markDownSchema, markDownToProseMirrorSchema };
