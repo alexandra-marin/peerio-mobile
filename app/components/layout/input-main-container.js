@@ -55,29 +55,16 @@ export const schema = new Schema({
     },
 
     marks: {
+        strike: {
+            parseDOM: [{ tag: 's' }]
+        },
+
         em: {
-            parseDOM: [
-                { tag: 'i' },
-                { tag: 'em' },
-                { style: 'font-style', getAttrs: value => value === 'italic' && null }
-            ],
-            toDOM() {
-                return ['em'];
-            }
+            parseDOM: [{ tag: 'i' }, { tag: 'em' }]
         },
 
         strong: {
-            parseDOM: [
-                { tag: 'b' },
-                { tag: 'strong' },
-                {
-                    style: 'font-weight',
-                    getAttrs: value => /^(bold(er)?|[5-9]\d{2,})$/.test(value) && null
-                }
-            ],
-            toDOM() {
-                return ['strong'];
-            }
+            parseDOM: [{ tag: 'b' }, { tag: 'strong' }]
         },
 
         link: {
@@ -93,17 +80,11 @@ export const schema = new Schema({
                         return { href: dom.getAttribute('href'), title: dom.getAttribute('title') };
                     }
                 }
-            ],
-            toDOM(node) {
-                return ['a', node.attrs];
-            }
+            ]
         },
 
         code: {
-            parseDOM: [{ tag: 'code' }],
-            toDOM() {
-                return ['code'];
-            }
+            parseDOM: [{ tag: 'code' }]
         }
     }
 });
@@ -117,7 +98,7 @@ export default class InputMainContainer extends SafeComponent {
             return;
         }
 
-        const markdownParser = markdownit('commonmark', { html: false });
+        const markdownParser = markdownit({ html: false });
         markdownParser.use(markdownItEmoji);
         /* markdownParser.renderer.rules.emoji = function(token, idx) {
             return '^_^';
@@ -129,6 +110,7 @@ export default class InputMainContainer extends SafeComponent {
             // heading: { block: 'heading', getAttrs: tok => ({ level: +tok.tag.slice(1) }) },
             hardbreak: { node: 'hard_break' },
             em: { mark: 'em' },
+            s: { mark: 'strike' },
             emoji: {
                 node: 'emoji',
                 getAttrs: tok => {
@@ -151,6 +133,7 @@ export default class InputMainContainer extends SafeComponent {
             } */
         });
 
+        // console.log(markdownParser.parse(message));
         const proseMirrorMessage = defaultMarkdownParser.parse(message);
         console.log(proseMirrorMessage);
         const richTextJSON = proseMirrorMessage.toJSON();
