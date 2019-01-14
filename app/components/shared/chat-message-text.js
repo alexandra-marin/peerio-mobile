@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { View } from 'react-native';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
 import tagify from './tagify';
@@ -48,7 +49,13 @@ export default class ChatMessageText extends SafeComponent {
         const { plainText, richText } = this.props;
         if (!plainText && !richText) return null;
         try {
-            if (richText) return renderRichText(richText);
+            if (richText)
+                return (
+                    <View>
+                        {renderRichText(richText)}
+                        {renderPlainText(plainText)}
+                    </View>
+                );
         } catch (e) {
             console.error(e);
             if (!plainText) {

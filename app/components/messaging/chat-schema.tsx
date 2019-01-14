@@ -1,10 +1,43 @@
 // TODO: split schema into own file, possibly migrate to Icebear
 
 import React from 'react';
+import { View, ViewStyle } from 'react-native';
 import { Schema, Node } from 'prosemirror-model';
 import { makeReactRenderer } from 'prosemirror-react-renderer';
+import emojione from 'emojione';
 import Text from '../controls/custom-text';
+import { vars } from '../../styles/styles';
+import _ from 'lodash';
 
+const textStyle = {
+    color: vars.txtMedium,
+    fontSize: vars.font.size14,
+    lineHeight: 22
+};
+
+const viewWrapStyle: ViewStyle = {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+};
+
+function injectMarkToReact(props) {
+    return {
+        toReact({}, {}, children) {
+            let newChild;
+            if (children && !_.isArray(children)) {
+                newChild = {
+                    ...children,
+                    props: {
+                        ...children.props,
+                        ...props
+                    }
+                };
+            }
+            return newChild;
+        }
+    };
+}
 // import { emojiByCanonicalShortname, pngFolder } from '~/helpers/chat/emoji';
 // import { parseUrls } from '~/helpers/url';
 
@@ -26,19 +59,31 @@ export const chatSchema = new Schema(
             paragraph: {
                 content: 'inline*',
                 group: 'block',
-                toReact() {
-                    // TODO: paragraph
-                    return <Text>(p)</Text>;
+                toReact({}, contents) {
+                    return <View style={viewWrapStyle}>{contents}</View>;
                 }
             },
-            text: { group: 'inline' },
+            text: {
+                group: 'inline',
+                toReact(node) {
+                    return (
+                        <Text selectable style={textStyle}>
+                            {node.textContent}
+                        </Text>
+                    );
+                }
+            },
             hard_break: {
                 inline: true,
                 group: 'inline',
                 selectable: false,
                 toReact() {
                     // TODO: br
-                    return <Text>(br)</Text>;
+                    return (
+                        <Text selectable style={textStyle}>
+                            {'\n'}
+                        </Text>
+                    );
                 }
             },
             // The link node has no `parseDOM` field: it can't be instantiated in
@@ -83,8 +128,12 @@ export const chatSchema = new Schema(
                 attrs: {
                     username: {}
                 },
-                toReact(/* node, _, props */) {
-                    return <Text>(mention)</Text>;
+                toReact(node /*, _, props */) {
+                    return (
+                        <Text bold style={[textStyle, { backgroundColor: vars.usernameHighlight }]}>
+                            @{node.attrs.username}
+                        </Text>
+                    );
                     /*
                     TODO: mention
                     return (
@@ -106,56 +155,31 @@ export const chatSchema = new Schema(
                 attrs: {
                     shortname: {}
                 },
-                toReact(/* node */) {
-                    return <Text>(emoji)</Text>;
-                    /*
-                    TODO: emoji
-                    const emoji = emojiByCanonicalShortname[node.attrs.shortname];
-                    if (!emoji) {
-                        console.warn(`emoji data not found for ${node.attrs.shortname}`);
-                        return (
-                            <img
-                                className="emojione"
-                                alt="❔"
-                                title=":grey_question:"
-                                src={`${pngFolder}2754.png`}
-                            />
-                        );
-                    }
-
+                toReact(node) {
                     return (
-                        <img
-                            className="emojione"
-                            alt={emoji.characters}
-                            title={node.attrs.shortname}
-                            src={emoji.filename}
-                        />
-                    ); */
+                        <Text style={textStyle}>
+                            {emojione.shortnameToUnicode(node.attrs.shortname)}
+                        </Text>
+                    );
                 }
             }
         },
         marks: {
-            em: {
-                toReact() {
-                    return <Text>(em)</Text>;
-                    // TODO: em
-                    // return ['em'];
-                }
-            },
-            strike: {
-                toReact() {
-                    return <Text>(strike)</Text>;
-                    // TODO: s
-                    // return ['s'];
-                }
-            },
-            strong: {
-                toReact() {
-                    return <Text>(strong)</Text>;
-                    // TODO: strong
-                    // return ['strong'];
-                }
-            }
+            em: injectMarkToReact({
+                italic: true
+            }),
+            strike: injectMarkToReact({
+                style: [
+                    textStyle,
+                    {
+                        textDecorationLine: 'line-through',
+                        textDecorationStyle: 'solid'
+                    }
+                ]
+            }),
+            strong: injectMarkToReact({
+                bold: true
+            })
         }
     } as any /* bad typings */
 );

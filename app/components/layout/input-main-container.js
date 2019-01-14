@@ -23,36 +23,24 @@ export const schema = new Schema({
         paragraph: {
             content: 'inline*',
             group: 'block',
-            parseDOM: [{ tag: 'p' }],
-            toDOM() {
-                return ['p', 0];
-            }
+            parseDOM: [{ tag: 'p' }]
         },
 
         blockquote: {
             content: 'block+',
             group: 'block',
-            parseDOM: [{ tag: 'blockquote' }],
-            toDOM() {
-                return ['blockquote', 0];
-            }
+            parseDOM: [{ tag: 'blockquote' }]
         },
 
         text: {
-            group: 'inline',
-            toDOM(node) {
-                return node.text;
-            }
+            group: 'inline'
         },
 
         hard_break: {
             inline: true,
             group: 'inline',
             selectable: false,
-            parseDOM: [{ tag: 'br' }],
-            toDOM() {
-                return ['br'];
-            }
+            parseDOM: [{ tag: 'br' }]
         },
 
         emoji: {
@@ -62,10 +50,7 @@ export const schema = new Schema({
             attrs: {
                 shortname: { default: ':laughing:' }
             },
-            parseDOM: [{ tag: 'emoji' }],
-            toDOM() {
-                return ['^_^'];
-            }
+            parseDOM: [{ tag: 'emoji' }]
         }
     },
 
