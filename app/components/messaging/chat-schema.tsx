@@ -1,13 +1,14 @@
 // TODO: split schema into own file, possibly migrate to Icebear
 
 import React from 'react';
-import { View, ViewStyle } from 'react-native';
+import { View, ViewStyle, TextStyle, Linking } from 'react-native';
 import { Schema, Node } from 'prosemirror-model';
 import { makeReactRenderer } from 'prosemirror-react-renderer';
 import emojione from 'emojione';
+import _ from 'lodash';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
-import _ from 'lodash';
+import * as linkify from 'linkifyjs';
 
 const textStyle = {
     color: vars.txtMedium,
@@ -37,6 +38,31 @@ function injectMarkToReact(props) {
             return newChild;
         }
     };
+}
+
+function noop() {}
+
+function parseUrls(text) {
+    const items = linkify.tokenize(text).map((token, i) => {
+        const p = token.isLink
+            ? () => {
+                  Linking.openURL(token.toHref());
+              }
+            : null;
+        const s: TextStyle = token.isLink
+            ? {
+                  textDecorationLine: 'underline',
+                  color: vars.peerioBlue
+              }
+            : textStyle;
+        // onLongPress noop prevents opening links when there was a long press
+        return (
+            <Text onPress={p} onLongPress={noop} key={i} style={s}>
+                {token.toString()}
+            </Text>
+        );
+    });
+    return <React.Fragment>{items}</React.Fragment>;
 }
 // import { emojiByCanonicalShortname, pngFolder } from '~/helpers/chat/emoji';
 // import { parseUrls } from '~/helpers/url';
@@ -111,13 +137,7 @@ export const chatSchema = new Schema(
                 // happens in the send step.
                 toReact(node) {
                     const content = node.textContent;
-                    return <Text>(link:{content})</Text>;
-                    /*
-                    TODO: link
-                    const { href } = parseUrls(content)[0];
-                    if (!href) throw new Error(`Invalid parsed href for '${content}'`);
-                    return <a href={href}>{content}</a>;
-                    */
+                    return parseUrls(content);
                 }
             },
             mention: {
