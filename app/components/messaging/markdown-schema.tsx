@@ -38,9 +38,9 @@ const markDownToProseMirrorSchema = new Schema({
                 shortname: { default: ':laughing:' }
             },
             parseDOM: [{ tag: 'emoji' }]
-        },
+        }
 
-        link: {
+        /* link: {
             inline: true,
             group: 'inline',
             attrs: {
@@ -53,7 +53,7 @@ const markDownToProseMirrorSchema = new Schema({
                     tag: 'link'
                 }
             ]
-        }
+        } */
     },
 
     marks: {
@@ -68,10 +68,6 @@ const markDownToProseMirrorSchema = new Schema({
         strong: {
             parseDOM: [{ tag: 'b' }, { tag: 'strong' }]
         }
-        /*
-        code: {
-            parseDOM: [{ tag: 'code' }]
-        } */
     }
 });
 
@@ -93,8 +89,8 @@ const markDownSchema = {
             };
         }
     },
-    strong: { mark: 'strong' },
-    link: {
+    strong: { mark: 'strong' }
+    /* link: {
         node: 'link',
         getAttrs: tok => {
             console.log('get attributes for link');
@@ -103,7 +99,7 @@ const markDownSchema = {
                 href: tok.attrs.href
             };
         }
-    }
+    } */
 };
 
 export { markDownSchema, markDownToProseMirrorSchema };
