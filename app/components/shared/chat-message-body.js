@@ -32,6 +32,7 @@ export default class ChatMessageBody extends SafeComponent {
                     onFileAction={onFileAction}
                     onLegacyFileAction={onLegacyFileAction}
                 />
+                <ChatMessageText message={messageObject.text} />
                 <ChatMessageInlineImages
                     message={messageObject}
                     chat={chat}
@@ -39,7 +40,6 @@ export default class ChatMessageBody extends SafeComponent {
                     onLegacyFileAction={onLegacyFileAction}
                     isClosed={isClosed}
                 />
-                <ChatMessageText message={messageObject.text} />
                 <ChatMessageInlineUrls message={messageObject} isClosed={isClosed} />
                 <SystemMessage message={messageObject} />
                 <ChatMessageSendError visible={messageObject.sendError} />

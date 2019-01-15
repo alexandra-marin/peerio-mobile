@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.428.0"></a>
+# [3.428.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.427.0...v3.428.0) (2019-01-08)
+
+
+
+<a name="3.427.0"></a>
+# [3.427.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.426.0...v3.427.0) (2019-01-08)
+
+
+### Bug Fixes
+
+* add timestamp ([#411](https://github.com/PeerioTechnologies/peerio-mobile/issues/411)) ([be79447](https://github.com/PeerioTechnologies/peerio-mobile/commit/be79447))
+* deleting inline file should delete file in the list as well [ch18037] ([10c9667](https://github.com/PeerioTechnologies/peerio-mobile/commit/10c9667))
+* deleting inline file should delete file in the list as well [ch18037] ([#412](https://github.com/PeerioTechnologies/peerio-mobile/issues/412)) ([461f286](https://github.com/PeerioTechnologies/peerio-mobile/commit/461f286))
+* url preview element order [branch ch17620] ([#415](https://github.com/PeerioTechnologies/peerio-mobile/issues/415)) ([478155a](https://github.com/PeerioTechnologies/peerio-mobile/commit/478155a))
+
+
+### Features
+
+* retry login 3 times before failing [ch18095] ([#406](https://github.com/PeerioTechnologies/peerio-mobile/issues/406)) ([870b4a4](https://github.com/PeerioTechnologies/peerio-mobile/commit/870b4a4))
+
+
+
 <a name="3.426.0"></a>
 # [3.426.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.425.0...v3.426.0) (2018-12-24)
 

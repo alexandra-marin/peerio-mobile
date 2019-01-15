@@ -94,12 +94,26 @@ export default class MessageInfo extends SafeComponent {
         if (!this.props.chat || !this.props.messageObject) return null;
         const body = (
             <View style={{ backgroundColor: vars.channelInfoBg }}>
-                <View>
-                    <ContactCard
-                        contact={this.props.messageObject.sender}
-                        backgroundColor={vars.channelInfoBg}
-                        disableTapping
-                    />
+                <View
+                    style={{
+                        marginRight: 8,
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}>
+                    <View
+                        style={{
+                            flex: 1
+                        }}>
+                        <ContactCard
+                            contact={this.props.messageObject.sender}
+                            backgroundColor={vars.channelInfoBg}
+                            disableTapping
+                        />
+                    </View>
+                    <Text style={{ flex: 0, color: vars.black54, fontSize: 14 }}>
+                        {this.props.messageObject.messageTimestampText}
+                    </Text>
                 </View>
                 {this.messageText}
                 <ListSeparator />

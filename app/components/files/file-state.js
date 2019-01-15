@@ -61,7 +61,16 @@ class FileState extends RoutedState {
     }
 
     @action
-    async deleteFile(file) {
+    async deleteFile(fileInfo) {
+        const id = fileInfo.fileId;
+        let file = fileStore.getById(id);
+        if (!file) {
+            file = await fileStore.loadKegByFileId(id);
+            if (!file) {
+                console.error(`could not resolve a file ${id}`);
+                return Promise.resolve();
+            }
+        }
         const isOwner = file.owner === User.current.username;
         const title = isOwner ? tx('dialog_confirmDeleteFile') : tx('title_confirmRemoveFile');
         let subtitle = '';

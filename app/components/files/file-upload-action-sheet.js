@@ -11,7 +11,12 @@ import ActionSheetLayout from '../layout/action-sheet-layout';
 
 async function doUpload(sourceFunction, inline) {
     const uploader = inline ? fileState.uploadInline : fileState.uploadInFiles;
-    const source = observable(await sourceFunction());
+    const uploadInfo = await sourceFunction();
+    if (!uploadInfo) {
+        console.log(`no upload info provided. skipping upload`);
+        return;
+    }
+    const source = observable(uploadInfo);
     if (inline) {
         const userSelection = await FileSharePreview.popup(source.url, source.fileName);
         if (!userSelection) return;

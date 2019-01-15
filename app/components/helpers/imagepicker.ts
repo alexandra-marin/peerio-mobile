@@ -55,6 +55,10 @@ async function processResponse(functor, params?) {
     if (!response.path && response.uri) {
         response.path = response.uri;
     }
+    if (!response.path) {
+        console.log(`user cancelled image selection. no path returned`);
+        return null;
+    }
     // if it's a HEIF or HEIC file, it would still give you path to JPG asset
     // for the sake of compatibility
     const ext = fileHelpers
