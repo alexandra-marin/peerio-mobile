@@ -16,6 +16,12 @@ const textStyle = {
     lineHeight: 22
 };
 
+const jumbojiTextStyle = {
+    color: vars.txtMedium,
+    fontSize: 36,
+    lineHeight: 48
+};
+
 function injectMarkToReact(props) {
     return {
         toReact({}, {}, children) {
@@ -180,9 +186,9 @@ export const chatSchema = new Schema(
                 attrs: {
                     shortname: {}
                 },
-                toReact(node) {
+                toReact(node, _, props) {
                     return (
-                        <Text style={textStyle}>
+                        <Text style={props.className === 'jumboji' ? jumbojiTextStyle : textStyle}>
                             {emojione.shortnameToUnicode(node.attrs.shortname)}
                         </Text>
                     );
@@ -247,4 +253,5 @@ export function isWhitespaceOnly(node: Node): boolean {
 export const Renderer = makeReactRenderer<{
     onClickContact: React.MouseEventHandler;
     currentUser: string;
+    className: string;
 }>(chatSchema, 'MessageRichTextRenderer');

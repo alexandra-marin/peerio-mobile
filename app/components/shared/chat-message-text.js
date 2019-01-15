@@ -27,15 +27,17 @@ function renderPlainText(plainText) {
 
 function renderRichText(richText) {
     const proseMirrorNode = chatSchema.nodeFromJSON(richText);
-
-    // Note that an error in the renderer component won't get caught
-    // by this try-catch -- it's not actually invoked in this stack
-    // frame.
+    const richTextElements = richText.content[0].content;
+    const className =
+        richTextElements.length <= 3 && richTextElements.every(e => e.type === 'emoji')
+            ? 'jumboji'
+            : '';
     return (
         <Renderer
             fragment={proseMirrorNode.content}
             onClickContact={contacState.showUsernameProfile}
             currentUser={User.current.username}
+            className={className}
         />
     );
 }

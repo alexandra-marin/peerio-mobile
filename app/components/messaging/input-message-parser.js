@@ -17,7 +17,7 @@ const defaultMarkdownParser = new MarkdownParser(
 function ruleMention(text) {
     const tokens = mentionParse(text);
     console.log(tokens);
-    if (!tokens.find(token => token.username)) return null;
+    if (!tokens) return null;
     return tokens.map(
         token =>
             token.username
