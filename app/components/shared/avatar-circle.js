@@ -18,15 +18,20 @@ export default class AvatarCircle extends SafeComponent {
         if (medium) ratio = 2;
         const width = vars.avatarDiameter * ratio;
         const height = width;
-        const avatarStyle = {
+        const avatarPlaceholderStyle = {
             width,
             height,
-            borderRadius: width / 2,
             marginTop: vars.spacing.small.mini2x * ratio,
             marginBottom: vars.spacing.small.mini2x * ratio
         };
+        const avatarStyle = [
+            avatarPlaceholderStyle,
+            {
+                borderRadius: width / 2
+            }
+        ];
         if (loading) {
-            return <ActivityIndicator style={{ height, margin: vars.spacing.small.mini2x }} />;
+            return <ActivityIndicator style={avatarPlaceholderStyle} />;
         }
 
         const { color, tofuError, letter } = contact || {};
