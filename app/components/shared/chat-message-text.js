@@ -8,16 +8,13 @@ import { User } from '../../lib/icebear';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
 import { chatSchema, Renderer } from '../messaging/chat-schema';
+import contacState from '../contacts/contact-state';
 
 const textStyle = {
     color: vars.txtMedium,
     fontSize: vars.font.size14,
     lineHeight: 22
 };
-
-function onClickContact() {
-    console.log('onclick contact');
-}
 
 function renderPlainText(plainText) {
     const text = plainText.replace(/\n[ ]+/g, '\n') || '';
@@ -37,7 +34,7 @@ function renderRichText(richText) {
     return (
         <Renderer
             fragment={proseMirrorNode.content}
-            onClickContact={onClickContact}
+            onClickContact={contacState.showUsernameProfile}
             currentUser={User.current.username}
         />
     );

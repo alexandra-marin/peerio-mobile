@@ -148,9 +148,12 @@ export const chatSchema = new Schema(
                 attrs: {
                     username: {}
                 },
-                toReact(node /*, _, props */) {
+                toReact(node, _, props) {
                     return (
-                        <Text bold style={[textStyle, { backgroundColor: vars.usernameHighlight }]}>
+                        <Text
+                            onPress={() => props.onClickContact(node.attrs.username)}
+                            bold
+                            style={[textStyle, { backgroundColor: vars.usernameHighlight }]}>
                             @{node.attrs.username}
                         </Text>
                     );
