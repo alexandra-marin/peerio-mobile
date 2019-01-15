@@ -234,15 +234,7 @@ export default class Chat extends SafeComponent {
 
     unreadMessageIndicatorTimeout = null;
 
-    onScroll = event => {
-        const { nativeEvent } = event;
-        const { y } = nativeEvent.contentOffset;
-        // console.log(`content offset: ${y}`);
-        // const maxY = this.contentHeight - this.scrollViewHeight;
-        // values here may be float therefore the magic "2" number
-        this.isAtBottom = !this.chat.canGoDown && y < 2;
-        clientApp.isReadingNewestMessages = this.isAtBottom;
-
+    updateUnreadMessageIndicators = () => {
         if (this.unreadMessageIndicatorTimeout) {
             clearTimeout(this.unreadMessageIndicatorTimeout);
             this.unreadMessageIndicatorTimeout = null;
@@ -258,6 +250,22 @@ export default class Chat extends SafeComponent {
         } else {
             uiState.customOverlayComponent = null;
         }
+    };
+
+    onScrollBeginDrag = () => {
+        this.isAtBottom = false;
+        this.updateUnreadMessageIndicators();
+    };
+
+    onScroll = event => {
+        const { nativeEvent } = event;
+        const { y } = nativeEvent.contentOffset;
+        // console.log(`content offset: ${y}`);
+        // const maxY = this.contentHeight - this.scrollViewHeight;
+        // values here may be float therefore the magic "2" number
+        this.isAtBottom = !this.chat.canGoDown && y < 2;
+        clientApp.isReadingNewestMessages = this.isAtBottom;
+        this.updateUnreadMessageIndicators();
         const updater = () => {
             const { contentHeight, scrollViewHeight, chat } = this;
             if (!contentHeight || !scrollViewHeight || !chat) return;
@@ -339,13 +347,14 @@ export default class Chat extends SafeComponent {
                 onScroll={this.onScroll}
                 style={style}
                 inverted
-                initialListSize={1}
+                initialNumToRender={1}
                 keyboardShouldPersistTaps="never"
                 data={this.data}
                 renderItem={this.renderItem}
                 keyExtractor={this.keyExtractor}
                 ref={this.scrollViewRef}
                 scrollEventThrottle={10}
+                removeClippedSubviews={false}
                 ListFooterComponent={refreshControlTop}
                 ListHeaderComponent={footer}
             />
