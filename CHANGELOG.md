@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.429.0"></a>
+# [3.429.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.429.0) (2019-01-15)
+
+
+### Bug Fixes
+
+* avatar circle loading and jumping ([ae232a3](https://github.com/PeerioTechnologies/peerio-mobile/commit/ae232a3))
+
+
+
 <a name="3.428.0"></a>
 # [3.428.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.427.0...v3.428.0) (2019-01-08)
 
