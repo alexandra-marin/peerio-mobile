@@ -14,6 +14,6 @@ function testMentionParser(sampleText) {
     console.log(`Original/formatted: \n${sampleText}\n${parsedText}`);
 }
 
-testMentionParser('@eren some text @anri other @floh. text email @seavan forever more');
+// testMentionParser('@eren some text @anri other @floh. text email @seavan forever more');
 // testMentionParser('@eren');
-// testMentionParser('@anri is here');
+testMentionParser('@anri @vincent is here');

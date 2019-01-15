@@ -4,13 +4,13 @@
 // it will be much more performant to be replaced by finite state machine
 
 function matchMentionRule(input) {
-    const mentionInputRulePattern = /(?:^|\s)(@([a-zA-Z0-9_]{1,32}))(\s|.|,|$)/gu;
+    const mentionInputRulePattern = /(^|\s)(@([a-zA-Z0-9_]{1,32}))(\s|.|,|$)/gu;
     const matches = [];
     for (;;) {
         const result = mentionInputRulePattern.exec(input);
         if (!result) break;
         const { index } = result;
-        const [full, withAt, username] = result;
+        const [full, , withAt, username, spacerEnd] = result;
         if (!username) continue;
         const subIndex = full.indexOf(withAt);
         matches.push({
@@ -19,7 +19,12 @@ function matchMentionRule(input) {
             withAt,
             username
         });
+        if (spacerEnd.length) {
+            mentionInputRulePattern.lastIndex -= spacerEnd.length;
+        }
+        // current = index + subIndex + withAt.length;
     }
+    console.log(matches);
     return matches;
 }
 

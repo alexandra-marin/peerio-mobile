@@ -1,7 +1,7 @@
 // TODO: split schema into own file, possibly migrate to Icebear
 
 import React from 'react';
-import { View, ViewStyle, TextStyle, Linking } from 'react-native';
+import { TextStyle, Linking } from 'react-native';
 import { Schema, Node } from 'prosemirror-model';
 import { makeReactRenderer } from 'prosemirror-react-renderer';
 import emojione from 'emojione';
@@ -14,12 +14,6 @@ const textStyle = {
     color: vars.txtMedium,
     fontSize: vars.font.size14,
     lineHeight: 22
-};
-
-const viewWrapStyle: ViewStyle = {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap'
 };
 
 function injectMarkToReact(props) {
@@ -86,7 +80,7 @@ export const chatSchema = new Schema(
                 content: 'inline*',
                 group: 'block',
                 toReact({}, contents) {
-                    return <View style={viewWrapStyle}>{contents}</View>;
+                    return <Text style={textStyle}>{contents}</Text>;
                 }
             },
             text: {
@@ -153,7 +147,15 @@ export const chatSchema = new Schema(
                         <Text
                             onPress={() => props.onClickContact(node.attrs.username)}
                             bold
-                            style={[textStyle, { backgroundColor: vars.usernameHighlight }]}>
+                            style={[
+                                textStyle,
+                                {
+                                    backgroundColor:
+                                        props.currentUser === node.attrs.username
+                                            ? vars.selfUsernameHighlight
+                                            : vars.usernameHighlight
+                                }
+                            ]}>
                             @{node.attrs.username}
                         </Text>
                     );

@@ -50,7 +50,7 @@ export default class ChatMessageText extends SafeComponent {
                 return (
                     <View>
                         {renderRichText(richText)}
-                        {renderPlainText(plainText)}
+                        {/* renderPlainText(plainText) */}
                     </View>
                 );
         } catch (e) {
