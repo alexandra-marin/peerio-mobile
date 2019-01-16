@@ -96,7 +96,7 @@
     "path": "0.12.7",
     "pdfform.js": "1.0.13",
     "peerio-copy": "github:PeerioTechnologies/peerio-copy#icebear",
-    "peerio-icebear": "github:PeerioTechnologies/peerio-icebear#v6.0.1",
+    "peerio-icebear": "github:PeerioTechnologies/peerio-icebear#v6.1.2",
     "peerio-translator": "2.1.1",
     "process": "0.11.9",
     "prop-types": "15.5.10",
