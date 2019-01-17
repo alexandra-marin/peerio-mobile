@@ -31,7 +31,7 @@ const linkStyle: TextStyle = {
 
 function injectMarkToReact(props) {
     return {
-        toReact({}, {}, children) {
+        toReact(_param1, _param2, children) {
             let newChild;
             if (children && !_.isArray(children)) {
                 newChild = {
@@ -77,7 +77,7 @@ export const chatSchema = new Schema(
             paragraph: {
                 content: 'inline*',
                 group: 'block',
-                toReact({}, contents) {
+                toReact(_node, contents) {
                     return <Text style={textStyle}>{contents}</Text>;
                 }
             },
@@ -137,7 +137,7 @@ export const chatSchema = new Schema(
                 attrs: {
                     username: {}
                 },
-                toReact(node, _, props) {
+                toReact(node, _contents, props) {
                     return (
                         <Text
                             onPress={() => props.onClickContact(node.attrs.username)}
