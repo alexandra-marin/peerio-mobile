@@ -97,7 +97,7 @@ export default class TwoFactorAuthCodes extends SafeComponent {
         return result;
     }
 
-    async downloadCodes() {
+    downloadCodes = async () => {
         let mimeType = 'application/pdf';
         let filePath = '';
 
@@ -114,7 +114,7 @@ export default class TwoFactorAuthCodes extends SafeComponent {
         console.log(filePath);
         await FileOpener.open(filePath, mimeType, '2fa');
         // await RNFS.unlink(filePath);
-    }
+    };
 
     disable2fa() {
         User.current.disable2fa();

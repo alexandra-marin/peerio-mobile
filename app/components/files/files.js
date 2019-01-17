@@ -12,7 +12,6 @@ import FileActionSheet from '../files/file-action-sheet';
 import FoldersActionSheet from '../files/folder-action-sheet';
 import fileState from './file-state';
 import PlusBorderIcon from '../layout/plus-border-icon';
-import { upgradeForFiles } from '../payments/payments';
 import BackIcon from '../layout/back-icon';
 import { vars } from '../../styles/styles';
 import { tx } from '../utils/translator';
@@ -289,7 +288,6 @@ export default class Files extends SafeComponent {
         return (
             <View ref={this.flatListRef} style={{ flex: 1, flexGrow: 1 }}>
                 <View style={{ flex: 1, flexGrow: 1, backgroundColor: vars.darkBlueBackground05 }}>
-                    {upgradeForFiles()}
                     {noFilesInFolder || this.body()}
                     {/* this.sharedFolderRemovalNotifs() */}
                 </View>

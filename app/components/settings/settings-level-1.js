@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View, Share } from 'react-native';
-import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import SettingsItem from './settings-item';
@@ -16,7 +15,6 @@ import {
     drawerState
 } from '../states';
 import { toggleConnection } from '../main/dev-menu-items';
-import plans from '../payments/payments-config';
 import { tx, tu } from '../utils/translator';
 import {
     warnings,
@@ -36,7 +34,6 @@ import { TopDrawerBackupAccountKey, TopDrawerNewContact } from '../shared/top-dr
 import routes from '../routes/routes';
 import uiState from '../layout/ui-state';
 import { testConfirmEmail } from '../helpers/test-confirm-email';
-import whiteLabelComponents from '../../components/whitelabel/white-label-components';
 
 const svStyle = {
     flexGrow: 1,
@@ -46,11 +43,6 @@ const svStyle = {
 
 const bgStyle = {
     padding: vars.settingsListPadding
-};
-
-const descriptionTextStyle = {
-    color: vars.peerioBlue,
-    fontSize: vars.font.size12
 };
 
 @observer
@@ -143,21 +135,6 @@ export default class SettingsLevel1 extends SafeComponent {
      * event handlers
      */
     renderThrow() {
-        const plan = plans.topPlan();
-        const upgradeItem = plan ? (
-            <whiteLabelComponents.ManageAccountButton
-                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
-            />
-        ) : (
-            <SettingsItem
-                title="button_upgrade"
-                onPress={() => settingsState.upgrade()}
-                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}>
-                <Text style={[descriptionTextStyle, { position: 'absolute', right: 0 }]}>
-                    {tx('title_getMoreGoPro')}
-                </Text>
-            </SettingsItem>
-        );
         return (
             <ViewWithDrawer style={svStyle}>
                 <View style={bgStyle}>
@@ -201,7 +178,6 @@ export default class SettingsLevel1 extends SafeComponent {
                             vars.accountSettingsIconColor
                         )}
                     />
-                    {!process.env.PEERIO_DISABLE_PAYMENTS && upgradeItem}
                     {this.spacer}
 
                     <SettingsItem
@@ -324,8 +300,6 @@ export default class SettingsLevel1 extends SafeComponent {
                         />
                     )}
                     {__DEV__ && <BasicSettingsItem title="log MC props" onPress={this.showProps} />}
-                    {/* <BasicSettingsItem title={t('payments')} onPress={() => settingsState.transition('payments')} /> */}
-                    {/* <BasicSettingsItem title={t('quotas')} onPress={() => settingsState.transition('quotas')} /> */}
                 </View>
             </ViewWithDrawer>
         );

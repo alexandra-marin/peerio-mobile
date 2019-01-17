@@ -73,6 +73,10 @@ class FileState extends RoutedState {
             file = await fileStore.loadKegByFileId(id);
             if (!file) {
                 console.error(`could not resolve a file ${id}`);
+                // if file was removed from the story but not from the keg
+                if (fileInfo) {
+                    await fileInfo.remove();
+                }
                 return Promise.resolve();
             }
         }
@@ -87,6 +91,9 @@ class FileState extends RoutedState {
         console.log(result);
         if (result) {
             await file.remove();
+            if (fileInfo !== file) {
+                await fileInfo.remove();
+            }
         }
         return result; // Used to trigger events after deleting
     }

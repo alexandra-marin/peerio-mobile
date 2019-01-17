@@ -118,16 +118,12 @@ export default class Chat extends SafeComponent {
         // console.log(`chat.js: content size changed ${contentWidth}, ${contentHeight}`);
         if (!this.scrollView || !this.chat) return;
 
-        const wasAtBottom = this.isAtBottom;
-
         // set current content heigth
         if (contentHeight) this.contentHeight = contentHeight;
 
         // waiting for page loads or other updates
-        if (this.refreshing || this.disableNextScroll) {
-            console.debug(
-                `refreshing: ${this.refreshing}, disableNextScroll: ${this.disableNextScroll}`
-            );
+        if (this.refreshing) {
+            console.debug(`refreshing: ${this.refreshing}`);
             return;
         }
 
@@ -135,16 +131,9 @@ export default class Chat extends SafeComponent {
         if (this._contentSizeChanged) clearTimeout(this._contentSizeChanged);
         this._contentSizeChanged = setTimeout(() => {
             if (this.scrollView && this.contentHeight && this.scrollViewHeight) {
-                console.debug(
-                    `in timeout refreshing: ${this.refreshing}, disableNextScroll: ${
-                        this.disableNextScroll
-                    }`
-                );
+                console.debug(`in timeout refreshing: ${this.refreshing}`);
                 if (!this.refreshing) {
-                    if (wasAtBottom) {
-                        requestAnimationFrame(() => {
-                            this.initialScrollDone = true;
-                        });
+                    if (this.isAtBottom) {
                         if (
                             this.contentHeight < this.scrollViewHeight &&
                             !this.chat.canGoUp &&
@@ -156,7 +145,6 @@ export default class Chat extends SafeComponent {
                             return;
                         }
                         console.log('chat.js: auto scrolling');
-                        this.isAtBottom = wasAtBottom;
                         this.scrollView.scrollToOffset({ y: 0 });
                     }
                 }
@@ -242,7 +230,9 @@ export default class Chat extends SafeComponent {
         // values here may be float therefore the magic "2" number
         this.isAtBottom = !this.chat.canGoDown && y < 2;
         clientApp.isReadingNewestMessages = this.isAtBottom;
+    };
 
+    updateUnreadMessageIndicators = () => {
         if (this.unreadMessageIndicatorTimeout) {
             clearTimeout(this.unreadMessageIndicatorTimeout);
             this.unreadMessageIndicatorTimeout = null;
@@ -258,16 +248,29 @@ export default class Chat extends SafeComponent {
         } else {
             uiState.customOverlayComponent = null;
         }
+    };
+
+    onScrollBeginDrag = () => {
+        this.isAtBottom = false;
+    };
+
+    onScroll = event => {
+        const { nativeEvent } = event;
+        const { y } = nativeEvent.contentOffset;
+        // console.log(`content offset: ${y}`);
+        // const maxY = this.contentHeight - this.scrollViewHeight;
+        // values here may be float therefore the magic "2" number
+        this.isAtBottom = !this.chat.canGoDown && y < 2;
+        clientApp.isReadingNewestMessages = this.isAtBottom;
+        this.updateUnreadMessageIndicators();
         const updater = () => {
             const { contentHeight, scrollViewHeight, chat } = this;
             if (!contentHeight || !scrollViewHeight || !chat) return;
-
             const h = this.contentHeight - this.scrollViewHeight;
             // trigger previous page if we are at the top
             if (y > h - this.indicatorHeight / 2) this._onGoUp();
             // trigger next page if we are at the bottom
             if (y <= this.indicatorHeight / 2) this._onGoDown();
-            // this.disableNextScroll = y < h - this.indicatorHeight;
         };
         if (this._updater) clearTimeout(this._updater);
         this._updater = setTimeout(updater, 500);
@@ -339,13 +342,14 @@ export default class Chat extends SafeComponent {
                 onScroll={this.onScroll}
                 style={style}
                 inverted
-                initialListSize={1}
+                initialNumToRender={1}
                 keyboardShouldPersistTaps="never"
                 data={this.data}
                 renderItem={this.renderItem}
                 keyExtractor={this.keyExtractor}
                 ref={this.scrollViewRef}
                 scrollEventThrottle={10}
+                removeClippedSubviews={false}
                 ListFooterComponent={refreshControlTop}
                 ListHeaderComponent={footer}
             />
@@ -401,7 +405,6 @@ export default class Chat extends SafeComponent {
         if (this.chat && this.chat.isInvite) return <DmContactInvite showButtons />;
         return (
             <View style={{ flexGrow: 1, paddingBottom: vars.spacing.small.mini2x }}>
-                {/* this.chat && !this.chat.canGoUp && upgradeForArchive() */}
                 <View style={{ flex: 1, flexGrow: 1, backgroundColor: this.background }}>
                     {this.data ? this.listView() : null}
                 </View>

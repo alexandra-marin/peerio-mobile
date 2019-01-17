@@ -19,7 +19,8 @@ const nameContainer = {
     paddingHorizontal: vars.spacing.small.midi2x,
     paddingTop: vars.spacing.small.mini,
     paddingBottom: vars.spacing.small.midi2x,
-    flexGrow: 1
+    flexGrow: 1,
+    flex: 1
 };
 
 // Padding 0 should be kept

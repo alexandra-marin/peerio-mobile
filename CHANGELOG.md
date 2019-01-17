@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.431.0"></a>
+# [3.431.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.430.0...v3.431.0) (2019-01-17)
+
+
+
+<a name="3.430.0"></a>
+# [3.430.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.429.0...v3.430.0) (2019-01-16)
+
+
+### Bug Fixes
+
+* safeguard when rendering folders [ch18459] ([a80b32a](https://github.com/PeerioTechnologies/peerio-mobile/commit/a80b32a))
+
+
+### Features
+
+* add unshare inline files capability to file action sheet [ch18323] ([#418](https://github.com/PeerioTechnologies/peerio-mobile/issues/418)) ([6cc0177](https://github.com/PeerioTechnologies/peerio-mobile/commit/6cc0177))
+
+
+
+<a name="3.429.0"></a>
+# [3.429.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.429.0) (2019-01-15)
+
+
+### Bug Fixes
+
+* avatar circle loading and jumping ([ae232a3](https://github.com/PeerioTechnologies/peerio-mobile/commit/ae232a3))
+
+
+
 <a name="3.428.0"></a>
 # [3.428.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.427.0...v3.428.0) (2019-01-08)
 
