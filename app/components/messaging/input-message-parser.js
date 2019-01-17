@@ -1,7 +1,7 @@
 import { MarkdownParser } from 'prosemirror-markdown';
 import markdownit from 'markdown-it';
 import markdownItEmoji from 'markdown-it-emoji';
-import * as linkify from 'linkifyjs';
+import { parseUrls } from '../helpers/urls';
 import { markDownSchema, markDownToProseMirrorSchema } from './markdown-schema';
 import { mentionParse } from './mention-parser';
 
@@ -16,7 +16,6 @@ const defaultMarkdownParser = new MarkdownParser(
 
 function ruleMention(text) {
     const tokens = mentionParse(text);
-    console.log(tokens);
     if (!tokens) return null;
     return tokens.map(
         token =>
@@ -33,23 +32,23 @@ function ruleMention(text) {
 }
 
 function ruleLinkify(text) {
-    const tokens = linkify.tokenize(text);
-    if (!tokens.find(token => token.isLink)) return null;
+    const tokens = parseUrls(text);
+    if (!tokens.find(token => !!token.href)) return null;
     return tokens.map(
         token =>
-            token.isLink
+            token.href
                 ? {
                       type: 'link',
                       content: [
                           {
                               type: 'text',
-                              text: token.toHref()
+                              text: token.mailto || token.href
                           }
                       ]
                   }
                 : {
                       type: 'text',
-                      text: token.toString()
+                      text: token.text
                   }
     );
 }
@@ -76,12 +75,9 @@ function parseJsonWithRules(json, rules) {
 }
 
 function inputMessageParser(message) {
-    console.log(markdownParser.parse(message));
     const proseMirrorMessage = defaultMarkdownParser.parse(message);
-    console.log(proseMirrorMessage);
     const richTextJSON = proseMirrorMessage.toJSON();
     parseJsonWithRules(richTextJSON, [ruleMention, ruleLinkify]);
-    console.log(richTextJSON);
     return richTextJSON;
 }
 

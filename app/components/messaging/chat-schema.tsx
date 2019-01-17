@@ -1,14 +1,16 @@
 // TODO: split schema into own file, possibly migrate to Icebear
 
 import React from 'react';
-import { TextStyle, Linking } from 'react-native';
+import { TextStyle, Linking, NativeModules } from 'react-native';
 import { Schema, Node } from 'prosemirror-model';
 import { makeReactRenderer } from 'prosemirror-react-renderer';
 import emojione from 'emojione';
 import _ from 'lodash';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
-import * as linkify from 'linkifyjs';
+import { parseUrls } from '../helpers/urls';
+
+const { RNMail } = NativeModules;
 
 const textStyle = {
     color: vars.txtMedium,
@@ -20,6 +22,11 @@ const jumbojiTextStyle = {
     color: vars.txtMedium,
     fontSize: 36,
     lineHeight: 48
+};
+
+const linkStyle: TextStyle = {
+    textDecorationLine: 'underline',
+    color: vars.peerioBlue
 };
 
 function injectMarkToReact(props) {
@@ -42,27 +49,25 @@ function injectMarkToReact(props) {
 
 function noop() {}
 
-function parseUrls(text) {
-    const items = linkify.tokenize(text).map((token, i) => {
-        const p = token.isLink
-            ? () => {
-                  Linking.openURL(token.toHref());
-              }
-            : null;
-        const s: TextStyle = token.isLink
-            ? {
-                  textDecorationLine: 'underline',
-                  color: vars.peerioBlue
-              }
-            : textStyle;
-        // onLongPress noop prevents opening links when there was a long press
-        return (
-            <Text onPress={p} onLongPress={noop} key={i} style={s}>
-                {token.toString()}
-            </Text>
-        );
-    });
-    return <React.Fragment>{items}</React.Fragment>;
+function launchMailClient(email) {
+    RNMail.mail({ recipients: [email] }, error =>
+        console.error(`error launching email client for ${email}, ${error}`)
+    );
+}
+
+function extractLinkToComponent(text) {
+    const url = parseUrls(text).filter(item => !!item.href)[0];
+    if (!url) {
+        throw new Error(`Invalid parsed href for '${text}'`);
+    }
+    return (
+        <Text
+            onPress={() => (url.mailto ? launchMailClient(url.mailto) : Linking.openURL(url.href))}
+            onLongPress={noop}
+            style={linkStyle}>
+            {url.text}
+        </Text>
+    );
 }
 
 export const chatSchema = new Schema(
@@ -121,7 +126,7 @@ export const chatSchema = new Schema(
                 // happens in the send step.
                 toReact(node) {
                     const content = node.textContent;
-                    return parseUrls(content);
+                    return extractLinkToComponent(content);
                 }
             },
             mention: {

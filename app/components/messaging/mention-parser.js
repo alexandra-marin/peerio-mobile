@@ -24,7 +24,6 @@ function matchMentionRule(input) {
         }
         // current = index + subIndex + withAt.length;
     }
-    console.log(matches);
     return matches;
 }
 
