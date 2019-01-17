@@ -61,6 +61,11 @@ class FileState extends RoutedState {
     }
 
     @action
+    async unshareFile(file) {
+        return file.remove();
+    }
+
+    @action
     async deleteFile(fileInfo) {
         const id = fileInfo.fileId;
         let file = fileStore.getById(id);

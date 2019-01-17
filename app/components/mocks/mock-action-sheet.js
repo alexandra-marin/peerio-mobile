@@ -47,7 +47,7 @@ export default class MockActionSheet extends Component {
             sizeFormatted: '22 MB',
             uploadedAt: new Date().getTime()
         };
-        FileActionSheet.show(file);
+        FileActionSheet.show({ file });
     }
 
     render() {

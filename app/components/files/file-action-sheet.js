@@ -10,7 +10,8 @@ import { popupFileRename } from '../shared/popups';
 import snackbarState from '../snackbars/snackbar-state';
 
 export default class FileActionSheet {
-    static async show(file, fileAutoOpen, routeAfterDelete) {
+    static async show(params) {
+        const { file, fileAutoOpen, routeAfterDelete, canUnshare } = params;
         // TODO: remove when SDK is ready and/or move to SDK
         try {
             if (await config.FileStream.exists(file.tmpCachePath)) {
@@ -103,6 +104,17 @@ export default class FileActionSheet {
                 if (newFileName) await file.rename(`${newFileName}.${file.ext}`);
             }
         });
+
+        // Unshare
+        canUnshare &&
+            file.owner === User.current.username &&
+            actionButtons.push({
+                title: 'button_unshare',
+                action: async () => {
+                    await fileState.unshareFile(file);
+                    ActionSheetLayout.hide();
+                }
+            });
 
         // Delete
         actionButtons.push({

@@ -30,7 +30,7 @@ export default class RecentFilesList extends SafeComponent {
         // for event handler
         return (
             <RecentFileItem
-                onMenu={() => FileActionSheet.show(item, false)}
+                onMenu={() => FileActionSheet.show({ file: item })}
                 key={item.fileId}
                 file={item}
             />

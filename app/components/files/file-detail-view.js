@@ -41,7 +41,11 @@ export default class FileDetailView extends SafeComponent {
     }
 
     get rightIcon() {
-        return <MenuIcon action={() => FileActionSheet.show(this.file, false, 'files')} />;
+        return (
+            <MenuIcon
+                action={() => FileActionSheet.show({ file: this.file, routeAfterDelete: 'files' })}
+            />
+        );
     }
 
     get enabled() {

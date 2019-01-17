@@ -52,10 +52,11 @@ export default class FolderInlineContainer extends SafeComponent<FolderInlineCon
     get folder(): Volume {
         const { folderId } = this.props;
         const folder = fileStore.folderStore.getById(folderId);
-        if (folder instanceof Volume) {
-            return folder;
+        if (!(folder instanceof Volume)) {
+            console.error(`folderId ${folderId} is not an instance of Volume`);
+            return null;
         }
-        throw new Error('Requires a Volume to render');
+        return folder;
     }
 
     @action.bound
@@ -168,8 +169,9 @@ export default class FolderInlineContainer extends SafeComponent<FolderInlineCon
         );
     }
 
-    render() {
+    renderThrow() {
         const { folder } = this;
+        if (!folder) return null;
         const dmRecipient = chatState.currentChat.otherParticipants[0];
         if (!dmRecipient) return null;
         // TODO temporary solution until SDK supports "owner, editor, viewer" logic
@@ -177,6 +179,7 @@ export default class FolderInlineContainer extends SafeComponent<FolderInlineCon
         // Check that either the User or Recipient have lost access to the folder
         const showUnshareBody =
             !folder ||
+            !folder.allParticipants ||
             folder.allParticipants.filter(c => c.username === dmRecipient.username).length === 0 ||
             folder.allParticipants.filter(c => c.username === User.current.username).length === 0;
         if (showUnshareBody) return this.unsharedBody;
