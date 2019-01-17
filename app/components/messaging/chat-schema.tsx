@@ -64,19 +64,6 @@ function parseUrls(text) {
     });
     return <React.Fragment>{items}</React.Fragment>;
 }
-// import { emojiByCanonicalShortname, pngFolder } from '~/helpers/chat/emoji';
-// import { parseUrls } from '~/helpers/url';
-
-/** Pattern to match against when creating a new mention node. */
-// const validUsernamePattern = /[a-zA-Z0-9_]{1,32}/;
-
-// Schema originally adapted from https://github.com/ProseMirror/prosemirror-schema-basic.
-
-// Versioning the schema: changing `parseDOM`, `toDOM` and `toReact` is okay;
-// adding new nodes or marks should also be non-breaking. (Make sure their parse
-// rules don't overlap existing rules!) Any other change should be considered
-// breaking. (And note that "non-breaking" changes will not be
-// backwards-compatible, regardless.)
 
 export const chatSchema = new Schema(
     {
@@ -112,9 +99,6 @@ export const chatSchema = new Schema(
                     );
                 }
             },
-            // The link node has no `parseDOM` field: it can't be instantiated in
-            // the input field, but might be created when sending the message.
-            // (thus we also don't implement toDOM -- just toReact.)
             link: {
                 inline: true,
                 group: 'inline',
