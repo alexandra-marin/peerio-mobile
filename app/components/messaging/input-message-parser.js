@@ -5,7 +5,7 @@ import { parseUrls } from '../helpers/urls';
 import { markDownSchema, markDownToProseMirrorSchema } from './markdown-schema';
 import { mentionParse } from './mention-parser';
 
-const markdownParser = markdownit({ html: false /* , linkify: true */ });
+const markdownParser = markdownit({ html: false, breaks: true });
 markdownParser.use(markdownItEmoji);
 
 const defaultMarkdownParser = new MarkdownParser(
@@ -13,6 +13,10 @@ const defaultMarkdownParser = new MarkdownParser(
     markdownParser,
     markDownSchema
 );
+
+function preserveLineBreaks(text) {
+    return text.replace(/\n/g, '\\\n');
+}
 
 function ruleMention(text) {
     const tokens = mentionParse(text);
@@ -75,7 +79,8 @@ function parseJsonWithRules(json, rules) {
 }
 
 function inputMessageParser(message) {
-    const proseMirrorMessage = defaultMarkdownParser.parse(message);
+    const parsedMessage = preserveLineBreaks(message);
+    const proseMirrorMessage = defaultMarkdownParser.parse(parsedMessage);
     const richTextJSON = proseMirrorMessage.toJSON();
     parseJsonWithRules(richTextJSON, [ruleMention, ruleLinkify]);
     return richTextJSON;
