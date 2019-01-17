@@ -30,12 +30,17 @@ export default class Chat extends SafeComponent {
     @observable refreshing = false;
     @observable waitForScrollToEnd = true;
     @observable limboMessages = null;
+    currentOffset = 0;
     indicatorHeight = 16;
 
     componentDidMount() {
         uiState.testAction2 = () => {
-            const y = Math.max(0, this.scrollViewHeight / 2);
-            this.scrollView.scrollToOffset({ y, animated: false });
+            const offset = Math.min(
+                this.contentHeight - this.scrollViewHeight,
+                this.currentOffset + this.scrollViewHeight / 2
+            );
+            this.scrollView.scrollToOffset({ offset, animated: false });
+            this.currentOffset = offset;
         };
 
         this.selfMessageReaction = reaction(
@@ -52,6 +57,7 @@ export default class Chat extends SafeComponent {
         this.contentHeight = 0;
         uiState.customOverlayComponent = null;
         this.isAtBottom = true;
+        this.currentOffset = 0;
     };
 
     componentWillUnmount() {
@@ -225,6 +231,7 @@ export default class Chat extends SafeComponent {
     onScroll = event => {
         const { nativeEvent } = event;
         const { y } = nativeEvent.contentOffset;
+        this.currentOffset = y;
         // console.log(`content offset: ${y}`);
         // const maxY = this.contentHeight - this.scrollViewHeight;
         // values here may be float therefore the magic "2" number
