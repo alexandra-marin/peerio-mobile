@@ -6,24 +6,19 @@ const { tokenizer } = require('./tokenizer');
 // it will be much more performant to be replaced by finite state machine
 
 function matchEmojiShortnameRule(input) {
-    const shortNameInputRulePattern = /(^|\s)(:([a-zA-Z0-9_-]{3,64}):)(\s|.|,|$)/gu;
+    const shortNameInputRulePattern = /:([a-zA-Z0-9_-]{3,64}):/gu;
     const matches = [];
     for (;;) {
         const result = shortNameInputRulePattern.exec(input);
         if (!result) break;
         const { index } = result;
-        const [full, , shortname, , spacerEnd] = result;
+        const [shortname] = result;
         if (!shortname) continue;
-        const subIndex = full.indexOf(shortname);
         matches.push({
-            start: index + subIndex,
+            start: index,
             length: shortname.length,
             shortname
         });
-        if (spacerEnd.length) {
-            shortNameInputRulePattern.lastIndex -= spacerEnd.length;
-        }
-        // current = index + subIndex + withAt.length;
     }
     return matches;
 }

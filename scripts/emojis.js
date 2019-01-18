@@ -16,4 +16,4 @@ function testEmojiParser(sampleText) {
 
 // testMentionParser('@eren some text @anri other @floh. text email @seavan forever more');
 // testMentionParser('@eren');
-testEmojiParser(':laughing: i wanted to say hello! :laughing:');
+testEmojiParser(':laughing::laughing::laughing:');
