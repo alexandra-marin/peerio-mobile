@@ -18,7 +18,13 @@ const defaultMarkdownParser = new MarkdownParser(
 );
 
 function preserveLineBreaks(text) {
-    return text.replace(/\n/g, '\\\n').replace(/\\\n$/, '\n');
+    return (
+        text
+            .replace(/\n/g, '\\\n')
+            // this is a hack to address a bug in markdown-it
+            // when end hard line break is not decoded
+            .replace(/\\\n$/, '\\\n\u200B')
+    );
 }
 
 function ruleMention(text) {
@@ -118,5 +124,4 @@ function inputMessageParser(message) {
     return richTextJSON;
 }
 
-global.emojione = emojione;
 export default inputMessageParser;
