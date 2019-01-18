@@ -7,8 +7,9 @@ import { markDownSchema, markDownToProseMirrorSchema } from './markdown-schema';
 import { mentionParse } from './mention-parser';
 import { emojiShortnameParse } from './emoji-shortname-parser';
 
-const markdownParser = markdownit({ html: false, breaks: true });
+const markdownParser = markdownit({ html: false, linkify: false, breaks: true });
 markdownParser.use(markdownItEmoji);
+markdownParser.disable('link');
 
 const defaultMarkdownParser = new MarkdownParser(
     markDownToProseMirrorSchema,
@@ -86,7 +87,19 @@ function parseJsonForRule(json, rule) {
         const resultContent = [];
         content.forEach(child => {
             const replace = parseJsonForRule(child, rule);
-            replace ? resultContent.push(...replace) : resultContent.push(child);
+            if (replace) {
+                const { marks } = child;
+                replace.forEach(r => {
+                    if (marks) r.marks = marks;
+                    resultContent.push(r);
+                });
+                if (marks)
+                    replace.forEach(r => {
+                        r.marks = marks;
+                    });
+            } else {
+                resultContent.push(child);
+            }
         });
         json.content = resultContent;
     }

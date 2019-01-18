@@ -18,7 +18,8 @@ export function parseUrls(text) {
             const href = token.toHref();
             if (!isUrlAllowed(href)) return null;
             return {
-                href,
+                // we are going to keep the href equal to what was sent
+                href: text,
                 text,
                 mailto: href.toLocaleUpperCase().startsWith('MAILTO:') && text
             };
