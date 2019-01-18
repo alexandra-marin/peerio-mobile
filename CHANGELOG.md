@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.433.0"></a>
+# [3.433.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.432.0...v3.433.0) (2019-01-18)
+
+
+### Bug Fixes
+
+* fix emoji regexp ([05b2d40](https://github.com/PeerioTechnologies/peerio-mobile/commit/05b2d40))
+* fix hardbreak ([1c19cb4](https://github.com/PeerioTechnologies/peerio-mobile/commit/1c19cb4))
+
+
+
 <a name="3.432.0"></a>
 # [3.432.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.432.0) (2019-01-18)
 
