@@ -1,3 +1,5 @@
+const { tokenizer } = require('./tokenizer');
+
 // we're parsing based on regex instead of finite state machine
 // because we want the flexibility or regex and don't want to deal
 // with issues with unicode combining right now
@@ -22,25 +24,15 @@ function matchMentionRule(input) {
         if (spacerEnd.length) {
             mentionInputRulePattern.lastIndex -= spacerEnd.length;
         }
-        // current = index + subIndex + withAt.length;
     }
     return matches;
 }
 
 function mentionTokenize(input, matches) {
-    const result = [];
-    let current = 0;
-    matches.forEach(match => {
-        const before = input.substring(current, match.start);
-        if (before.length) result.push({ text: before });
-        const { username } = match;
-        result.push({ text: match.withAt, username });
-        current = match.start + match.length;
-    });
-    if (current < input.length) {
-        result.push({ text: input.substring(current, input.length) });
-    }
-    return result;
+    return tokenizer(input, matches, match => ({
+        username: match.username,
+        text: match.withAt
+    }));
 }
 
 function mentionParse(input) {

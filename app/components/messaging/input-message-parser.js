@@ -1,9 +1,11 @@
 import { MarkdownParser } from 'prosemirror-markdown';
 import markdownit from 'markdown-it';
 import markdownItEmoji from 'markdown-it-emoji';
+import emojione from 'emojione';
 import { parseUrls } from '../helpers/urls';
 import { markDownSchema, markDownToProseMirrorSchema } from './markdown-schema';
 import { mentionParse } from './mention-parser';
+import { emojiShortnameParse } from './emoji-shortname-parser';
 
 const markdownParser = markdownit({ html: false, breaks: true });
 markdownParser.use(markdownItEmoji);
@@ -15,7 +17,7 @@ const defaultMarkdownParser = new MarkdownParser(
 );
 
 function preserveLineBreaks(text) {
-    return text.replace(/\n/g, '\\\n');
+    return text.replace(/\n/g, '\\\n').replace(/\\\n$/, '\n');
 }
 
 function ruleMention(text) {
@@ -27,6 +29,23 @@ function ruleMention(text) {
                 ? {
                       type: 'mention',
                       attrs: { username: token.username }
+                  }
+                : {
+                      type: 'text',
+                      text: token.text
+                  }
+    );
+}
+
+function ruleEmojiShortName(text) {
+    const tokens = emojiShortnameParse(text);
+    if (!tokens) return null;
+    return tokens.map(
+        token =>
+            token.shortname
+                ? {
+                      type: 'emoji',
+                      attrs: { shortname: token.shortname }
                   }
                 : {
                       type: 'text',
@@ -79,11 +98,12 @@ function parseJsonWithRules(json, rules) {
 }
 
 function inputMessageParser(message) {
-    const parsedMessage = preserveLineBreaks(message);
+    const parsedMessage = emojione.toShort(preserveLineBreaks(message));
     const proseMirrorMessage = defaultMarkdownParser.parse(parsedMessage);
     const richTextJSON = proseMirrorMessage.toJSON();
-    parseJsonWithRules(richTextJSON, [ruleMention, ruleLinkify]);
+    parseJsonWithRules(richTextJSON, [ruleMention, ruleLinkify, ruleEmojiShortName]);
     return richTextJSON;
 }
 
+global.emojione = emojione;
 export default inputMessageParser;
