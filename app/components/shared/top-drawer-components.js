@@ -194,16 +194,17 @@ class TopDrawerAutoMount extends SafeComponent {
 @observer
 class TopDrawerPeerioClosure extends SafeComponent {
     renderThrow() {
-        const url = 'https://support.peerio.com/hc/en-us/articles/360021688172-Peerio-Service-Closure-FAQs';
+        const url =
+            'https://support.peerio.com/hc/en-us/articles/360021688172-Peerio-Service-Closure-FAQs';
         return (
             <TopDrawer
                 {...this.props}
-                heading='Service Outage'
+                heading="Service Outage"
                 image={icons.imageIcon(
                     require('../../assets/info-icon.png'),
                     vars.iconSizeMedium2x
                 )}
-                descriptionLine1='The Peerio service will be shut down on July 15th, 2019.'
+                descriptionLine1="The Peerio service will be shut down on July 15th, 2019."
                 buttonText="Learn more"
                 buttonAction={() => Linking.openURL(url)}
             />
