@@ -20,8 +20,7 @@ import {
     settingsState,
     contactState,
     contactAddState,
-    invitationState,
-    accountUpgradeState
+    invitationState
 } from '../states';
 // import { enablePushNotifications } from '../../lib/push';
 import routes from './routes';
@@ -30,8 +29,6 @@ import preferenceStore from '../settings/preference-store';
 import whiteLabelComponents from '../../components/whitelabel/white-label-components';
 import { timeoutWithAction } from '../utils/timeouts';
 import { transitionAnimation } from '../helpers/animations';
-import AccountUpgradeOffer from '../settings/account-upgrade-offer';
-import { AccountUpgradeMonthly, AccountUpgradeAnnual } from '../settings/account-upgrade-option';
 
 const INACTIVE_DELAY = 5000;
 
@@ -78,9 +75,6 @@ class RouterMain extends Router {
             settingsState
         );
         this.add('channelInvite', [<whiteLabelComponents.ChannelInvite />], invitationState);
-        this.add('accountUpgrade', [<AccountUpgradeOffer />], accountUpgradeState);
-        this.add('accountUpgradeMonthly', [<AccountUpgradeMonthly />], accountUpgradeState);
-        this.add('accountUpgradeAnnual', [<AccountUpgradeAnnual />], accountUpgradeState);
 
         reaction(
             () => this.current || this.currentIndex,

@@ -23,7 +23,8 @@ const brandingDefines = {
         invitedBadgeText: '#FFFFFF',
         peerioBlueBackground15: '#D6E2F5',
         darkBlueBackground15: '#D9DAE2',
-        usernameHighlight: '#32CEC3',
+        usernameHighlight: '#accdfd',
+        selfUsernameHighlight: '#32CEC3',
         confirmColor: '#02CEDB',
         lightGrayBg: '#f0f0f0',
         darkBlueBackground05: '#F2F2F5',
@@ -62,6 +63,7 @@ const brandingDefines = {
         lightGrayBg: '#FFFFFF',
         darkBlueBackground05: '#F5F5F5',
         usernameHighlight: '#FFB300',
+        selfUsernameHighlight: '#32CEC3',
         channelInfoBg: '#FFFFFF',
         separatorColor: '#f0f0f0'
     }

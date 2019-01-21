@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebView, Image, View, Platform } from 'react-native';
+import { WebView, Image, View, Platform, Linking } from 'react-native';
 import { observable } from 'mobx';
 import Text from '../controls/custom-text';
 import { t, tu, tx } from '../utils/translator';
@@ -594,6 +594,71 @@ function popupMoveToSharedFolder() {
     });
 }
 
+function popupPeerioClosure() {
+    const contents = (
+        <View
+            style={{
+                backgroundColor: vars.white,
+                flexGrow: 1,
+            }}>
+            <Text>
+                The Peerio service will be shut down on July 15th, 2019. You will be
+                able to use Peerio as usual until then, but we recommend you begin
+                transitioning your files and important information out of Peerio&nbsp;
+                <Text
+                    style={{ color: vars.linkColor, textDecorationLine: 'underline' }}
+                    onPress={() =>
+                        Linking.openURL(
+                            'https://support.peerio.com/hc/en-us/articles/360021688052'
+                        )
+                    }>
+                    (learn how to export your files)
+                </Text>
+            </Text>
+            <Text
+                style={{
+                    color: vars.black54,
+                    fontSize: vars.font.size14,
+                    paddingTop: 6
+                }}>
+                If you have a paid plan with service that extends beyond July 15th,
+                you’ll be receiving a separate email in the next few weeks with
+                information about a refund.
+            </Text>
+            <Text
+                style={{
+                    color: vars.black54,
+                    fontSize: vars.font.size14,
+                    paddingTop: 6
+                }}>
+                Thank you for your trust and support.&nbsp;
+                <Text
+                    style={{ color: vars.linkColor, textDecorationLine: 'underline' }}
+                    onPress={() =>
+                        Linking.openURL(
+                            'https://peerio.com/blog/posts/peerio-has-been-acquired-by-workjam-the-leading-digital-workplace-platform/'
+                        )
+                    }>
+                    Learn More
+                </Text>
+            </Text>
+        </View>);
+
+    return new Promise(resolve => {
+        popupState.showPopup({
+            title: 'Peerio is closing',
+            contents,
+            buttons: [
+                {
+                    id: 'ok',
+                    text: tu('button_ok'),
+                    action: resolve
+                }
+            ]
+        });
+    });
+}
+
 locales.loadAssetFile('terms.txt').then(s => {
     tos = s;
 });
@@ -629,5 +694,6 @@ export {
     popupFileRename,
     popupFolderDelete,
     popupMoveToSharedFolder,
-    popupAbout
+    popupAbout,
+    popupPeerioClosure
 };

@@ -172,9 +172,9 @@ export default (c, icebear, tm) => {
     Object.assign(cfg.chat, {
         maxInitialChats: 15,
         initialPageSize: 20, // amount of messages to load to a newly opened chat
-        pageSize: 20, // when next/prev pages is requested, chat will load this amount of messages
-        maxLoadedMessages: 60, // chat will remove excess of messages if paging resulted in larger count
-        decryptQueueThrottle: 10, // ms, delay between processing messages in a batch
+        pageSize: 25, // when next/prev pages is requested, chat will load this amount of messages
+        maxLoadedMessages: 100, // chat will remove excess of messages if paging resulted in larger count
+        decryptQueueThrottle: 5, // ms, delay between processing messages in a batch
         inlineImageSizeLimitCutoff: 10 * 1024 * 1024,
         inlineImageSizeLimit: 3 * 1024 * 1024
     });

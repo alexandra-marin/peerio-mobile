@@ -152,9 +152,20 @@ class ChatState extends RoutedState {
     }
 
     @action
-    addMessage(msg) {
+    async addMessage(legacyText, richText) {
+        const { currentChat } = this;
+        if (!this.currentChat) return;
         this.selfNewMessageCounter++;
-        this.currentChat && msg && this.currentChat.sendMessage(msg).catch(sounds.destroy);
+        try {
+            if (richText) {
+                currentChat.sendRichTextMessage(richText, legacyText);
+            } else {
+                currentChat.sendMessage(legacyText);
+            }
+        } catch (e) {
+            console.error(e);
+            sounds.destroy();
+        }
     }
 
     @action

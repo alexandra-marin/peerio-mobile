@@ -5,7 +5,6 @@ import contactState from '../contacts/contact-state';
 
 class MockChat extends MockChannel {
     @observable isChannel = false;
-    otherParticipants = [];
 
     initParticipants() {
         // exactly one participant

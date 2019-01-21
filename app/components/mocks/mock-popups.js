@@ -6,7 +6,6 @@ import { vars } from '../../styles/styles';
 // import PaymentsInfoPopup from '../payments/payments-info-popup';
 // import AccountUpgradePlan from '../settings/account-upgrade-plan';
 // import { popupControl } from '../shared/popups';
-// import plans from '../payments/payments-config';
 import { gradient } from '../controls/effects';
 
 const basicColor = '#82A9BE';

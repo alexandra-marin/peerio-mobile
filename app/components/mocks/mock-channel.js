@@ -106,7 +106,8 @@ class MockChannel extends Chat {
         if (!message && message !== false) text = randomWords({ min: 1, max: 4, join: ' ' });
         const sender = this.participants[0];
         const groupWithPrevious = Math.random() > 0.5;
-        return { id, text, sender, groupWithPrevious };
+        const externalWebsites = [];
+        return { id, text, sender, groupWithPrevious, externalWebsites };
     }
 
     addRandomMessage(message) {

@@ -44,9 +44,9 @@ export default class TwoFactorAuthCodesGenerate extends SafeComponent {
         routes.main.settings('security');
     }
 
-    async reissueCodes() {
+    reissueCodes = async () => {
         this.backupCodes = await User.current.reissueBackupCodes();
-    }
+    };
 
     renderThrow() {
         if (this.backupCodes) return <TwoFactorAuthCodes codes={this.backupCodes} />;

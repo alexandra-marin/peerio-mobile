@@ -48,7 +48,7 @@ class MockContactStore {
 
     createMockCurrentUser() {
         const contact = new MockCurrentUser();
-        return this.addContact.addContact(contact);
+        return this.addContact(contact);
     }
 
     getContact(username) {

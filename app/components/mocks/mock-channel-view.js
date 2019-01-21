@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StatusBar, Image } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import { observable, reaction } from 'mobx';
 import { observer } from 'mobx-react/native';
 import HeaderMain from '../layout/header-main';
@@ -8,13 +8,14 @@ import ChannelInfo from '../messaging/channel-info';
 import PopupLayout from '../layout/popup-layout';
 import ChannelAddPeople from '../messaging/channel-add-people';
 import InputMainContainer from '../layout/input-main-container';
-import FileUploadProgress from '../files/file-upload-progress';
 import { clientApp, TinyDb } from '../../lib/icebear';
 import fileState from '../files/file-state';
 import chatState from '../messaging/chat-state';
 import mockStoresCreate from './mock-stores-create';
 import routerMain from '../routes/router-main';
 import routerModal from '../routes/router-modal';
+import CustomOverlay from '../layout/custom-overlay';
+import Bottom from '../controls/bottom';
 
 @observer
 export default class MockChannelView extends Component {
@@ -85,6 +86,9 @@ export default class MockChannelView extends Component {
                 <HeaderMain />
                 <Chat />
                 <StatusBar barStyle="light-content" />
+                <Bottom>
+                    <CustomOverlay />
+                </Bottom>
             </View>
         );
     }
@@ -113,32 +117,10 @@ export default class MockChannelView extends Component {
         return this.channelList;
     }
 
-    @observable progressMax = 100;
-    @observable progress = 90;
-
-    get progressBar() {
-        const { progressMax, progress } = this;
-        const file = { fileId: 1, progressMax, progress, ext: 'jpg' };
-        const title = 'Caaaaaaat1 very long title which grows forever and ever.jpg';
-        return <FileUploadProgress file={file} title={title} />;
-    }
-
-    get image() {
-        const { originalData } = this;
-        if (!originalData) return null;
-        const s = {
-            width: 100,
-            height: 100
-        };
-        return <Image style={s} source={{ uri: `data:image/png;base64,${originalData}` }} />;
-    }
-
     render() {
         return (
             <View style={{ flex: 1, flexGrow: 1 }}>
                 {this.body}
-                {this.image}
-                {this.progressBar}
                 <InputMainContainer canSend />
                 <PopupLayout key="popups" />
             </View>

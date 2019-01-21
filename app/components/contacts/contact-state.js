@@ -68,6 +68,16 @@ class ContactState extends RoutedState {
     @observable recipients = [];
     @observable recipientsMap = observable.map(null, { deep: false });
 
+    @action.bound
+    async showUsernameProfile(username) {
+        const contact = await this.resolveAndCache(username);
+        if (contact.notFound) {
+            console.error(`could not find username ${username}`);
+        } else {
+            this.contactView(contact);
+        }
+    }
+
     @action
     contactView(contact) {
         this.routerMain.resetMenus();

@@ -5,7 +5,7 @@ import icons from '../helpers/icons';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
-import { chatStore } from '../../lib/icebear';
+import chatState from '../messaging/chat-state';
 import testLabel from '../helpers/test-label';
 
 const touchableContainer = {
@@ -41,7 +41,7 @@ const textStyle = { color: vars.unreadTextColor };
 @observer
 export default class ChatUnreadMessageIndicator extends SafeComponent {
     renderThrow() {
-        const chat = chatStore.activeChat;
+        const chat = chatState.store.activeChat;
         if (!chat) return null;
 
         return (

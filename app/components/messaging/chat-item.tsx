@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
 import IdentityVerificationNotice from './identity-verification-notice';
@@ -14,6 +14,7 @@ export interface ChatItemItemProps {
     onInlineImageAction: Function;
     onLegacyFileAction: Function;
     onFileAction: Function;
+    style: ViewStyle;
 }
 
 @observer
@@ -47,7 +48,7 @@ export default class ChatItem extends SafeComponent<ChatItemItemProps> {
         if (!message || !message.sender || !chat) return null;
 
         return (
-            <View>
+            <View style={this.props.style}>
                 <ChatMessageContainer
                     chat={chat}
                     messageObject={message}

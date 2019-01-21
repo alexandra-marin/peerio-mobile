@@ -32,7 +32,7 @@ export default class ChatMessageBody extends SafeComponent {
                     onFileAction={onFileAction}
                     onLegacyFileAction={onLegacyFileAction}
                 />
-                <ChatMessageText message={messageObject.text} />
+                <ChatMessageText plainText={messageObject.text} richText={messageObject.richText} />
                 <ChatMessageInlineImages
                     message={messageObject}
                     chat={chat}

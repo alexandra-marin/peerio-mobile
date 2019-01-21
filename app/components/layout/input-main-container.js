@@ -7,6 +7,7 @@ import chatState from '../messaging/chat-state';
 import FileUploadProgress from '../files/file-upload-progress';
 import FileUploadActionSheet from '../files/file-upload-action-sheet';
 import { vars } from '../../styles/styles';
+import inputMessageParser from '../messaging/input-message-parser';
 
 @observer
 export default class InputMainContainer extends SafeComponent {
@@ -16,7 +17,13 @@ export default class InputMainContainer extends SafeComponent {
             this.sendAck();
             return;
         }
-        chatState.addMessage(message);
+        let richTextJSON;
+        try {
+            richTextJSON = inputMessageParser(message);
+        } catch (e) {
+            console.error(e);
+        }
+        chatState.addMessage(message, richTextJSON);
     };
 
     sendAck = () => chatState.addAck();

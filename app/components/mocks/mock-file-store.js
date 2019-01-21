@@ -44,4 +44,4 @@ class MockFileStore {
     }
 }
 
-export default new MockFileStore();
+export default MockFileStore;

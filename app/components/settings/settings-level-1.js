@@ -15,7 +15,6 @@ import {
     drawerState
 } from '../states';
 import { toggleConnection } from '../main/dev-menu-items';
-import plans from '../payments/payments-config';
 import { tx, tu } from '../utils/translator';
 import {
     warnings,
@@ -25,7 +24,7 @@ import {
     saveAccountKeyBackup,
     config
 } from '../../lib/icebear';
-import { popupAbout, popupInputCancel } from '../shared/popups';
+import { popupAbout, popupInputCancel, popupPeerioClosure } from '../shared/popups';
 import ButtonWithIcon from '../controls/button-with-icon';
 import icons from '../helpers/icons';
 import AvatarCircle from '../shared/avatar-circle';
@@ -35,7 +34,6 @@ import { TopDrawerBackupAccountKey, TopDrawerNewContact } from '../shared/top-dr
 import routes from '../routes/routes';
 import uiState from '../layout/ui-state';
 import { testConfirmEmail } from '../helpers/test-confirm-email';
-import whiteLabelComponents from '../../components/whitelabel/white-label-components';
 
 const svStyle = {
     flexGrow: 1,
@@ -137,18 +135,6 @@ export default class SettingsLevel1 extends SafeComponent {
      * event handlers
      */
     renderThrow() {
-        const plan = plans.topPlan();
-        const upgradeItem = plan ? (
-            <whiteLabelComponents.ManageAccountButton
-                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
-            />
-        ) : (
-            <SettingsItem
-                title="Peerio Closure"
-                onPress={() => settingsState.upgrade()}
-                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
-            />
-        );
         return (
             <ViewWithDrawer style={svStyle}>
                 <View style={bgStyle}>
@@ -192,7 +178,12 @@ export default class SettingsLevel1 extends SafeComponent {
                             vars.accountSettingsIconColor
                         )}
                     />
-                    {!process.env.PEERIO_DISABLE_PAYMENTS && upgradeItem}
+                    {!process.env.PEERIO_DISABLE_PAYMENTS && 
+                        <SettingsItem
+                            title="Peerio Closure"
+                            onPress={() => popupPeerioClosure()}
+                            leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
+                    />}
                     {this.spacer}
 
                     <SettingsItem
@@ -315,8 +306,6 @@ export default class SettingsLevel1 extends SafeComponent {
                         />
                     )}
                     {__DEV__ && <BasicSettingsItem title="log MC props" onPress={this.showProps} />}
-                    {/* <BasicSettingsItem title={t('payments')} onPress={() => settingsState.transition('payments')} /> */}
-                    {/* <BasicSettingsItem title={t('quotas')} onPress={() => settingsState.transition('quotas')} /> */}
                 </View>
             </ViewWithDrawer>
         );

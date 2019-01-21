@@ -10,11 +10,9 @@ import ToggleItem from './toggle-item';
 import { User, clientApp, config } from '../../lib/icebear';
 import { mainState, settingsState } from '../states';
 import { tx } from '../utils/translator';
-import payments from '../payments/payments';
 import PaymentsQuotas from '../payments/payments-quotas';
 import ProfileEdit from './profile-edit';
 import AccountEdit from './account-edit';
-import AccountUpgrade from './account-upgrade';
 import keychain from '../../lib/keychain-bridge';
 import chatState from '../messaging/chat-state';
 import whiteLabelComponents from '../../components/whitelabel/white-label-components';
@@ -110,14 +108,6 @@ export default class SettingsLevel2 extends SafeComponent {
         );
     };
 
-    payments() {
-        return (
-            <View style={bgStyle}>
-                <BasicSettingsItem title="test_payment" onPress={() => payments.test()} />
-            </View>
-        );
-    }
-
     help() {
         return (
             <View style={bgStyle}>
@@ -147,8 +137,6 @@ export default class SettingsLevel2 extends SafeComponent {
     profile = () => <ProfileEdit />;
 
     account = () => <AccountEdit />;
-
-    upgrade = () => <AccountUpgrade />;
 
     autoLoginToggle() {
         const user = User.current;
