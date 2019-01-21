@@ -599,18 +599,16 @@ function popupPeerioClosure() {
         <View
             style={{
                 backgroundColor: vars.white,
-                flexGrow: 1,
+                flexGrow: 1
             }}>
             <Text>
-                The Peerio service will be shut down on July 15th, 2019. You will be
-                able to use Peerio as usual until then, but we recommend you begin
-                transitioning your files and important information out of Peerio&nbsp;
+                The Peerio service will be shut down on July 15th, 2019. You will be able to use
+                Peerio as usual until then, but we recommend you begin transitioning your files and
+                important information out of Peerio&nbsp;
                 <Text
                     style={{ color: vars.linkColor, textDecorationLine: 'underline' }}
                     onPress={() =>
-                        Linking.openURL(
-                            'https://support.peerio.com/hc/en-us/articles/360021688052'
-                        )
+                        Linking.openURL('https://support.peerio.com/hc/en-us/articles/360021688052')
                     }>
                     (learn how to export your files)
                 </Text>
@@ -621,9 +619,8 @@ function popupPeerioClosure() {
                     fontSize: vars.font.size14,
                     paddingTop: 6
                 }}>
-                If you have a paid plan with service that extends beyond July 15th,
-                you’ll be receiving a separate email in the next few weeks with
-                information about a refund.
+                If you have a paid plan with service that extends beyond July 15th, you’ll be
+                receiving a separate email in the next few weeks with information about a refund.
             </Text>
             <Text
                 style={{
@@ -642,7 +639,8 @@ function popupPeerioClosure() {
                     Learn More
                 </Text>
             </Text>
-        </View>);
+        </View>
+    );
 
     return new Promise(resolve => {
         popupState.showPopup({

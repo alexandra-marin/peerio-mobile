@@ -178,12 +178,13 @@ export default class SettingsLevel1 extends SafeComponent {
                             vars.accountSettingsIconColor
                         )}
                     />
-                    {!process.env.PEERIO_DISABLE_PAYMENTS && 
+                    {!process.env.PEERIO_DISABLE_PAYMENTS && (
                         <SettingsItem
                             title="Peerio Closure"
                             onPress={() => popupPeerioClosure()}
                             leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
-                    />}
+                        />
+                    )}
                     {this.spacer}
 
                     <SettingsItem
