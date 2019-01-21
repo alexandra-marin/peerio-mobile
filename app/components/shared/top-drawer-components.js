@@ -5,7 +5,6 @@ import { when } from 'mobx';
 import { observer } from 'mobx-react/native';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
-import Text from '../controls/custom-text';
 import TopDrawer from '../shared/top-drawer';
 import { tx } from '../utils/translator';
 import AvatarCircle from './avatar-circle';
