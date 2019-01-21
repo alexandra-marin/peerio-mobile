@@ -36,10 +36,11 @@ import Text from './controls/custom-text';
 import BeaconLayout from './beacons/beacon-layout';
 import loginState from './login/login-state';
 import { uploadFileAndroid, uploadFileiOS, wakeUpAndUploadFileiOS } from './utils/shared-files';
-import { TopDrawerAutoMount } from './shared/top-drawer-components';
+import { TopDrawerAutoMount, TopDrawerPeerioClosure } from './shared/top-drawer-components';
 import DebugMenu from './shared/debug-menu';
 import createAutomationSocket from '../lib/create-automation-socket';
 import whiteLabelComponents from './whitelabel/white-label-components';
+import drawerState from './shared/drawer-state';
 
 const { height, width } = Dimensions.get('window');
 @observer
@@ -120,6 +121,8 @@ export default class App extends SafeComponent {
         KeyEvent.onKeyUpListener(keyCode => {
             if (keyCode.unicodeChar === 78 && keyCode.isShiftPressed) uiState.showDebugMenu = true;
         });
+
+        drawerState.addDrawer(TopDrawerPeerioClosure);
 
         // RNShakeEvent.addEventListener('shake', () => { uiState.showDebugMenu = true; });
     }
