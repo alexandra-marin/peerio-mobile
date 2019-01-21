@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View, Share } from 'react-native';
-import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import SettingsItem from './settings-item';
@@ -46,11 +45,6 @@ const svStyle = {
 
 const bgStyle = {
     padding: vars.settingsListPadding
-};
-
-const descriptionTextStyle = {
-    color: vars.peerioBlue,
-    fontSize: vars.font.size12
 };
 
 @observer
