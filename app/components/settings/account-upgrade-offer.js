@@ -1,19 +1,16 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, ScrollView, Dimensions } from 'react-native';
+import { View, ScrollView, Dimensions, Linking } from 'react-native';
 import { vars } from '../../styles/styles';
 import routes from '../routes/routes';
 import { User } from '../../lib/icebear';
 import { popupYes } from '../shared/popups';
 import Text from '../controls/custom-text';
-import { tx, t } from '../utils/translator';
+import { t } from '../utils/translator';
 import icons from '../helpers/icons';
-import plans from '../payments/payments-config';
 import SafeComponent from '../shared/safe-component';
 import BackIcon from '../layout/back-icon';
 import { uiState } from '../states';
-import BlueRoundButton from '../buttons/blue-round-button';
-import WhiteRoundButton from '../buttons/white-round-button';
 
 const { width } = Dimensions.get('window');
 
@@ -24,25 +21,9 @@ const subtitleStyle = {
     paddingBottom: 30
 };
 
-const actionStyle = {
-    color: vars.black54,
-    alignSelf: 'center',
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: vars.font.size18
-};
-
 const featureSmallText = {
     color: vars.black54,
-    fontSize: vars.font.size14,
-    paddingLeft: 6
-};
-
-const buttonContainer = {
-    marginBottom: vars.spacing.small.maxi2x,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    fontSize: vars.font.size14
 };
 
 const contentContainerStyle = {
@@ -95,33 +76,12 @@ export default class AccountUpgradeOffer extends SafeComponent {
         );
     }
 
-    get footer() {
-        const { priceOptions } = plans[1];
-        return (
-            <View style={buttonContainer}>
-                <BlueRoundButton
-                    text={priceOptions[1].price}
-                    subtitle={priceOptions[1].title}
-                    onPress={routes.main.accountUpgradeAnnual}
-                    style={{ width: vars.roundedButtonWidth, marginRight: 6 }}
-                />
-                <WhiteRoundButton
-                    text={priceOptions[0].price}
-                    subtitle={priceOptions[0].title}
-                    onPress={routes.main.accountUpgradeMonthly}
-                    style={{ width: vars.roundedButtonWidth }}
-                />
-            </View>
-        );
-    }
-
     render() {
-        const { info } = plans[1];
         return (
             <View style={container}>
                 <ScrollView contentContainerStyle={contentContainerStyle}>
                     <Text semibold style={subtitleStyle}>
-                        {tx('description_peerio_pro')}
+                        Peerio is closing
                     </Text>
                     <View
                         style={{
@@ -129,20 +89,21 @@ export default class AccountUpgradeOffer extends SafeComponent {
                             flexGrow: 1,
                             padding: vars.spacing.large.midi
                         }}>
-                        <Text
-                            semibold
-                            style={{
-                                color: vars.black54,
-                                fontSize: vars.font.size18,
-                                paddingBottom: 18
-                            }}>
-                            {tx('title_upgrade')}
+                        <Text style={featureSmallText}>
+                            The Peerio service will be shut down on July 15th, 2019. You will be able to use Peerio as usual until then, but we recommend you begin transitioning your files and important information out of Peerio&nbsp;
+                            <Text style={{ color: vars.linkColor, textDecorationLine: 'underline', }} onPress={() => Linking.openURL('https://support.peerio.com/hc/en-us/articles/360021688052')}>
+                                (learn how to export your files)
+                            </Text>
                         </Text>
-                        {info.split('\n').map(this.featureText)}
-                        <Text semibold style={actionStyle}>
-                            {tx('title_get_peerio_pro')}
+                        <Text style={{ color: vars.black54, fontSize: vars.font.size14, paddingTop: 6 }}>
+                            If you have a paid plan with service that extends beyond July 15th, you’ll be receiving a separate email in the next few weeks with information about a refund.
                         </Text>
-                        {this.footer}
+                        <Text style={{ color: vars.black54, fontSize: vars.font.size14, paddingTop: 6 }}>
+                            Thank you for your trust and support.&nbsp;
+                            <Text style={{ color: vars.linkColor, textDecorationLine: 'underline' }} onPress={() => Linking.openURL('https://peerio.com/blog/posts/peerio-has-been-acquired-by-workjam-the-leading-digital-workplace-platform/')}>
+                                Learn More
+                            </Text>
+                        </Text>
                     </View>
                 </ScrollView>
             </View>
