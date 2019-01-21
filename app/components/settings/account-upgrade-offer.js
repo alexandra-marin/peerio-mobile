@@ -90,17 +90,43 @@ export default class AccountUpgradeOffer extends SafeComponent {
                             padding: vars.spacing.large.midi
                         }}>
                         <Text style={featureSmallText}>
-                            The Peerio service will be shut down on July 15th, 2019. You will be able to use Peerio as usual until then, but we recommend you begin transitioning your files and important information out of Peerio&nbsp;
-                            <Text style={{ color: vars.linkColor, textDecorationLine: 'underline', }} onPress={() => Linking.openURL('https://support.peerio.com/hc/en-us/articles/360021688052')}>
+                            The Peerio service will be shut down on July 15th, 2019. You will be
+                            able to use Peerio as usual until then, but we recommend you begin
+                            transitioning your files and important information out of Peerio&nbsp;
+                            <Text
+                                style={{ color: vars.linkColor, textDecorationLine: 'underline' }}
+                                onPress={() =>
+                                    Linking.openURL(
+                                        'https://support.peerio.com/hc/en-us/articles/360021688052'
+                                    )
+                                }>
                                 (learn how to export your files)
                             </Text>
                         </Text>
-                        <Text style={{ color: vars.black54, fontSize: vars.font.size14, paddingTop: 6 }}>
-                            If you have a paid plan with service that extends beyond July 15th, you’ll be receiving a separate email in the next few weeks with information about a refund.
+                        <Text
+                            style={{
+                                color: vars.black54,
+                                fontSize: vars.font.size14,
+                                paddingTop: 6
+                            }}>
+                            If you have a paid plan with service that extends beyond July 15th,
+                            you’ll be receiving a separate email in the next few weeks with
+                            information about a refund.
                         </Text>
-                        <Text style={{ color: vars.black54, fontSize: vars.font.size14, paddingTop: 6 }}>
+                        <Text
+                            style={{
+                                color: vars.black54,
+                                fontSize: vars.font.size14,
+                                paddingTop: 6
+                            }}>
                             Thank you for your trust and support.&nbsp;
-                            <Text style={{ color: vars.linkColor, textDecorationLine: 'underline' }} onPress={() => Linking.openURL('https://peerio.com/blog/posts/peerio-has-been-acquired-by-workjam-the-leading-digital-workplace-platform/')}>
+                            <Text
+                                style={{ color: vars.linkColor, textDecorationLine: 'underline' }}
+                                onPress={() =>
+                                    Linking.openURL(
+                                        'https://peerio.com/blog/posts/peerio-has-been-acquired-by-workjam-the-leading-digital-workplace-platform/'
+                                    )
+                                }>
                                 Learn More
                             </Text>
                         </Text>

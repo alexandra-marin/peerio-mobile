@@ -146,7 +146,8 @@ export default class SettingsLevel1 extends SafeComponent {
             <SettingsItem
                 title="Peerio Closure"
                 onPress={() => settingsState.upgrade()}
-                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)} />
+                leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
+            />
         );
         return (
             <ViewWithDrawer style={svStyle}>
