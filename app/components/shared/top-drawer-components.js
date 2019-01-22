@@ -200,7 +200,7 @@ class TopDrawerPeerioClosure extends SafeComponent {
                 {...this.props}
                 heading="Service Outage"
                 image={icons.imageIcon(
-                    require('../../assets/info-icon.png'),
+                    require('../../assets/icons/info-icon-red.png'),
                     vars.iconSizeMedium2x
                 )}
                 descriptionLine1="The Peerio service will be shut down on July 15th, 2019."
