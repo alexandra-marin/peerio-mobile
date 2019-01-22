@@ -33,6 +33,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "02B66A4821F77AFC000BCF2B"
+               BuildableName = "peerio_chat_framework.framework"
+               BlueprintName = "peerio-chat-framework"
+               ReferencedContainer = "container:../peerio-chat-framework/peerio-chat-framework.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "peeriomobile.app"
                BlueprintName = "peeriomobile"
