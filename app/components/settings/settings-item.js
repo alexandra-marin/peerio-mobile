@@ -45,7 +45,16 @@ export default class SettingsItem extends SafeComponent {
     }
 
     renderThrow() {
-        const { disabled, title, textColor, untappable, description, children, large, semibold } = this.props;
+        const {
+            disabled,
+            title,
+            textColor,
+            untappable,
+            description,
+            children,
+            large,
+            semibold
+        } = this.props;
         const titleColor = textColor || vars.txtDark;
         const titleStyle = {
             color: disabled ? vars.txtLightGrey : titleColor,
