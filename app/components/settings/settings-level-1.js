@@ -180,8 +180,9 @@ export default class SettingsLevel1 extends SafeComponent {
                     />
                     <SettingsItem
                         title="Peerio Closure"
+                        textColor={vars.red}
                         onPress={() => popupPeerioClosure()}
-                        leftComponent={this.leftSettingsIcon('open-in-browser', vars.darkBlue)}
+                        leftComponent={this.leftSettingsIcon('close', vars.red)}
                     />
                     {this.spacer}
 

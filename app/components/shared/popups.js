@@ -644,7 +644,8 @@ function popupPeerioClosure() {
 
     return new Promise(resolve => {
         popupState.showPopup({
-            title: 'Peerio is closing',
+            title: 'Peerio will be closing on July 15th, 2019',
+            type: 'systemWarning',
             contents,
             buttons: [
                 {

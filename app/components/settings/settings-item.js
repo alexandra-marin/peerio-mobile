@@ -45,9 +45,10 @@ export default class SettingsItem extends SafeComponent {
     }
 
     renderThrow() {
-        const { disabled, title, untappable, description, children, large, semibold } = this.props;
+        const { disabled, title, textColor, untappable, description, children, large, semibold } = this.props;
+        const titleColor = textColor || vars.txtDark;
         const titleStyle = {
-            color: disabled ? vars.txtLightGrey : vars.txtDark,
+            color: disabled ? vars.txtLightGrey : titleColor,
             fontSize: vars.font.size16
         };
         const offset = vars.retentionOffset;
@@ -81,6 +82,7 @@ export default class SettingsItem extends SafeComponent {
 
 SettingsItem.propTypes = {
     children: PropTypes.any,
+    textColor: PropTypes.any,
     title: PropTypes.any,
     description: PropTypes.any,
     disabled: PropTypes.bool,
