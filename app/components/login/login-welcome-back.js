@@ -15,6 +15,7 @@ import tm from '../../telemetry';
 import ActivityOverlay from '../controls/activity-overlay';
 import DebugMenuTrigger from '../shared/debug-menu-trigger';
 import routes from '../routes/routes';
+import PeerioClosingBottomBanner from '../shared/peerio-closing-bottom-banner';
 
 const { S } = telemetry;
 
@@ -117,6 +118,7 @@ export default class LoginWelcomeBack extends SafeComponent {
                     </DebugMenuTrigger>
                     <LoginInputs telemetry={loginTelemetryHelper} hideUsernameInput />
                 </View>
+                <PeerioClosingBottomBanner />
                 <ActivityOverlay large visible={loginState.isInProgress} />
                 <StatusBar hidden />
             </View>

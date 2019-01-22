@@ -7,6 +7,7 @@ import SnackBar from '../snackbars/snackbar';
 import Bottom from '../controls/bottom';
 import ActivityOverlay from '../controls/activity-overlay';
 import signupState from '../signup/signup-state';
+import PeerioClosingBottomBanner from '../shared/peerio-closing-bottom-banner';
 
 @observer
 export default class LayoutSignup extends SafeComponent {
@@ -35,6 +36,9 @@ export default class LayoutSignup extends SafeComponent {
                     {this.props.footer}
                     {!signupState.isPdfPreviewVisible && <StatusBar hidden />}
                 </ScrollView>
+                {/* Hide Banner for all except create account screen.
+                    Logic needs to be this way due to how the components are styled and nested */}
+                <PeerioClosingBottomBanner hide={signupState.current !== 0} />
                 <Bottom>
                     <SnackBarConnection />
                     <SnackBar />

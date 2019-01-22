@@ -15,6 +15,7 @@ import { uiState } from '../states';
 import signupState from '../signup/signup-state';
 import BlueRoundButton from '../buttons/blue-round-button';
 import WhiteRoundButton from '../buttons/white-round-button';
+import PeerioClosingBottomBanner from '../shared/peerio-closing-bottom-banner';
 
 const { S } = telemetry;
 
@@ -73,11 +74,7 @@ export default class LoginWelcome extends SafeComponent {
                     <Image
                         resizeMode="contain"
                         source={imageWelcome}
-                        style={adjustImageDimensions(
-                            imageWelcome,
-                            width,
-                            undefined
-                        )}
+                        style={adjustImageDimensions(imageWelcome, width, undefined)}
                     />
                 </View>
                 <View style={logoBar}>
@@ -118,6 +115,7 @@ export default class LoginWelcome extends SafeComponent {
                         />
                     </View>
                 </View>
+                <PeerioClosingBottomBanner />
                 <ActivityOverlay large visible={loginState.isInProgress} />
                 <StatusBar hidden />
             </View>

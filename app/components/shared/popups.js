@@ -594,7 +594,7 @@ function popupMoveToSharedFolder() {
     });
 }
 
-function popupPeerioClosure() {
+function popupPeerioClosureSettings() {
     const contents = (
         <View
             style={{
@@ -658,6 +658,25 @@ function popupPeerioClosure() {
     });
 }
 
+function popupPeerioClosureSignup() {
+    return new Promise(resolve => {
+        popupState.showPopup({
+            title: 'The Peerio service will be closing on July 15th, 2019',
+            subTitle: textControl('Do you want to continue?'),
+            type: 'systemWarning',
+            buttons: [
+                {
+                    id: 'cancel',
+                    text: tu('button_cancel'),
+                    action: () => resolve(false),
+                    secondary: true
+                },
+                { id: 'ok', text: tu('button_continue'), action: () => resolve(true) }
+            ]
+        });
+    });
+}
+
 locales.loadAssetFile('terms.txt').then(s => {
     tos = s;
 });
@@ -694,5 +713,6 @@ export {
     popupFolderDelete,
     popupMoveToSharedFolder,
     popupAbout,
-    popupPeerioClosure
+    popupPeerioClosureSettings,
+    popupPeerioClosureSignup
 };

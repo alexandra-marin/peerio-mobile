@@ -11,6 +11,7 @@ import SignupHeading from '../signup/signup-heading';
 import IntroStepIndicator from '../shared/intro-step-indicator';
 import tm from '../../telemetry';
 import LoginInputs from './login-inputs';
+import PeerioClosingBottomBanner from '../shared/peerio-closing-bottom-banner';
 
 const { S } = telemetry;
 
@@ -45,6 +46,7 @@ export default class LoginClean extends SafeComponent {
                     <LoginInputs telemetry={loginTelemetryHelper} />
                 </View>
                 <StatusBar hidden />
+                <PeerioClosingBottomBanner />
                 <ActivityOverlay large visible={loginState.isInProgress} />
             </View>
         );

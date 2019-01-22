@@ -4,7 +4,8 @@ const pagePaddingLarge = vars.spacing.medium.maxi2x;
 const pagePadding = vars.spacing.medium.mini2x;
 
 const page = {
-    backgroundColor: vars.white
+    backgroundColor: vars.white,
+    flex: 1
 };
 
 const progressBarContainer = {

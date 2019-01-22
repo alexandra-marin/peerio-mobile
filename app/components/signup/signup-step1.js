@@ -15,6 +15,7 @@ import SignupHeading from './signup-heading';
 import SignupStepIndicator from './signup-step-indicator';
 import tm from '../../telemetry';
 import BlueRoundButton from '../buttons/blue-round-button';
+import { popupPeerioClosureSignup } from '../shared/popups';
 
 const { S } = telemetry;
 
@@ -52,7 +53,7 @@ export default class SignupStep1 extends SafeComponent {
     tmFirstname = { ...signupTelemetryHelper, item: S.FIRST_NAME };
     tmLastname = { ...signupTelemetryHelper, item: S.LAST_NAME };
 
-    componentDidMount() {
+    async componentDidMount() {
         this.startTime = Date.now();
         // QUICK SIGNUP DEV FLAG
         if (__DEV__ && process.env.PEERIO_QUICK_SIGNUP) {
@@ -68,6 +69,8 @@ export default class SignupStep1 extends SafeComponent {
             this.lastnameState.value = signupState.lastName;
             this.lastNameInput.onChangeText(this.lastnameState.value);
         }
+        const result = await popupPeerioClosureSignup();
+        if (!result) signupState.prev();
     }
 
     componentWillUnmount() {
@@ -101,7 +104,6 @@ export default class SignupStep1 extends SafeComponent {
                     <SignupButtonBack telemetry={{ sublocation, option: S.BACK }} />
                     <SignupHeading title="title_createYourAccount" subTitle="title_nameHeading" />
                     <StyledTextInput
-                        autoFocus
                         state={this.firstnameState}
                         validations={firstName}
                         telemetry={this.tmFirstname}
