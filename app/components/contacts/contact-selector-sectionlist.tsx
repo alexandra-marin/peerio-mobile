@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SectionList, View } from 'react-native';
+import { SectionList, View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import ContactInviteItem from './contact-invite-item';
 import testLabel from '../helpers/test-label';
@@ -7,11 +7,18 @@ import { vars } from '../../styles/styles';
 import { tx } from '../utils/translator';
 import Text from '../controls/custom-text';
 import ContactCard from '../shared/contact-card';
+import { Contact } from '../../lib/icebear';
+import { InvitedContact } from 'peerio-icebear/src/defs/interfaces';
 
 const INITIAL_LIST_SIZE = 10;
 
+interface ContactSelectorSectionListProps {
+    contact?: Contact | InvitedContact;
+    onPress: Function;
+    dataSource: any[];
+}
 @observer
-export default class ContactSelectorSectionList extends Component {
+export default class ContactSelectorSectionList extends Component<ContactSelectorSectionListProps> {
     keyExtractor(item) {
         return item.username || item.email;
     }
@@ -38,9 +45,9 @@ export default class ContactSelectorSectionList extends Component {
         );
     };
 
-    sectionHeader({ section: { data, key } }) {
+    sectionHeader({ section: { data, key } }: { section: { data; key? } }) {
         if (!data || !data.length || !key) return null;
-        const container = {
+        const container: ViewStyle = {
             marginLeft: vars.spacing.small.midi2x,
             justifyContent: 'center',
             height: vars.sectionHeaderHeight,

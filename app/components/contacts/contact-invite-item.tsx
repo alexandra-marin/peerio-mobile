@@ -28,7 +28,7 @@ interface ContactInviteItemProps {
 export default class ContactInviteItem extends SafeComponent<ContactInviteItemProps> {
     @observable invited = false;
     static fromEmail = email => {
-        return observable({ fullName: email, username: '', invited: null, email });
+        return observable({ fullName: email, username: '', invited: null, email, added: null });
     };
 
     invite() {
