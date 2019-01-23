@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, SectionList } from 'react-native';
+import { View, SectionList, ViewStyle } from 'react-native';
 import { computed } from 'mobx';
 import SafeComponent from '../shared/safe-component';
 import ContactsPlaceholder from './contacts-placeholder';
@@ -14,11 +14,36 @@ import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
 import Center from '../controls/center';
 import Text from '../controls/custom-text';
+import { ListHeaderType } from '../helpers/list-header-type';
+import { Contact } from '../../lib/icebear';
+import { Chat } from '../../lib/peerio-icebear/models';
 
 const INITIAL_LIST_SIZE = 20;
 
+const container: ViewStyle = {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: vars.spacing.small.mini2x,
+    paddingTop: vars.statusBarHeight,
+    paddingBottom: 0,
+    backgroundColor: vars.white
+};
+const style = {
+    flexGrow: 1
+};
+const textStyle = {
+    fontSize: vars.font.size14,
+    color: 'rgba(0, 0, 0, .54)'
+};
+
+interface ContactListModalProps {
+    action: Function;
+    onExit: Function;
+    title: string;
+}
+
 @observer
-export default class ContactListModal extends SafeComponent {
+export default class ContactListModal extends SafeComponent<ContactListModalProps> {
     componentDidMount() {
         contactState.store.uiViewFilter = 'all';
     }
@@ -26,9 +51,11 @@ export default class ContactListModal extends SafeComponent {
     @computed
     get sections() {
         const { uiView, contacts } = contactState.store;
-        const sections = uiView.map(({ letter, items }) => {
-            return { data: items, key: letter };
-        });
+        const sections: { data: (Contact | Chat)[]; key: string }[] = uiView.map(
+            ({ letter, items }) => {
+                return { data: items, key: letter };
+            }
+        );
         sections.unshift({ data: [], key: `All (${contacts.length})` });
         const { channels } = chatState.store;
         sections.unshift({ data: channels, key: `Rooms (${channels.length})` });
@@ -44,7 +71,7 @@ export default class ContactListModal extends SafeComponent {
         );
     };
 
-    header({ section: /* data, */ { key } }) {
+    header({ section: { key } }: ListHeaderType) {
         return <ContactSectionHeader key={key} title={key} />;
     }
 
@@ -63,25 +90,10 @@ export default class ContactListModal extends SafeComponent {
     get contactListComponent() {
         return !contactState.empty
             ? this.listView()
-            : !contactState.store.loading && <ContactsPlaceholder />;
+            : !contactState.loading && <ContactsPlaceholder />;
     }
 
     get exitRow() {
-        const container = {
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: vars.spacing.small.mini2x,
-            paddingTop: vars.statusBarHeight,
-            paddingBottom: 0,
-            backgroundColor: vars.white
-        };
-        const style = {
-            flexGrow: 1
-        };
-        const textStyle = {
-            fontSize: vars.font.size14,
-            color: 'rgba(0, 0, 0, .54)'
-        };
         return (
             <View style={container}>
                 {icons.dark('close', this.props.onExit)}
@@ -100,7 +112,7 @@ export default class ContactListModal extends SafeComponent {
             <View style={{ flex: 1, backgroundColor: vars.lightGrayBg }}>
                 {this.exitRow}
                 <View style={{ flex: 1 }}>{this.contactListComponent}</View>
-                <ProgressOverlay enabled={contactState.store.loading} />
+                <ProgressOverlay enabled={contactState.loading} />
             </View>
         );
     }
