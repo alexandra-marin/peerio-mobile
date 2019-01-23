@@ -33,6 +33,7 @@ export default class ContactSyncInvite extends SafeComponent {
     @observable searchBarValue = '';
     @observable refresh = 0;
     @observable inProgress = false;
+    _searchTimeout: any;
 
     get leftIcon() {
         return <BackIcon action={() => routes.main.contacts()} />;
@@ -125,8 +126,8 @@ export default class ContactSyncInvite extends SafeComponent {
     @action.bound
     clearSearch() {
         this.searchBarValue = '';
-        this.contactList.forEach((listItem, i, contactList) => {
-            contactList[i].visible = true;
+        this.contactList.forEach(({ index, array }) => {
+            array[index].visible = true;
         });
         this.refreshList();
     }

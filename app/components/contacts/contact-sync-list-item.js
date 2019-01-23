@@ -7,6 +7,7 @@ export default class ListItem extends Component {
     @observable contact;
     @observable phoneContactName;
     @observable selected;
+    @observable visible;
 
     constructor(contact, phoneContactName, selected) {
         super();
