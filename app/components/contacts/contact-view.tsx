@@ -1,26 +1,30 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import LayoutModalExit from '../layout/layout-modal-exit';
-import contactState from '../contacts/contact-state';
-import { contactStore } from '../../lib/icebear';
+import contactState from './contact-state';
+import { contactStore, Contact } from '../../lib/icebear';
 import AvatarCircle from '../shared/avatar-circle';
 import { vars } from '../../styles/styles';
 import { t } from '../utils/translator';
 import icons from '../helpers/icons';
 
-const flexRow = {
+const flexRow: ViewStyle = {
     flexDirection: 'row',
     flex: 1,
     maxHeight: 140,
     alignItems: 'center'
 };
 
+interface ContactViewProps {
+    contact: Contact;
+    nonModal: boolean;
+}
+
 @observer
-export default class ContactView extends SafeComponent {
+export default class ContactView extends SafeComponent<ContactViewProps> {
     get contact() {
         return this.props.contact || contactState.currentContact;
     }
@@ -175,8 +179,3 @@ export default class ContactView extends SafeComponent {
         return this.renderInvitedUser(contact); // invited user
     }
 }
-
-ContactView.propTypes = {
-    contact: PropTypes.any,
-    nonModal: PropTypes.any
-};
