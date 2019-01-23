@@ -1,9 +1,7 @@
 import { observable, action } from 'mobx';
 
-class MappedCollection {
-    getKey(/* item */) {
-        throw new Error(`contact-collection.js: must override getKey`);
-    }
+abstract class MappedCollection {
+    abstract getKey(item: any): string;
 
     @observable items = [];
     @observable itemsMap = observable.map(null, { deep: false });
