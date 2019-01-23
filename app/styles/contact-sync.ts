@@ -1,4 +1,5 @@
 import { vars } from './styles';
+import { ViewStyle } from 'react-native';
 
 const formStyle = {
     flex: 1,
@@ -52,7 +53,7 @@ const skipButtonStyle = {
     right: 0
 };
 
-const listHeader = {
+const listHeader: ViewStyle = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -67,7 +68,7 @@ const textListTitle = {
 };
 
 // TODO add shadow
-const footerContainer = {
+const footerContainer: import('react-native').ViewStyle = {
     height: vars.contactlistItemHeight,
     alignItems: 'flex-end',
     justifyContent: 'center',
