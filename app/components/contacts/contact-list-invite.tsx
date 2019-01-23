@@ -8,6 +8,7 @@ import ContactSectionHeader from './contact-section-header';
 import contactAddState from './contact-add-state';
 import { tx } from '../utils/translator';
 import ListSeparator from '../shared/list-separator';
+import { ListHeaderType } from '../helpers/list-header-type';
 
 const INITIAL_LIST_SIZE = 20;
 
@@ -25,7 +26,7 @@ export default class ContactListInvite extends SafeComponent {
         return <ContactInviteItem contact={item} />;
     }
 
-    header({ section: /* data, */ { key } }) {
+    header({ section: { key } }: ListHeaderType) {
         return <ContactSectionHeader key={key} title={key} />;
     }
 
@@ -42,9 +43,6 @@ export default class ContactListInvite extends SafeComponent {
                 keyExtractor={item => item.username}
                 renderItem={this.item}
                 renderSectionHeader={this.header}
-                ref={sv => {
-                    this.scrollView = sv;
-                }}
             />
         );
     }
