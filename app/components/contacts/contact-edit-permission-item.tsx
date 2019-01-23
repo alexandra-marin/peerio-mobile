@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import { action, observable } from 'mobx';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
@@ -11,19 +10,20 @@ import AvatarCircle from '../shared/avatar-circle';
 import Text from '../controls/custom-text';
 import GrayLabel from '../controls/gray-label';
 import { transitionAnimation } from '../helpers/animations';
+import { Contact } from '../../lib/icebear';
 
 const avatarPadding = 16;
 let currentContactItem = null;
+const marginBottom = 8;
 
-const buttonStyle = {
+const buttonStyle: ViewStyle = {
     paddingHorizontal: vars.spacing.small.maxi,
     backgroundColor: vars.redWarning,
     height: vars.removeButtonHeight,
     justifyContent: 'center'
 };
 
-const marginBottom = 8;
-const containerStyle = {
+const containerStyle: ViewStyle = {
     height: vars.warningHeight - marginBottom,
     marginBottom,
     marginLeft: vars.avatarDiameter + avatarPadding * 2,
@@ -34,7 +34,7 @@ const containerStyle = {
     justifyContent: 'center'
 };
 
-const outerContainerStyle = {
+const outerContainerStyle: ViewStyle = {
     height: vars.listItemHeight,
     flex: 1,
     flexGrow: 1,
@@ -52,14 +52,23 @@ const iconStyle = {
     paddingRight: vars.spacing.medium.mini2x
 };
 
-const ownerStyle = {
+const ownerStyle: ViewStyle = {
     flex: 0,
     paddingRight: vars.spacing.medium.mini2x,
     flexDirection: 'row',
     alignItems: 'center'
 };
+
+interface ContactEditPermissionItemProps {
+    contact: Contact;
+    isOwner?: boolean;
+    onUnshare?: Function;
+}
+
 @observer
-export default class ContactEditPermissionItem extends SafeComponent {
+export default class ContactEditPermissionItem extends SafeComponent<
+    ContactEditPermissionItemProps
+> {
     @observable _showWarning = false;
     @observable collapsed = false;
     get showWarning() {
@@ -67,6 +76,7 @@ export default class ContactEditPermissionItem extends SafeComponent {
     }
 
     set showWarning(value) {
+        console.log(value);
         transitionAnimation();
         if (currentContactItem) {
             currentContactItem._showWarning = false;
@@ -168,7 +178,3 @@ export default class ContactEditPermissionItem extends SafeComponent {
         );
     }
 }
-
-ContactEditPermissionItem.propTypes = {
-    contact: PropTypes.any
-};
