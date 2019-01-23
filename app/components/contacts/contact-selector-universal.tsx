@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { View, ActivityIndicator, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -22,8 +21,20 @@ import SearchBar from '../controls/search-bar';
 import ModalHeader from '../shared/modal-header';
 import { transitionAnimation } from '../helpers/animations';
 
+interface ContactSelectorUniversalProps {
+    title?: any;
+    subTitleComponent?: any;
+    leftIconComponent?: any;
+    inputPlaceholder?: any;
+    action: Function;
+    onExit?: Function;
+    multiselect?: any;
+    footer?: any;
+    hideHeader?: any;
+}
+
 @observer
-export default class ContactSelectorUniversal extends SafeComponent {
+export default class ContactSelectorUniversal extends SafeComponent<ContactSelectorUniversalProps> {
     @observable recipients = new ContactCollection();
     @observable inProgress = false;
     @observable clean = true;
@@ -32,6 +43,9 @@ export default class ContactSelectorUniversal extends SafeComponent {
     @observable notFound = null;
     @observable findUserText = '';
     @observable foundContact = null;
+    _recipientReaction: Function;
+    textInput: SearchBar;
+    _searchTimeout: NodeJS.Timeout;
 
     componentDidMount() {
         this._recipientReaction = reaction(
@@ -86,7 +100,7 @@ export default class ContactSelectorUniversal extends SafeComponent {
             );
         }
 
-        if (this.inProgress || contactState.inProgress) {
+        if (this.inProgress || contactState.isInProgress) {
             rightIcon = <ActivityIndicator style={{ marginRight: vars.spacing.small.midi2x }} />;
         }
 
@@ -117,8 +131,8 @@ export default class ContactSelectorUniversal extends SafeComponent {
     }
 
     get shareButton() {
-        if (this.recipients.items.length) return icons.text(tu('share'), this.action);
-        return icons.disabledText(tu('share'));
+        if (this.recipients.items.length) return icons.text(tu('button_share'), this.action);
+        return icons.disabledText(tu('button_share'));
     }
 
     @action.bound
@@ -147,14 +161,10 @@ export default class ContactSelectorUniversal extends SafeComponent {
         if (!u) return;
         if (!this.findUserText) return;
         this.inProgress = true;
-        const c = await contactState.store.whitelabel.getContact(u);
+        const c = await contactState.store.whitelabel.getContact(u, null);
         this.inProgress = false;
         if (!this.findUserText) return;
         if (c.notFound || c.isHidden) {
-            if (c.isLegacy) {
-                this.legacyContact = c;
-                return;
-            }
             if (username.indexOf('@') !== -1) {
                 this.toInvite = username;
             } else {
@@ -279,15 +289,3 @@ export default class ContactSelectorUniversal extends SafeComponent {
         );
     }
 }
-
-ContactSelectorUniversal.propTypes = {
-    title: PropTypes.any,
-    subTitleComponent: PropTypes.any,
-    leftIconComponent: PropTypes.any,
-    inputPlaceholder: PropTypes.any,
-    action: PropTypes.func,
-    onExit: PropTypes.func,
-    multiselect: PropTypes.any,
-    footer: PropTypes.any,
-    hideHeader: PropTypes.any
-};

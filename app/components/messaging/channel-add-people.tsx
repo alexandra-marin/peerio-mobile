@@ -30,7 +30,6 @@ export default class ChannelAddPeople extends SafeComponent {
         return (
             <View style={fillView}>
                 <ContactSelectorUniversal
-                    exclude={this.excluded}
                     onExit={() => chatState.routerModal.discard()}
                     action={this.addPeople}
                     title={tx('title_addPeopleToRoom')}
