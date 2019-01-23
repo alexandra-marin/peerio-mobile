@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
 import Progress from '../shared/progress';
+import { File } from '../../lib/peerio-icebear/models';
+
+export interface FileProgressProps {
+    file: File;
+}
 
 @observer
-export default class FileProgress extends SafeComponent {
+export default class FileProgress extends SafeComponent<FileProgressProps> {
     prevFile = null;
 
     get hidden() {
@@ -31,7 +35,3 @@ export default class FileProgress extends SafeComponent {
         return <Progress value={this.value} max={this.max} />;
     }
 }
-
-FileProgress.propTypes = {
-    file: PropTypes.any
-};

@@ -1,8 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { observable, when, reaction, action } from 'mobx';
-import { View, Image, Dimensions, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+    View,
+    Image,
+    Dimensions,
+    TouchableOpacity,
+    ActivityIndicator,
+    ViewStyle,
+    TextStyle
+} from 'react-native';
 import FLAnimatedImage from 'react-native-gif';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -10,14 +17,16 @@ import Progress from '../shared/progress';
 import FileProgress from './file-progress';
 import FileInlineContainer from './file-inline-container';
 import InlineUrlPreviewConsent from './inline-url-preview-consent';
-import inlineImageCacheStore from './inline-image-cache-store';
+import inlineImageCacheStore, { CachedImage } from './inline-image-cache-store';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
-import fileState from '../files/file-state';
+import fileState from './file-state';
 import settingsState from '../settings/settings-state';
 import { clientApp, config, util } from '../../lib/icebear';
 import { T, tx } from '../utils/translator';
 import { transitionAnimation } from '../helpers/animations';
+import { File } from '../../lib/peerio-icebear/models';
+import { ExternalContent } from '../../lib/peerio-icebear/helpers/unfurl/types';
 
 const toSettings = text => (
     <Text
@@ -32,26 +41,38 @@ const toSettings = text => (
 
 const toSettingsParser = { toSettings };
 
-const textMessageOuter = {
-    padding: this.outerPadding,
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    top: 0,
-    justifyContent: 'center'
-};
-
-const textMessageTextStyle = {
+const textMessageTextStyle: TextStyle = {
     color: vars.txtDark,
     backgroundColor: 'transparent',
     textAlign: 'center'
 };
 
+const text0: TextStyle = {
+    color: vars.txtDark,
+    backgroundColor: vars.lightGrayBg,
+    paddingVertical: 54,
+    textAlign: 'center'
+};
+
+export interface FileInlineImageProps {
+    image: File | ExternalContent;
+    onActionSheet: Function;
+    isClosed: boolean;
+    onAction: Function;
+    onLegacyFileAction: Function;
+}
+
+const text: TextStyle = {
+    color: vars.peerioBlue,
+    textAlign: 'center',
+    marginVertical: 10
+};
+
 // TODO: image urls are now handled by inline-url-container
 // remove the URL support from this component
+
 @observer
-export default class FileInlineImage extends SafeComponent {
+export default class FileInlineImage extends SafeComponent<FileInlineImageProps> {
     @observable cachedImage;
     @observable width = 0;
     @observable height = 0;
@@ -75,33 +96,34 @@ export default class FileInlineImage extends SafeComponent {
     @observable loadedBytesCount = 0;
     @observable totalBytesCount = 0;
     outerPadding = 8;
+    loadingTimeoutId: NodeJS.Timeout;
+
+    textMessageOuter: ViewStyle = {
+        padding: this.outerPadding,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top: 0,
+        justifyContent: 'center'
+    };
 
     componentWillMount() {
         this.optimalContentHeight = Dimensions.get('window').height;
-        when(() => this.cachedImage, () => this.fetchSize());
+        when(() => !!this.cachedImage, () => this.fetchSize());
         const { image } = this.props;
-        const { fileId, url, isOverInlineSizeLimit, isOversizeCutoff } = image;
-        let { tmpCachePath, tmpCached } = image;
-        this.tooBig = isOverInlineSizeLimit || isOversizeCutoff;
-        this.oversizeCutoff = isOversizeCutoff;
-        this.loadImage = fileState.forceShowMap.get(url || fileId);
-
-        // if we uploaded the image ourselves and we have it cached
-        // TODO: this should be moved to icebear
-        const selfTmpCachePath = fileId && fileState.localFileMap.get(fileId);
-        if (selfTmpCachePath) {
-            this.loadImage = true;
-            tmpCached = true;
-            tmpCachePath = selfTmpCachePath;
-        }
-
-        when(
-            () => image.cachingFailed,
-            () => {
-                this.cachingFailed = true;
-            }
-        );
-        if (fileId) {
+        let fileId, url, isOverInlineSizeLimit, isOversizeCutoff, tmpCachePath, tmpCached;
+        if (image instanceof File) {
+            ({ fileId, isOverInlineSizeLimit, isOversizeCutoff, tmpCachePath, tmpCached } = image);
+            this.tooBig = isOverInlineSizeLimit || isOversizeCutoff;
+            this.oversizeCutoff = isOversizeCutoff;
+            this.loadImage = fileState.forceShowMap.get(url || fileId);
+            when(
+                () => image.cachingFailed,
+                () => {
+                    this.cachingFailed = true;
+                }
+            );
             // we have local inline file
             when(
                 () => clientApp.uiUserPrefs.peerioContentEnabled,
@@ -145,6 +167,7 @@ export default class FileInlineImage extends SafeComponent {
                 );
             }
         } else {
+            ({ url } = image);
             // we have external url
             when(
                 () =>
@@ -167,12 +190,27 @@ export default class FileInlineImage extends SafeComponent {
                 }
             );
         }
+
+        // if we uploaded the image ourselves and we have it cached
+        // TODO: this should be moved to icebear
+        const selfTmpCachePath = fileId && fileState.localFileMap.get(fileId);
+        if (selfTmpCachePath) {
+            this.loadImage = true;
+            tmpCached = true;
+            tmpCachePath = selfTmpCachePath;
+        }
     }
 
     forceShow = () => {
         this.loadImage = true;
-        const { url, fileId } = this.props.image;
-        fileState.forceShowMap.set(url || fileId, true);
+        let key;
+        let data = this.props.image;
+        if (data instanceof File) {
+            key = data.fileId;
+        } else {
+            key = data.url;
+        }
+        fileState.forceShowMap.set(key, true);
     };
 
     fetchSize() {
@@ -180,9 +218,11 @@ export default class FileInlineImage extends SafeComponent {
         // if width or height is undefined, there was an error loading it
         when(
             () =>
-                cachedImage.width !== undefined &&
-                cachedImage.height !== undefined &&
-                this.optimalContentWidth,
+                !!(
+                    cachedImage.width !== undefined &&
+                    cachedImage.height !== undefined &&
+                    this.optimalContentWidth
+                ),
             () => {
                 const { width, height } = cachedImage;
                 const { optimalContentWidth, optimalContentHeight } = this;
@@ -234,7 +274,7 @@ export default class FileInlineImage extends SafeComponent {
     }
 
     get displayCutOffImageOffer() {
-        const outer = {
+        const outer: ViewStyle = {
             padding: this.outerPadding,
             height: vars.imageInnerContainerHeight,
             justifyContent: 'center'
@@ -260,12 +300,6 @@ export default class FileInlineImage extends SafeComponent {
         const outer = {
             padding: this.outerPadding
         };
-        const text0 = {
-            color: vars.txtDark,
-            backgroundColor: vars.lightGrayBg,
-            paddingVertical: 54,
-            textAlign: 'center'
-        };
         return (
             <View style={outer}>
                 <Text style={text0}>{tx('title_poorConnectionInlineImage')}</Text>
@@ -274,11 +308,6 @@ export default class FileInlineImage extends SafeComponent {
     }
 
     get displayImageOffer() {
-        const text = {
-            color: vars.peerioBlue,
-            textAlign: 'center',
-            marginVertical: 10
-        };
         return (
             <TouchableOpacity
                 pressRetentionOffset={vars.retentionOffset}
@@ -311,15 +340,15 @@ export default class FileInlineImage extends SafeComponent {
 
     get downloadErrorMessage() {
         return (
-            <View style={textMessageOuter}>
-                <Text style={textMessageTextStyle}>{tx('Image preview is not available')}</Text>
+            <View style={this.textMessageOuter}>
+                <Text style={textMessageTextStyle}>{tx('error_messageErrorNotAvailable')}</Text>
             </View>
         );
     }
 
     get downloadSlowMessage() {
         return (
-            <View style={textMessageOuter}>
+            <View style={this.textMessageOuter}>
                 <Text style={textMessageTextStyle}>{tx('title_poorConnectionExternalURL')}</Text>
             </View>
         );
@@ -369,7 +398,7 @@ export default class FileInlineImage extends SafeComponent {
         const outer = {
             padding: this.outerPadding
         };
-        const text0 = {
+        const text0: TextStyle = {
             color: vars.txtDark,
             backgroundColor: vars.lightGrayBg,
             paddingVertical: vars.spacing.large.midi2x,
@@ -387,18 +416,26 @@ export default class FileInlineImage extends SafeComponent {
     @action.bound
     imageAction() {
         const { image } = this.props;
-        if (image.hasFileAvailableForPreview) {
-            image.launchViewer();
+        if (image instanceof File) {
+            if (image.hasFileAvailableForPreview) {
+                image.launchViewer();
+            } else {
+                fileState.download(image);
+            }
         } else {
-            fileState.download(image);
+            console.error('applying file action to external content');
         }
     }
 
     renderThrow() {
-        const { image } = this.props;
-        const { fileId, downloading } = image;
+        const { image, onLegacyFileAction } = this.props;
+        let fileId, downloading;
+        if (image instanceof File) {
+            ({ fileId, downloading } = image);
+        }
         const { width, height, loaded, showUpdateSettingsLink, cachingFailed } = this;
-        const { source, acquiringSize, shouldUseFLAnimated } = this.cachedImage || {};
+        const { source, acquiringSize, shouldUseFLAnimated } =
+            this.cachedImage || new CachedImage();
         // console.log(`render ${source ? source.uri : null}, shouldUseFLAnimated: ${shouldUseFLAnimated}`);
         const isLocal = !!fileId;
         if (!clientApp.uiUserPrefs.externalContentConsented && !isLocal) {
@@ -411,7 +448,7 @@ export default class FileInlineImage extends SafeComponent {
             );
         }
 
-        const inner = {
+        const inner: ViewStyle = {
             backgroundColor: loaded ? vars.white : vars.lightGrayBg,
             minHeight: loaded ? undefined : vars.imageInnerContainerHeight,
             justifyContent: 'center'
@@ -426,7 +463,7 @@ export default class FileInlineImage extends SafeComponent {
                     file={image}
                     onActionSheet={this.props.onAction}
                     onAction={shouldUseFLAnimated ? null : this.imageAction}
-                    onLegacyFileAction={this.props.onLegacyFileAction}
+                    onLegacyFileAction={onLegacyFileAction}
                     isImage
                     isOpen={this.opened}
                     extraActionIcon={
@@ -486,15 +523,10 @@ export default class FileInlineImage extends SafeComponent {
                             )}
                         </View>
                     )}
-                    {isLocal && <FileProgress file={image} />}
+                    {isLocal && image instanceof File && <FileProgress file={image} />}
                 </FileInlineContainer>
                 {!isLocal && showUpdateSettingsLink && this.updateSettingsOffer}
             </View>
         );
     }
 }
-
-FileInlineImage.propTypes = {
-    image: PropTypes.any,
-    onActionSheet: PropTypes.any
-};

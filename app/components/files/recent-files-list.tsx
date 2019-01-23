@@ -1,20 +1,26 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { SectionList, View } from 'react-native';
 import SafeComponent from '../shared/safe-component';
 import chatState from '../messaging/chat-state';
 import ChatInfoSectionHeader from '../messaging/chat-info-section-header';
-import RecentFileItem from '../files/recent-file-item';
-import FileActionSheet from '../files/file-action-sheet';
+import RecentFileItem from './recent-file-item';
+import FileActionSheet from './file-action-sheet';
 import { tx } from '../utils/translator';
 
 const INITIAL_LIST_SIZE = 25;
 
+export interface RecentFilesListProps {
+    collapsed?: boolean;
+    toggleCollapsed?: OnPressResponder;
+}
+
 @observer
-export default class RecentFilesList extends SafeComponent {
+export default class RecentFilesList extends SafeComponent<RecentFilesListProps> {
     get sections() {
-        return [{ data: chatState.currentChat.recentFiles, key: tx('title_recentFiles') }];
+        return [
+            { data: chatState.currentChat.recentFiles, key: tx('title_recentFiles') as string }
+        ];
     }
 
     get hasData() {
@@ -37,7 +43,7 @@ export default class RecentFilesList extends SafeComponent {
         );
     };
 
-    header = ({ section: { key } }) => {
+    header = ({ section: { key } }: { section: { key?: string } }) => {
         const { collapsed, toggleCollapsed } = this.props;
         return (
             <ChatInfoSectionHeader
@@ -69,8 +75,3 @@ export default class RecentFilesList extends SafeComponent {
         );
     }
 }
-
-RecentFilesList.propTypes = {
-    collapsed: PropTypes.bool.isRequired,
-    toggleCollapsed: PropTypes.func
-};

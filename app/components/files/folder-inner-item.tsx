@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { observable, action } from 'mobx';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ViewStyle, GestureResponderEvent } from 'react-native';
 import moment from 'moment';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -12,12 +11,13 @@ import { tx } from '../utils/translator';
 import fileState from './file-state';
 import { User, contactStore } from '../../lib/icebear';
 import testLabel from '../helpers/test-label';
+import { FileFolder } from '../../lib/peerio-icebear/models';
 
 const height = vars.filesListItemHeight;
 const width = vars.listItemHeight;
 const checkBoxWidth = height;
 
-const folderInfoContainerStyle = {
+const folderInfoContainerStyle: ViewStyle = {
     flexGrow: 1,
     flexDirection: 'row'
 };
@@ -34,8 +34,18 @@ const nameStyle = {
     backgroundColor: 'transparent'
 };
 
+export interface FolderInnerItemProps {
+    onPress?: Function;
+    onSelect?: (event: GestureResponderEvent) => void;
+    folder?: FileFolder;
+    hideOptionsIcon?: boolean;
+    radio?: boolean;
+    onFolderAction?: Function;
+    disabled?: boolean;
+}
+
 @observer
-export default class FolderInnerItem extends SafeComponent {
+export default class FolderInnerItem extends SafeComponent<FolderInnerItemProps> {
     @observable progressWidth = 0;
 
     @action.bound
@@ -73,7 +83,7 @@ export default class FolderInnerItem extends SafeComponent {
         iconColor = sharedFoldersEnabled ? iconColor : vars.checkboxDisabled;
         const iconBgColor = 'transparent';
         const icon = checked ? 'check-box' : 'check-box-outline-blank';
-        const outer = {
+        const outer: ViewStyle = {
             backgroundColor: checked ? vars.peerioBlueBackground05 : vars.filesBg,
             padding: vars.spacing.small.mini2x,
             flex: 0,
@@ -86,7 +96,6 @@ export default class FolderInnerItem extends SafeComponent {
         return (
             <TouchableOpacity
                 style={outer}
-                pointerEvents="none"
                 onPress={this.toggleSelected}
                 disabled={!sharedFoldersEnabled}
                 pressRetentionOffset={vars.retentionOffset}>
@@ -104,7 +113,7 @@ export default class FolderInnerItem extends SafeComponent {
     get radio() {
         const { radio, disabled } = this.props;
         if (!radio) return null;
-        const outer = {
+        const outer: ViewStyle = {
             width,
             height,
             alignItems: 'center',
@@ -165,7 +174,7 @@ export default class FolderInnerItem extends SafeComponent {
         const { folder, onSelect, hideOptionsIcon, onFolderAction, disabled } = this.props;
         const { isShared, convertingToVolume, convertingFromFolder } = folder;
         const checked = folder && folder.selected;
-        const progressContainer = {
+        const progressContainer: ViewStyle = {
             backgroundColor: vars.fileUploadProgressColor,
             width: this.currentProgress,
             position: 'absolute',
@@ -174,7 +183,7 @@ export default class FolderInnerItem extends SafeComponent {
             right: 0,
             left: 0
         };
-        const itemContainerStyle = {
+        const itemContainerStyle: ViewStyle = {
             flex: 1,
             flexGrow: 1,
             flexDirection: 'row',
@@ -243,13 +252,3 @@ export default class FolderInnerItem extends SafeComponent {
         );
     }
 }
-
-FolderInnerItem.propTypes = {
-    onPress: PropTypes.func,
-    onSelect: PropTypes.func,
-    folder: PropTypes.any.isRequired,
-    hideOptionsIcon: PropTypes.bool,
-    radio: PropTypes.bool,
-    onFolderAction: PropTypes.func,
-    disabled: PropTypes.bool
-};

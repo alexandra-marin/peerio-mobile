@@ -9,16 +9,17 @@ import Text from '../controls/custom-text';
 import TextInputUncontrolled from '../controls/text-input-uncontrolled';
 import fonts from '../../styles/fonts';
 import { config } from '../../lib/icebear';
+import { LocalizationStrings } from '../utils/translator';
 
 const height = vars.inputHeight;
 const fontSize = vars.font.size14;
 
 export interface CreateChannelTextBoxProps {
     state?: object;
-    labelText?: string;
-    placeholderText?: string;
+    labelText?: keyof LocalizationStrings;
+    placeholderText?: keyof LocalizationStrings;
     property?: string;
-    bottomText?: string;
+    bottomText?: keyof LocalizationStrings;
     maxLength?: number;
     multiline?: boolean;
 }
@@ -95,9 +96,11 @@ export default class CreateChannelTextBox extends Component<CreateChannelTextBox
                         {...testLabel(testID)}
                     />
                 </View>
-                <Text style={bottomTextStyle}>{tx(bottomText, {
+                <Text style={bottomTextStyle}>
+                    {tx(bottomText, {
                         maxChatNameLength: config.chat.maxChatNameLength
-                    })}</Text>
+                    })}
+                </Text>
             </View>
         );
     }

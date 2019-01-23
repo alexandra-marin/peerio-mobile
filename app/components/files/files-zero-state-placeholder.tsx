@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, Dimensions, Image } from 'react-native';
+import { View, Dimensions, Image, ViewStyle, TextStyle } from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { tx } from '../utils/translator';
@@ -10,35 +10,35 @@ import testLabel from '../helpers/test-label';
 
 const fileUploadZeroState = require('../../assets/file-upload-zero-state.png');
 
-const outerContainer = {
+const outerContainer: ViewStyle = {
     flexShrink: 1,
-    width: this.width,
+    width: Dimensions.get('window').width,
     justifyContent: 'center',
     padding: vars.spacing.huge.mini,
     paddingTop: vars.spacing.large.mini
 };
 const imageStyle = {
-    width: this.width,
+    width: Dimensions.get('window').width,
     height: 275
 };
-const headerStyle = {
+const headerStyle: TextStyle = {
     color: vars.textBlack87,
     textAlign: 'center',
     fontSize: vars.font.size20
 };
-const labelStyle = {
+const labelStyle: TextStyle = {
     marginVertical: vars.spacing.medium.midi,
     color: vars.textBlack87,
     textAlign: 'center',
     fontSize: vars.font.size14
 };
-@observer
-export default class FilesPlaceholder extends SafeComponent {
-    constructor(props) {
-        super(props);
-        this.width = Dimensions.get('window').width;
-    }
 
+export interface FilesPlaceholderProps {
+    emptyFolder?: boolean;
+}
+
+@observer
+export default class FilesPlaceholder extends SafeComponent<FilesPlaceholderProps> {
     get title() {
         if (this.props.emptyFolder) {
             return (

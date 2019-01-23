@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import FileInlineImage from '../files/file-inline-image';
 import fileState from '../files/file-state';
 import InlineUrlContainer from '../messaging/inline-url-container';
@@ -31,6 +31,7 @@ export default class ChatMessageInlineImages extends SafeComponent {
         const { onInlineImageAction, onLegacyFileAction, isClosed } = this.props;
 
         return this.images.map(image => {
+            // branch on url
             const { fileId, url } = image;
             const key = fileId || image;
             if (url) {

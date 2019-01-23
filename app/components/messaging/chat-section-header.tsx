@@ -7,10 +7,10 @@ import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import chatState from './chat-state';
 import testLabel from '../helpers/test-label';
-import { tx } from '../utils/translator';
+import { tx, LocalizationStrings } from '../utils/translator';
 
 export interface ChatSectionHeaderProps {
-    title: string;
+    title: keyof LocalizationStrings;
     collapsible?: boolean;
     state?: string;
 }

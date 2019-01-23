@@ -1,20 +1,27 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { action, when } from 'mobx';
 import { observer } from 'mobx-react/native';
-import { View, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, ActivityIndicator, TouchableOpacity, TextStyle, ViewStyle } from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import { tx } from '../utils/translator';
-import fileState from '../files/file-state';
+import fileState from './file-state';
 import icons from '../helpers/icons';
 import FileInlineContainer from './file-inline-container';
 import FileSignatureError from './file-signature-error';
 import snackbarState from '../snackbars/snackbar-state';
 
+export interface FileInlineProgressProps {
+    file: string;
+    transparentOnFinishUpload: boolean;
+    onActionSheet: Function;
+    chatId: string;
+    onLegacyFileAction: Function;
+}
+
 @observer
-export default class FileInlineProgress extends SafeComponent {
+export default class FileInlineProgress extends SafeComponent<FileInlineProgressProps> {
     get filePreviouslyDownloaded() {
         return !!this.file && this.file.cached;
     }
@@ -36,7 +43,7 @@ export default class FileInlineProgress extends SafeComponent {
     @action.bound
     fileAction() {
         when(
-            () => this.file.hasFileAvailableForPreview,
+            () => !!this.file.hasFileAvailableForPreview,
             () => {
                 this.file.launchViewer().catch(() => {
                     snackbarState.pushTemporary(tx('snackbar_couldntOpenFile'));
@@ -55,7 +62,7 @@ export default class FileInlineProgress extends SafeComponent {
         const { file } = this;
         if (!file) return null;
 
-        const downloadStatusContainer = {
+        const downloadStatusContainer: ViewStyle = {
             alignItems: 'center',
             justifyContent: 'center',
             height: 48,
@@ -64,7 +71,7 @@ export default class FileInlineProgress extends SafeComponent {
             backgroundColor: vars.darkBlueBackground05,
             borderRadius: 4
         };
-        const textStyle = {
+        const textStyle: TextStyle = {
             color: vars.peerioBlue,
             fontStyle: 'italic'
         };
@@ -109,9 +116,3 @@ export default class FileInlineProgress extends SafeComponent {
         );
     }
 }
-
-FileInlineProgress.propTypes = {
-    file: PropTypes.any,
-    transparentOnFinishUpload: PropTypes.bool,
-    onActionSheet: PropTypes.any
-};

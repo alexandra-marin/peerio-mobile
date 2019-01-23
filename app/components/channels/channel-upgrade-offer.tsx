@@ -48,7 +48,7 @@ export default class ChannelUpgradeOffer extends Component {
             <View style={container}>
                 <View style={offerStyle}>
                     <Text style={offerTextStyle}>
-                        <T k="title_channelUpgradeOffer">{{ limit: User.current.channelLimit }}</T>
+                        <T k="title_channelUpgradeOffer" />
                     </Text>
                 </View>
                 <View style={buttonStyle}>

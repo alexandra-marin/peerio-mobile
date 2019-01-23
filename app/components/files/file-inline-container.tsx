@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, TextStyle, ViewStyle, LayoutChangeEvent } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -10,6 +9,8 @@ import FileTypeIcon from './file-type-icon';
 import FileProgress from './file-progress';
 import { fileHelpers } from '../../lib/icebear';
 import { tx } from '../utils/translator';
+import { File } from '../../lib/peerio-icebear/models';
+import { ExternalContent } from '../../lib/peerio-icebear/helpers/unfurl/types';
 
 const padding = 8;
 const borderWidth = 1;
@@ -40,23 +41,36 @@ const text = {
     paddingLeft: padding
 };
 
+const errorContainer = {
+    backgroundColor: vars.legacyImageErrorBg,
+    padding: vars.spacing.small.midi2x,
+    borderRadius: 4
+};
+const errorStyle: TextStyle = {
+    fontSize: vars.font.size12,
+    color: vars.lighterBlackText,
+    fontStyle: 'italic'
+};
+const learnMoreStyle = {
+    fontSize: vars.font.size12,
+    color: vars.peerioBlue
+};
+
+export interface FileInlineContainerProps {
+    onLayout?: (event: LayoutChangeEvent) => void;
+    extraActionIcon?: JSX.Element;
+    isImage?: boolean;
+    isOpen?: boolean;
+    children?: Array<JSX.Element>;
+    file: File | ExternalContent;
+    onActionSheet?: Function;
+    onAction?: () => void;
+    onLegacyFileAction?: Function;
+}
+
 @observer
-export default class FileInlineContainer extends SafeComponent {
+export default class FileInlineContainer extends SafeComponent<FileInlineContainerProps> {
     legacyNotification() {
-        const errorContainer = {
-            backgroundColor: vars.legacyImageErrorBg,
-            padding: vars.spacing.small.midi2x,
-            borderRadius: 4
-        };
-        const errorStyle = {
-            fontSize: vars.font.size12,
-            color: vars.lighterBlackText,
-            fontStyle: 'italic'
-        };
-        const learnMoreStyle = {
-            fontSize: vars.font.size12,
-            color: vars.peerioBlue
-        };
         return (
             this.props.isOpen && (
                 <View style={errorContainer}>
@@ -72,16 +86,18 @@ export default class FileInlineContainer extends SafeComponent {
 
     get fileTypeIcon() {
         const { file, onAction } = this.props;
+        let extension;
+        if (file instanceof File) extension = file.ext;
         return (
             <TouchableOpacity onPress={onAction} pressRetentionOffset={vars.retentionOffset}>
-                <FileTypeIcon type={fileHelpers.getFileIconType(file.ext)} size="smaller" />
+                <FileTypeIcon type={fileHelpers.getFileIconType(extension)} size="smaller" />
             </TouchableOpacity>
         );
     }
 
     get fileName() {
-        const { file, isImage, onAction } = this.props;
-        const name = isImage ? file.name : `${file.name} (${file.sizeFormatted})`;
+        const { file, onAction } = this.props;
+        const name = file instanceof File ? `${file.name} (${file.sizeFormatted})` : '';
         return (
             !!name && (
                 <TouchableOpacity
@@ -115,12 +131,21 @@ export default class FileInlineContainer extends SafeComponent {
 
     render() {
         const { file, isImage, isOpen, extraActionIcon } = this.props;
-        const { title, description, fileId, downloading } = file;
+        let title, description, fileId, downloading, isLegacy;
+        if (file instanceof File) {
+            const { loaded, deleted } = file;
+            ({ fileId, downloading, isLegacy } = file);
+            if (!loaded) return null;
+            if (deleted) return this.fileUnavailable;
+        } else {
+            const f = file;
+            if (f.type === 'html') {
+                ({ title, description } = f);
+            }
+        }
         const isLocal = !!fileId;
         // TODO: maybe a placeholder instead
         if (isLocal) {
-            if (!file.loaded) return null;
-            if (file.deleted) return this.fileUnavailable;
         }
         const spacingDifference = padding - vars.progressBarHeight;
         let containerHeight = isLocal ? 30 : 0;
@@ -129,7 +154,7 @@ export default class FileInlineContainer extends SafeComponent {
             padding,
             paddingBottom: downloading && !isImage ? spacingDifference : padding
         };
-        const header = {
+        const header: ViewStyle = {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -152,7 +177,7 @@ export default class FileInlineContainer extends SafeComponent {
                                 {icons.darkNoPadding(
                                     'more-vert',
                                     () =>
-                                        !file.isLegacy
+                                        !isLegacy
                                             ? this.props.onActionSheet(file)
                                             : this.props.onLegacyFileAction(file),
                                     { marginHorizontal: vars.spacing.small.midi2x },
@@ -162,20 +187,10 @@ export default class FileInlineContainer extends SafeComponent {
                             </View>
                         )}
                     </View>
-                    {file.isLegacy ? this.legacyNotification() : this.props.children}
+                    {isLegacy ? this.legacyNotification() : this.props.children}
                 </View>
-                {!isImage && <FileProgress file={file} />}
+                {!isImage && file instanceof File && <FileProgress file={file} />}
             </View>
         );
     }
 }
-
-FileInlineContainer.propTypes = {
-    file: PropTypes.any,
-    onLayout: PropTypes.any,
-    extraActionIcon: PropTypes.any,
-    onActionSheet: PropTypes.any,
-    onAction: PropTypes.any,
-    isImage: PropTypes.bool,
-    isOpen: PropTypes.bool
-};

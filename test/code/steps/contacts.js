@@ -62,10 +62,9 @@ Then('they are not in my contact list', async function() {
 });
 
 Then('I invite someone to join Peerio', async function() {
-    await this.app.pause(2000); // wait for contacts to load
+    await this.listener.request(`beaconState.dismissAll()`);
     await this.homePage.contactsTab.click();
     await this.contactsPage.addContactButton.click();
-
     this.invitationEmail = `${new Date().getTime()}@test.lan`;
     await this.inviteContactWithEmail(this.invitationEmail);
 });

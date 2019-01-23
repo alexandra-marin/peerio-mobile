@@ -1,5 +1,6 @@
 class Routes {
     main;
+    modal;
 }
 
 const routes = new Routes();

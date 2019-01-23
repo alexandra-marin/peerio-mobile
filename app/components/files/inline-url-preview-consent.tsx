@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
@@ -18,7 +18,7 @@ const container = {
     paddingBottom: 6
 };
 
-const titleContainer = {
+const titleContainer: ViewStyle = {
     flexDirection: 'row'
 };
 
@@ -36,7 +36,7 @@ const descriptionText = {
 const options = ['title_forAllContacts', 'title_forFavouriteContactsOnly', 'title_disable'];
 
 @observer
-export default class InlineUrlPreviewConsent extends SafeComponent {
+export default class InlineUrlPreviewConsent extends SafeComponent<{ onChange: Function }> {
     @observable optionSelected = 0;
 
     onSelectRadioButton = index => {

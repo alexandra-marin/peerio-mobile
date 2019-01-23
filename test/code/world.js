@@ -102,11 +102,15 @@ class World {
     async enterTokenInSettings() {
         // might be too slow to enter the correct code, trying several times
         for (let i = 0; i < 3; ++i) {
-            await this.tryEnterTokenInSettings();
-            // we successfully enabled 2fa
-            if (await this.twoStepVerificationPage.backupCodesVisible) return;
-            // possibly to regenerate the code in the next time frame
-            await this.app.pause(5000);
+            try {
+                await this.tryEnterTokenInSettings();
+                // we successfully enabled 2fa
+                if (await this.twoStepVerificationPage.backupCodesVisible) return;
+                // possibly to regenerate the code in the next time frame
+                await this.app.pause(5000);
+            } catch (e) {
+                console.log(e);
+            }
         }
         throw new Error('Could not enable 2fa in settings');
     }

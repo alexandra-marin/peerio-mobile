@@ -1,6 +1,8 @@
+import { LocalizationStrings } from '../utils/translator';
+
 export default interface ButtonProps {
-    text: string;
-    subtitle?: string;
+    text: keyof LocalizationStrings;
+    subtitle?: keyof LocalizationStrings;
     onPress: Function;
     disabled?: boolean;
     hidden?: boolean;

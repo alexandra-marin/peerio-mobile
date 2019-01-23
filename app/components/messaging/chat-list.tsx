@@ -21,6 +21,7 @@ import FlatListWithDrawer from '../shared/flat-list-with-drawer';
 import zeroStateBeacons from '../beacons/zerostate-beacons';
 import { transitionAnimation } from '../helpers/animations';
 import { Chat } from '../../lib/peerio-icebear/models';
+import { LocalizationStrings } from '../utils/translator';
 
 const INITIAL_LIST_SIZE = 10;
 
@@ -141,7 +142,7 @@ export default class ChatList extends SafeComponent {
         } else if (item.kegDbId) {
             return this.inviteItem(item);
         } else if (item.sectionTitle) {
-            return <ChatSectionHeader title={item.sectionTitle} />;
+            return <ChatSectionHeader title={item.sectionTitle as keyof LocalizationStrings} />;
         }
     };
 
