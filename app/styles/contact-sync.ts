@@ -68,7 +68,7 @@ const textListTitle = {
 };
 
 // TODO add shadow
-const footerContainer: import('react-native').ViewStyle = {
+const footerContainer: ViewStyle = {
     height: vars.contactlistItemHeight,
     alignItems: 'flex-end',
     justifyContent: 'center',
