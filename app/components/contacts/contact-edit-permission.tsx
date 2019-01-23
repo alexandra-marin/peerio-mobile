@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import { action } from 'mobx';
@@ -10,12 +9,20 @@ import { vars } from '../../styles/styles';
 import Layout3 from '../layout/layout3';
 import ContactEditPermissionItem from './contact-edit-permission-item';
 import ModalHeader from '../shared/modal-header';
+import { Volume } from '../../lib/peerio-icebear/models';
 
 const INITIAL_LIST_SIZE = 10;
-const PAGE_SIZE = 2;
+// const PAGE_SIZE = 2;
 
+interface ContactEditPermissionProps {
+    title: string;
+    action: Function;
+    onExit: Function;
+    footer: JSX.Element;
+    folder: Volume;
+}
 @observer
-export default class ContactEditPermission extends SafeComponent {
+export default class ContactEditPermission extends SafeComponent<ContactEditPermissionProps> {
     @action.bound
     unshareFrom(contact) {
         // HINT: removing on layout animated listview causes side effects
@@ -63,7 +70,7 @@ export default class ContactEditPermission extends SafeComponent {
             <FlatList
                 keyExtractor={this.keyExtractor}
                 initialNumToRender={INITIAL_LIST_SIZE}
-                pageSize={PAGE_SIZE}
+                // pageSize={PAGE_SIZE}
                 data={this.props.folder.otherParticipants || []}
                 renderItem={this.item}
             />
@@ -89,10 +96,3 @@ export default class ContactEditPermission extends SafeComponent {
         );
     }
 }
-
-ContactEditPermission.propTypes = {
-    title: PropTypes.any,
-    action: PropTypes.func,
-    onExit: PropTypes.func,
-    footer: PropTypes.any
-};
