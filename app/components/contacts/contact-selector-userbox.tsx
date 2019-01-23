@@ -23,7 +23,9 @@ const textStyle = {
 };
 
 @observer
-export default class ContactSelectorUserBox extends SafeComponent<{ contact: Contact }> {
+export default class ContactSelectorUserBox extends SafeComponent<{
+    contact: Contact;
+}> {
     render() {
         const { contact } = this.props;
         return (
