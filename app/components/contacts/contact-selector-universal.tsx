@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { observable, action, reaction, computed } from 'mobx';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
-import { t, tx, tu } from '../utils/translator';
+import { t, tu, LocalizationStrings } from '../utils/translator';
 import Layout3 from '../layout/layout3';
 import Bottom from '../controls/bottom';
 import SnackBar from '../snackbars/snackbar';
@@ -22,15 +22,15 @@ import ModalHeader from '../shared/modal-header';
 import { transitionAnimation } from '../helpers/animations';
 
 interface ContactSelectorUniversalProps {
-    title?: any;
-    subTitleComponent?: any;
-    leftIconComponent?: any;
-    inputPlaceholder?: any;
+    title?: string;
+    subTitleComponent?: JSX.Element;
+    leftIconComponent?: JSX.Element;
+    inputPlaceholder?: string | LocalizationStrings;
     action: Function;
     onExit?: Function;
-    multiselect?: any;
-    footer?: any;
-    hideHeader?: any;
+    multiselect?: boolean;
+    footer?: JSX.Element;
+    hideHeader?: boolean;
 }
 
 @observer
@@ -110,7 +110,7 @@ export default class ContactSelectorUniversal extends SafeComponent<ContactSelec
         return (
             <SearchBar
                 textValue={this.findUserText}
-                placeholderText={tx(this.props.inputPlaceholder)}
+                placeholderText={this.props.inputPlaceholder}
                 onChangeText={this.onChangeFindUserText}
                 leftIcon={leftIcon}
                 rightIcon={rightIcon}

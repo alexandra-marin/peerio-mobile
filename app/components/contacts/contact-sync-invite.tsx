@@ -33,7 +33,7 @@ export default class ContactSyncInvite extends SafeComponent {
     @observable searchBarValue = '';
     @observable refresh = 0;
     @observable inProgress = false;
-    _searchTimeout: any;
+    _searchTimeout: NodeJS.Timeout;
 
     get leftIcon() {
         return <BackIcon action={() => routes.main.contacts()} />;
