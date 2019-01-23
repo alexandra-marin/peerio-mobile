@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, TextStyle, ViewStyle } from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { tx } from '../utils/translator';
@@ -18,7 +18,7 @@ const { width } = Dimensions.get('window');
 const blueArrowSrc = require('../../assets/arrow-blue.png');
 const zeroStateImage = require('../../assets/contact-zero-state.png');
 
-const container = {
+const container: ViewStyle = {
     flex: 1,
     flexGrow: 1,
     flexDirection: 'row',
@@ -30,7 +30,7 @@ const wrapper = {
     flexGrow: 1
 };
 
-const headerStyle = {
+const headerStyle: TextStyle = {
     color: vars.peerioBlue,
     fontSize: vars.font.size20,
     textAlign: 'center',
@@ -38,7 +38,7 @@ const headerStyle = {
     marginBottom: vars.isDeviceScreenBig ? vars.spacing.huge.mini2x : vars.spacing.large.maxi2x
 };
 
-const textStyle = {
+const textStyle: TextStyle = {
     fontSize: vars.font.size16,
     color: vars.textBlack87,
     textAlign: 'center',
