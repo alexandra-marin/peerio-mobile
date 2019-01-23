@@ -6,12 +6,13 @@ import { observable, action } from 'mobx';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import { contactStore } from '../../lib/icebear';
-import { t, tx } from '../utils/translator';
+import { t } from '../utils/translator';
 import Text from '../controls/custom-text';
-import whiteLabelComponents from '../../components/whitelabel/white-label-components';
+import whiteLabelComponents from '../whitelabel/white-label-components';
 import BlueRoundButton from '../buttons/blue-round-button';
+
 @observer
-export default class ContactInviteItemPrompt extends SafeComponent {
+export default class ContactInviteItemPrompt extends SafeComponent<{ email: string }> {
     @observable invited = false;
 
     @action.bound
@@ -24,7 +25,7 @@ export default class ContactInviteItemPrompt extends SafeComponent {
     renderThrow() {
         const { email } = this.props;
         const invited = this.invited || contactStore.invitedContacts.find(i => i.email === email);
-        const title = invited ? tx('title_invitedContacts') : tx('button_invite');
+        const title = invited ? 'title_invitedContacts' : 'button_invite';
         return (
             <View style={{ alignItems: 'center', flexGrow: 1 }}>
                 <View style={{ flexDirection: 'row', marginHorizontal: vars.spacing.large.midi2x }}>

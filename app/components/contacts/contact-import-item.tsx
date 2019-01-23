@@ -1,28 +1,28 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import AvatarCircle from '../shared/avatar-circle';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
+import { Contact } from '../../lib/icebear';
 
-const container = {
+const container: ViewStyle = {
     height: 56,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between'
 };
 
-const avatarContainer = {
+const avatarContainer: ViewStyle = {
     paddingLeft: vars.spacing.medium.mini2x,
     alignSelf: 'center',
     justifyContent: 'center',
     height: 56
 };
 
-const textContainer = {
+const textContainer: ViewStyle = {
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: vars.spacing.medium.mini2x
@@ -36,7 +36,7 @@ const contactInfoStyle = {
     color: vars.textBlack54
 };
 
-const checkboxStyle = {
+const checkboxStyle: ViewStyle = {
     padding: vars.spacing.small.mini2x,
     flex: 0,
     width: 56,
@@ -44,8 +44,16 @@ const checkboxStyle = {
     alignItems: 'center'
 };
 
+interface ContactImportItemProps {
+    contact: Contact;
+    phoneContactName?: string;
+    onPress: Function;
+    checked: boolean;
+    hideAvatar?: boolean;
+}
+
 @observer
-export default class ContactImportItem extends SafeComponent {
+export default class ContactImportItem extends SafeComponent<ContactImportItemProps> {
     get avatar() {
         return (
             <View style={avatarContainer}>
@@ -85,11 +93,3 @@ export default class ContactImportItem extends SafeComponent {
         );
     }
 }
-
-ContactImportItem.propTypes = {
-    contact: PropTypes.any.isRequired,
-    phoneContactName: PropTypes.any,
-    onPress: PropTypes.any,
-    checked: PropTypes.bool,
-    hideAvatar: PropTypes.any
-};
