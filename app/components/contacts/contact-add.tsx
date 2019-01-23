@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, TouchableOpacity, Share, Platform } from 'react-native';
+import { View, TouchableOpacity, Share, Platform, ViewStyle } from 'react-native';
 import { observable, reaction, action } from 'mobx';
 import ProgressOverlay from '../shared/progress-overlay';
 import SafeComponent from '../shared/safe-component';
@@ -10,19 +10,18 @@ import { contactStore, warnings, User, config } from '../../lib/icebear';
 import { tx, tu, t } from '../utils/translator';
 import uiState from '../layout/ui-state';
 import contactState from './contact-state';
-import snackbarState from '../snackbars/snackbar-state';
 import testLabel from '../helpers/test-label';
 import Text from '../controls/custom-text';
 import routes from '../routes/routes';
 import icons from '../helpers/icons';
 import BackIcon from '../layout/back-icon';
-import whiteLabelComponents from '../../components/whitelabel/white-label-components';
+import whiteLabelComponents from '../whitelabel/white-label-components';
 import ViewWithDrawer from '../shared/view-with-drawer';
 import { transitionAnimation } from '../helpers/animations';
 import fonts from '../../styles/fonts';
 import BlueButtonText from '../buttons/blue-text-button';
 
-const textinputContainer = {
+const textinputContainer: ViewStyle = {
     backgroundColor: vars.white,
     flexDirection: 'row',
     alignItems: 'center',
@@ -36,7 +35,7 @@ const textStyle = {
     color: vars.textBlack54
 };
 
-const buttonRow = {
+const buttonRow: ViewStyle = {
     paddingRight: vars.spacing.medium.maxi,
     marginBottom: vars.spacing.small.midi2x,
     flexDirection: 'row',
@@ -73,11 +72,18 @@ const labelDark = [label, { color: vars.txtDark }];
 
 @observer
 export default class ContactAdd extends SafeComponent {
+    emailAction(): any {
+        throw new Error('Method not implemented.');
+    }
     @observable waiting = false;
     @observable notFound = false;
     @observable toInvite = null;
     @observable showValidationError = false;
     @observable query = '';
+    _scrollView: any;
+    showAddEmail: any;
+    newEmailText: any;
+    newEmailTextValid: any;
 
     componentDidMount() {
         uiState.currentScrollView = this._scrollView;
@@ -126,7 +132,7 @@ export default class ContactAdd extends SafeComponent {
         this.toInvite = null;
         this.notFound = false;
         const contact = await contactStore.whitelabel.getContact(this.query, 'addcontact');
-        const { isLegacy, fullNameAndUsername: name } = contact;
+        const { fullNameAndUsername: name } = contact;
         if (contact.notFound || contact.isHidden) {
             this.notFound = true;
             const atInd = this.query.indexOf('@');
@@ -134,15 +140,11 @@ export default class ContactAdd extends SafeComponent {
             if (isEmail) {
                 transitionAnimation();
                 this.toInvite = this.inviteContactDuck(this.query);
-            } else if (!isLegacy) {
-                this.showValidationError = true;
-                transitionAnimation();
             }
-            isLegacy && snackbarState.pushTemporary(t('title_inviteLegacy'));
         } else {
             contactStore.getContactAndSave(this.query);
             this.query = '';
-            warnings.add(t('title_contactAdded', { name }));
+            warnings.add(t('title_contactAdded', { name }) as string);
         }
         this.waiting = false;
     }
@@ -155,7 +157,7 @@ export default class ContactAdd extends SafeComponent {
         });
         const title = tx('title_socialShareInvite');
         console.log(title, message);
-        Share.share({ message, title }, { subject: title });
+        Share.share({ message, title });
     }
 
     get emailButton() {
@@ -179,7 +181,7 @@ export default class ContactAdd extends SafeComponent {
         );
     }
 
-    renderButton1(text, onPress, disabled) {
+    renderButton1(text, onPress?, disabled?) {
         return (
             <TouchableOpacity
                 {...testLabel(text)}
@@ -219,7 +221,7 @@ export default class ContactAdd extends SafeComponent {
         const mockContact = this.toInvite || {};
         const { email, invited } = mockContact;
         if (!email) return null;
-        const inviteBlockStyle = {
+        const inviteBlockStyle: ViewStyle = {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexDirection: 'row',
