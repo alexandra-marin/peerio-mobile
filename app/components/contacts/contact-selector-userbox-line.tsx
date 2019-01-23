@@ -6,11 +6,15 @@ import ContactSelectorUserBox from './contact-selector-userbox';
 import SafeComponent from '../shared/safe-component';
 import { Contact } from '../../lib/icebear';
 
-@observer
-export default class ContactSelectorUserBoxLine extends SafeComponent<{
+interface ContactSelectorUserBoxLineProps {
     contacts: Contact[];
     onPress: Function;
-}> {
+}
+
+@observer
+export default class ContactSelectorUserBoxLine extends SafeComponent<
+    ContactSelectorUserBoxLineProps
+> {
     render() {
         const container: ViewStyle = {
             flexGrow: 1,
