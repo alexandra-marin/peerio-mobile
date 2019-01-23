@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { observable } from 'mobx';
 import SafeComponent from '../shared/safe-component';
-import { contactStore } from '../../lib/icebear';
-import { tx } from '../utils/translator';
+import { contactStore, Contact } from '../../lib/icebear';
 import ContactCard from '../shared/contact-card';
 import BlueButtonText from '../buttons/blue-text-button';
+import { InvitedContact } from 'peerio-icebear/src/defs/interfaces';
 
-const containerStyle = {
+const containerStyle: ViewStyle = {
     flexDirection: 'row',
     alignItems: 'center'
 };
@@ -20,20 +19,28 @@ const avatarComponentStyle = {
     flexShrink: 1
 };
 
+interface ContactInviteItemProps {
+    contact: InvitedContact | Contact;
+    backgroundColor?: string;
+}
+
 @observer
-export default class ContactInviteItem extends SafeComponent {
+export default class ContactInviteItem extends SafeComponent<ContactInviteItemProps> {
     @observable invited = false;
+    static fromEmail = email => {
+        return observable({ fullName: email, username: '', invited: null, email });
+    };
 
     invite() {
         const { contact } = this.props;
         this.invited = true;
-        contactStore.invite(contact.email);
+        contactStore.invite((contact as InvitedContact).email);
     }
 
     renderThrow() {
         const { contact } = this.props;
-        const invited = this.invited || contact.invited;
-        const title = invited ? tx('title_invitedContacts') : tx('button_invite');
+        const invited = this.invited;
+        const title = invited ? 'title_invitedContacts' : 'button_invite';
         return (
             <View style={containerStyle}>
                 <View style={avatarComponentStyle}>
@@ -52,11 +59,3 @@ export default class ContactInviteItem extends SafeComponent {
         );
     }
 }
-
-ContactInviteItem.fromEmail = email => {
-    return observable({ fullName: email, username: '', invited: null, email });
-};
-
-ContactInviteItem.propTypes = {
-    contact: PropTypes.any.isRequired
-};
