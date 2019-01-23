@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { observer } from 'mobx-react/native';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
+import SafeComponent from '../shared/safe-component';
+import { Contact } from '../../lib/icebear';
 
-const style = {
+const style: ViewStyle = {
     backgroundColor: vars.peerioBlue,
     borderRadius: 16,
     flexDirection: 'row',
@@ -21,7 +23,7 @@ const textStyle = {
 };
 
 @observer
-export default class ContactSelectorUserBox extends Component {
+export default class ContactSelectorUserBox extends SafeComponent<{ contact: Contact }> {
     render() {
         const { contact } = this.props;
         return (
