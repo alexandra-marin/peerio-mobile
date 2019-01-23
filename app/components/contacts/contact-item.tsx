@@ -1,12 +1,16 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
 import contactState from './contact-state';
 import ContactCard from '../shared/contact-card';
+import { Contact } from '../../lib/icebear';
 
+interface ContactItemProps {
+    contact: Contact;
+    onPress: Function;
+}
 @observer
-export default class ContactItem extends SafeComponent {
+export default class ContactItem extends SafeComponent<ContactItemProps> {
     onPress = () => {
         const { contact, onPress } = this.props;
         if (onPress) return this.props.onPress();
@@ -28,7 +32,3 @@ export default class ContactItem extends SafeComponent {
         );
     }
 }
-
-ContactItem.propTypes = {
-    contact: PropTypes.any.isRequired
-};
