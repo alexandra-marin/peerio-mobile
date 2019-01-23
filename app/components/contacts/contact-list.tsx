@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { observer } from 'mobx-react/native';
 import { View } from 'react-native';
 import { computed } from 'mobx';
@@ -15,6 +14,8 @@ import { tx } from '../utils/translator';
 import SectionListWithDrawer from '../shared/section-list-with-drawer';
 import ListSeparator from '../shared/list-separator';
 import zeroStateBeacons from '../beacons/zerostate-beacons';
+import { InvitedContact } from '../../lib/peerio-icebear/defs/interfaces';
+import { Contact } from '../../lib/icebear';
 
 const INITIAL_LIST_SIZE = 20;
 
@@ -28,16 +29,18 @@ export default class ContactList extends SafeComponent {
         return <ContactItem contact={item} />;
     }
 
-    header({ section: /* data, */ { key } }) {
+    header({ section: { key } }) {
         return <ContactSectionHeader key={key} title={key} />;
     }
 
     @computed
     get sections() {
         const { addedContacts, invitedNotJoinedContacts, uiView, contacts } = contactState.store;
-        const sections = uiView.map(({ letter, items }) => {
-            return { data: items, key: letter };
-        });
+        const sections: { data: (Contact | InvitedContact)[]; key: string }[] = uiView.map(
+            ({ letter, items }) => {
+                return { data: items, key: letter };
+            }
+        );
         sections.unshift({ data: [], key: `All (${contacts.length})` });
         sections.unshift({
             data: addedContacts,
@@ -76,19 +79,15 @@ export default class ContactList extends SafeComponent {
     get contactListComponent() {
         return !contactState.empty
             ? this.listView()
-            : !contactState.store.loading && <ContactZeroState />;
+            : !contactState.loading && <ContactZeroState />;
     }
 
     renderThrow() {
         return (
             <View style={{ flex: 1, flexGrow: 1, backgroundColor: vars.lightGrayBg }}>
                 <View style={{ flex: 1, flexGrow: 1 }}>{this.contactListComponent}</View>
-                <ProgressOverlay enabled={contactState.store.loading} />
+                <ProgressOverlay enabled={contactState.loading} />
             </View>
         );
     }
 }
-
-ContactList.propTypes = {
-    store: PropTypes.any
-};

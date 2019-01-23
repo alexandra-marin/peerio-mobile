@@ -7,7 +7,7 @@ import { Contact } from '../../lib/icebear';
 
 interface ContactItemProps {
     contact: Contact;
-    onPress: Function;
+    onPress?: Function;
 }
 @observer
 export default class ContactItem extends SafeComponent<ContactItemProps> {
