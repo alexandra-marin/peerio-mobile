@@ -10,7 +10,6 @@ import Layout3 from '../layout/layout3';
 import Bottom from '../controls/bottom';
 import SnackBar from '../snackbars/snackbar';
 import ContactInviteItemPrompt from './contact-invite-item-prompt';
-import ContactLegacyItem from './contact-legacy-item';
 import icons from '../helpers/icons';
 import { vars } from '../../styles/styles';
 import contactState from './contact-state';
@@ -234,7 +233,6 @@ export default class ContactSelectorUniversal extends SafeComponent {
                 <View style={containerStyle}>
                     {notFound}
                     {this.inviteContact}
-                    {!!this.legacyContact && <ContactLegacyItem contact={this.legacyContact} />}
                     <ContactSelectorSectionList
                         dataSource={this.dataSource}
                         onPress={this.onContactPress}
