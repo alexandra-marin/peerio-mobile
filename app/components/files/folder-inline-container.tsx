@@ -3,7 +3,7 @@ import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { action } from 'mobx';
 import { fileStore, User } from '../../lib/icebear';
-import { FileFolder, Volume } from '../../lib/peerio-icebear/models';
+import { FileFolder, Volume, Chat } from '../../lib/peerio-icebear/models';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
@@ -38,13 +38,14 @@ const infoStyle = {
 };
 
 export interface FolderInlineContainerProps {
-    file: object;
-    folderId: string;
+    file?: object;
+    folderId?: string;
     // onLayout
-    extraActionIcon: string;
+    extraActionIcon?: string;
     // onAction
-    isImage: boolean;
-    isOpen: boolean;
+    isImage?: boolean;
+    isOpen?: boolean;
+    chat?: Chat;
 }
 
 @observer

@@ -1,14 +1,23 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
 import testLabel from '../helpers/test-label';
 
+interface CheckBoxProps {
+    text: any;
+    isChecked: boolean;
+    onChange: any;
+    alignLeft: boolean;
+    state;
+    accessibilityLabel;
+    property;
+}
+
 @observer
-export default class CheckBox extends Component {
+export default class CheckBox extends Component<CheckBoxProps> {
     get isChecked() {
         if (!this.props.state) {
             console.error('must specify the state to use checkbox');
@@ -29,7 +38,7 @@ export default class CheckBox extends Component {
         const { isChecked } = this;
         const borderColor = isChecked ? vars.peerioBlue : 'gray';
         const backgroundColor = isChecked ? vars.peerioBlueBackground15 : undefined;
-        const container = {
+        const container: ViewStyle = {
             flexDirection: 'row',
             flexGrow: 1,
             flex: 1,
@@ -74,10 +83,3 @@ export default class CheckBox extends Component {
         );
     }
 }
-
-CheckBox.propTypes = {
-    text: PropTypes.any,
-    isChecked: PropTypes.bool,
-    onChange: PropTypes.any,
-    alignLeft: PropTypes.bool
-};

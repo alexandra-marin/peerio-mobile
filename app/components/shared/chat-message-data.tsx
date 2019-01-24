@@ -1,12 +1,11 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle, TextStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
 
-const containerStyle = {
+const containerStyle: ViewStyle = {
     marginRight: 8,
     borderWidth: 0,
     borderColor: 'yellow',
@@ -23,7 +22,7 @@ const fullnameTextStyle = {
     fontSize: vars.font.size14
 };
 
-const usernameTextStyle = {
+const usernameTextStyle: TextStyle = {
     color: vars.txtMedium,
     fontSize: vars.font.size14,
     fontWeight: 'normal'
@@ -35,8 +34,12 @@ const dateTextStyle = {
     marginLeft: vars.spacing.small.midi2x
 };
 
+interface ChatMessageDataProps {
+    message: any;
+}
+
 @observer
-export default class ChatMessageData extends SafeComponent {
+export default class ChatMessageData extends SafeComponent<ChatMessageDataProps> {
     renderThrow() {
         const { sender, messageTimestampText } = this.props.message;
         return (
@@ -55,7 +58,3 @@ export default class ChatMessageData extends SafeComponent {
         );
     }
 }
-
-ChatMessageData.propTypes = {
-    message: PropTypes.any
-};

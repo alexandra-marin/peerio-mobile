@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import ChatMessageFolders from './chat-message-folders';
 import ChatMessageFiles from './chat-message-files';
 import ChatMessageInlineImages from './chat-message-inline-images';
@@ -11,8 +10,17 @@ import ChatMessageText from './chat-message-text';
 import ChatMessageSendError from './chat-message-error';
 import ChatMessageInlineUrls from './chat-message-inline-urls';
 
+interface ChatMessageBodyProps {
+    messageObject: any;
+    chat: any;
+    onFileAction: any;
+    onLegacyFileAction: any;
+    onInlineImageAction: any;
+    isClosed?;
+}
+
 @observer
-export default class ChatMessageBody extends SafeComponent {
+export default class ChatMessageBody extends SafeComponent<ChatMessageBodyProps> {
     renderThrow() {
         const {
             messageObject,
@@ -47,11 +55,3 @@ export default class ChatMessageBody extends SafeComponent {
         );
     }
 }
-
-ChatMessageBody.propTypes = {
-    messageObject: PropTypes.any,
-    chat: PropTypes.any,
-    onFileAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any,
-    onInlineImageAction: PropTypes.any
-};

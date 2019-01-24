@@ -1,17 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { action } from 'mobx';
 import { View, TouchableOpacity } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import DateSeparator from './date-separator';
 import ChatMessageCollapsed from './chat-message-collapsed';
 import ChatMessageFull from './chat-message-full';
 import { chatState } from '../states';
 
+interface ChatMessageContainerProps {
+    messageObject: any;
+    chat: any;
+    onFileAction: any;
+    onLegacyFileAction: any;
+    onInlineImageAction: any;
+    backgroundColor: any;
+}
+
 @observer
-export default class ChatMessageContainer extends SafeComponent {
+export default class ChatMessageContainer extends SafeComponent<ChatMessageContainerProps> {
     get errorStyle() {
         return this.props.messageObject.sendError
             ? {
@@ -97,12 +105,3 @@ export default class ChatMessageContainer extends SafeComponent {
         );
     }
 }
-
-ChatMessageContainer.propTypes = {
-    messageObject: PropTypes.any,
-    chat: PropTypes.any,
-    onFileAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any,
-    onInlineImageAction: PropTypes.any,
-    backgroundColor: PropTypes.any
-};

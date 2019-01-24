@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 
+interface CorruptedMessageProps {
+    visible: boolean;
+}
+
 @observer
-export default class CorruptedMessage extends SafeComponent {
+export default class CorruptedMessage extends SafeComponent<CorruptedMessageProps> {
     renderThrow() {
         if (!this.props.visible) return null;
         return (
@@ -17,7 +20,3 @@ export default class CorruptedMessage extends SafeComponent {
         );
     }
 }
-
-CorruptedMessage.propTypes = {
-    visible: PropTypes.bool
-};

@@ -1,13 +1,19 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import FileInlineProgress from '../files/file-inline-progress';
 import fileState from '../files/file-state';
 
+interface ChatMessageFilesProps {
+    message: any;
+    chat: any;
+    onFileAction: any;
+    onLegacyFileAction: any;
+}
+
 @observer
-export default class ChatMessageFiles extends SafeComponent {
+export default class ChatMessageFiles extends SafeComponent<ChatMessageFilesProps> {
     get files() {
         const { message, chat } = this.props;
 
@@ -41,10 +47,3 @@ export default class ChatMessageFiles extends SafeComponent {
         return <View>{this.renderFiles}</View>;
     }
 }
-
-ChatMessageFiles.propTypes = {
-    message: PropTypes.any,
-    chat: PropTypes.any,
-    onFileAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any
-};

@@ -1,15 +1,22 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { computed } from 'mobx';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import FileInlineImage from '../files/file-inline-image';
 import fileState from '../files/file-state';
 import InlineUrlContainer from '../messaging/inline-url-container';
 
+interface ChatMessageInlineImagesProps {
+    message: any;
+    chat: any;
+    onInlineImageAction: any;
+    onLegacyFileAction: any;
+    isClosed;
+}
+
 @observer
-export default class ChatMessageInlineImages extends SafeComponent {
+export default class ChatMessageInlineImages extends SafeComponent<ChatMessageInlineImagesProps> {
     @computed
     get images() {
         const { message, chat } = this.props;
@@ -56,10 +63,3 @@ export default class ChatMessageInlineImages extends SafeComponent {
         return <View>{this.renderImages}</View>;
     }
 }
-
-ChatMessageInlineImages.propTypes = {
-    message: PropTypes.any,
-    chat: PropTypes.any,
-    onInlineImageAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any
-};

@@ -1,11 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import SafeComponent from './safe-component';
 import InlineUrlContainer from '../messaging/inline-url-container';
 
+interface ChatMessageInlineUrlsProps {
+    message: any;
+    isClosed;
+}
+
 @observer
-export default class ChatMessageInlineUrls extends SafeComponent {
+export default class ChatMessageInlineUrls extends SafeComponent<ChatMessageInlineUrlsProps> {
     renderThrow() {
         const { message } = this.props;
         const { externalWebsites } = message;
@@ -22,7 +26,3 @@ export default class ChatMessageInlineUrls extends SafeComponent {
         });
     }
 }
-
-ChatMessageInlineUrls.propTypes = {
-    message: PropTypes.any
-};

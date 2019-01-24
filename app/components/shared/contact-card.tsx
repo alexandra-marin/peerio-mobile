@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, TouchableOpacity } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import AvatarCircle from './avatar-circle';
 import DeletedCircle from './deleted-circle';
 import testLabel from '../helpers/test-label';
 import ContactNameInfo from './contact-name-info';
 
-const itemStyle = {
+const itemStyle: ViewStyle = {
     flex: 1,
     flexGrow: 1,
     flexDirection: 'row',
@@ -17,7 +16,7 @@ const itemStyle = {
     backgroundColor: 'white'
 };
 
-const itemContainerStyle = {
+const itemContainerStyle: ViewStyle = {
     flex: 1,
     flexGrow: 1,
     flexShrink: 1,
@@ -29,7 +28,7 @@ const itemContainerStyle = {
     paddingRight: vars.spacing.medium.mini2x
 };
 
-const titleStyle = {
+const titleStyle: ViewStyle = {
     flex: 1,
     flexGrow: 1,
     flexShrink: 1,
@@ -42,7 +41,7 @@ const titleStyle = {
     paddingTop: 0
 };
 
-const avatarStyle = {
+const avatarStyle: ViewStyle = {
     alignSelf: 'center',
     justifyContent: 'center',
     borderColor: 'red',
@@ -50,8 +49,18 @@ const avatarStyle = {
     height: vars.listItemHeight
 };
 
+interface ContactCardProps {
+    backgroundColor?: any;
+    contact?: any;
+    invited?: any;
+    onPress?: any;
+    faded?: boolean;
+    disableTapping?;
+    loading?;
+}
+
 @observer
-export default class ContactCard extends SafeComponent {
+export default class ContactCard extends SafeComponent<ContactCardProps> {
     get backgroundColor() {
         return {
             backgroundColor: this.props.backgroundColor || vars.white
@@ -102,11 +111,3 @@ export default class ContactCard extends SafeComponent {
         );
     }
 }
-
-ContactCard.propTypes = {
-    backgroundColor: PropTypes.any,
-    contact: PropTypes.any,
-    invited: PropTypes.any,
-    onPress: PropTypes.any,
-    faded: PropTypes.bool
-};

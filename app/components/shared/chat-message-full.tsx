@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, Dimensions } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import { View, Dimensions, ViewStyle } from 'react-native';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import CorruptedMessage from './corrupted-message';
 import ChatMessageData from './chat-message-data';
@@ -21,14 +20,14 @@ const itemStyle = {
     marginTop: 8
 };
 
-const itemContainerStyle = {
+const itemContainerStyle: ViewStyle = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: vars.spacing.medium.mini2x
 };
 
-const nameMessageContainerStyle = {
+const nameMessageContainerStyle: ViewStyle = {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -43,15 +42,26 @@ const msgStyle = {
     borderWidth: 0
 };
 
-const flexRow = {
+const flexRow: ViewStyle = {
     flexDirection: 'row',
     flex: 1,
     flexGrow: 1,
     flexShrink: 1
 };
 
+interface ChatMessageFullProps {
+    messageObject: any;
+    chat: any;
+    onFileAction: any;
+    onLegacyFileAction: any;
+    onInlineImageAction: any;
+    backgroundColor: any;
+    errorStyle: any;
+    onPressReceipt;
+}
+
 @observer
-export default class ChatMessageFull extends SafeComponent {
+export default class ChatMessageFull extends SafeComponent<ChatMessageFullProps> {
     renderThrow() {
         const {
             errorStyle,
@@ -93,13 +103,3 @@ export default class ChatMessageFull extends SafeComponent {
         );
     }
 }
-
-ChatMessageFull.propTypes = {
-    messageObject: PropTypes.any,
-    chat: PropTypes.any,
-    onFileAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any,
-    onInlineImageAction: PropTypes.any,
-    backgroundColor: PropTypes.any,
-    errorStyle: PropTypes.any
-};

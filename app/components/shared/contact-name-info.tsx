@@ -1,13 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
 import { tx } from '../utils/translator';
 
-const containerStyle = {
+const containerStyle: ViewStyle = {
     justifyContent: 'center'
 };
 
@@ -21,12 +20,16 @@ const subtitleStyle = {
     color: vars.textBlack38
 };
 
+interface ContactNameInfoProps {
+    contact: any;
+}
+
 @observer
-export default class ContactNameInfo extends SafeComponent {
+export default class ContactNameInfo extends SafeComponent<ContactNameInfoProps> {
     renderThrow() {
         const { contact } = this.props;
         const title = contact.fullName || contact.email;
-        const subTitle = contact.username || tx('invited');
+        const subTitle = contact.username || tx('title_invited');
         return (
             <View style={containerStyle}>
                 <Text style={titleStyle} numberOfLines={1} ellipsizeMode="tail">
@@ -39,7 +42,3 @@ export default class ContactNameInfo extends SafeComponent {
         );
     }
 }
-
-ContactNameInfo.propTypes = {
-    contact: PropTypes.any
-};

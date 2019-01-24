@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import tagify from './tagify';
 import { User } from '../../lib/icebear';
 import Text from '../controls/custom-text';
@@ -42,8 +41,14 @@ function renderRichText(richText) {
     );
 }
 
+interface ChatMessageTextProps {
+    message?: any;
+    plainText;
+    richText;
+}
+
 @observer
-export default class ChatMessageText extends SafeComponent {
+export default class ChatMessageText extends SafeComponent<ChatMessageTextProps> {
     renderThrow() {
         const { plainText, richText } = this.props;
         if (!plainText && !richText) return null;
@@ -65,7 +70,3 @@ export default class ChatMessageText extends SafeComponent {
         return renderPlainText(plainText);
     }
 }
-
-ChatMessageText.propTypes = {
-    message: PropTypes.any
-};

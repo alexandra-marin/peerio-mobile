@@ -51,7 +51,7 @@ const icons = {
         return icons.plain(name, size, vars.red, null, style);
     },
 
-    plainWhite(name, size) {
+    plainWhite(name, size?) {
         return icons.plain(name, size, vars.whiteIcon);
     },
 

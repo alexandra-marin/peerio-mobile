@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import { View, ViewStyle } from 'react-native';
+import SafeComponent from './safe-component';
 import CorruptedMessage from './corrupted-message';
 import ViewReceipts from './view-receipts';
 import ChatMessageBody from './chat-message-body';
@@ -22,8 +21,19 @@ const itemContainerStyle = {
     marginRight: 6
 };
 
+interface ChatMessageCollapsedProps {
+    messageObject: any;
+    chat: any;
+    onFileAction: any;
+    onLegacyFileAction: any;
+    onInlineImageAction: any;
+    backgroundColor: any;
+    errorStyle: any;
+    onPressReceipt;
+}
+
 @observer
-export default class ChatMessageCollapsed extends SafeComponent {
+export default class ChatMessageCollapsed extends SafeComponent<ChatMessageCollapsedProps> {
     renderThrow() {
         const {
             errorStyle,
@@ -37,7 +47,7 @@ export default class ChatMessageCollapsed extends SafeComponent {
         } = this.props;
 
         const { files, folders } = messageObject;
-        const shrinkStrategy = { flexShrink: 1 };
+        const shrinkStrategy: ViewStyle = { flexShrink: 1 };
         if (files || folders) shrinkStrategy.flexGrow = 1;
 
         return (
@@ -61,13 +71,3 @@ export default class ChatMessageCollapsed extends SafeComponent {
         );
     }
 }
-
-ChatMessageCollapsed.propTypes = {
-    messageObject: PropTypes.any,
-    chat: PropTypes.any,
-    onFileAction: PropTypes.any,
-    onLegacyFileAction: PropTypes.any,
-    onInlineImageAction: PropTypes.any,
-    backgroundColor: PropTypes.any,
-    errorStyle: PropTypes.any
-};

@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react/native';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { vars } from '../../styles/styles';
 import testLabel from '../helpers/test-label';
 
+interface CommonHeaderProps {
+    outerStyle;
+    testID;
+    titleComponent;
+    leftIcon;
+    rightIcon;
+    unique;
+}
+
 @observer
-export default class CommonHeader extends Component {
+export default class CommonHeader extends Component<CommonHeaderProps> {
     render() {
         const bgContainerStyle = [
             {
@@ -14,7 +23,7 @@ export default class CommonHeader extends Component {
             this.props.outerStyle
         ];
 
-        const containerStyle = {
+        const containerStyle: ViewStyle = {
             flexDirection: 'row',
             alignItems: 'center',
             minHeight: vars.headerHeight
