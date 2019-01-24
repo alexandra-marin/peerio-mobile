@@ -1,21 +1,25 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, Image } from 'react-native';
+import { View, Image, ImageStyle } from 'react-native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { contactStore } from '../../lib/icebear';
 import { vars } from '../../styles/styles';
 
+interface ReadReceiptProps {
+    username: string;
+    avatarSize: number;
+}
+
 @observer
-export default class ReadReceipt extends SafeComponent {
+export default class ReadReceipt extends SafeComponent<ReadReceiptProps> {
     renderThrow() {
         const { avatarSize } = this.props;
         const contact = contactStore.getContact(this.props.username);
         const { color, letter, mediumAvatarUrl } = contact;
-        const tryColor = color || {};
+        const tryColor = color || { value: null };
         const circleDiameter = avatarSize || 18;
-        const circleStyle = {
+        const circleStyle: ImageStyle = {
             width: circleDiameter,
             height: circleDiameter,
             borderRadius: circleDiameter / 2,
@@ -39,8 +43,3 @@ export default class ReadReceipt extends SafeComponent {
         return mediumAvatarUrl ? avatarView : letterView;
     }
 }
-
-ReadReceipt.propTypes = {
-    username: PropTypes.string,
-    avatarSize: PropTypes.number
-};

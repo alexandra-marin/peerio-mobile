@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Dimensions } from 'react-native';
+import { View, Dimensions, ViewStyle } from 'react-native';
 import { when, observable } from 'mobx';
 import { observer } from 'mobx-react/native';
 import { config, overrideServer, socket } from '../../lib/icebear';
@@ -16,7 +16,7 @@ import fonts from '../../styles/fonts';
 
 const { height } = Dimensions.get('window');
 
-const container = {
+const container: ViewStyle = {
     backgroundColor: vars.darkBlueBackground15,
     position: 'absolute',
     left: 0,
@@ -29,11 +29,10 @@ const debugContainer = {
     paddingHorizontal: vars.spacing.medium.maxi2x,
     marginVertical: vars.spacing.small.maxi2x
 };
-const buttonContainer = {
+const buttonContainer: ViewStyle = {
     flexDirection: 'row',
     flexGrow: 1,
-    justifyContent: 'space-between',
-    paddingHorizontal: vars.loginWizard_debugMenu_paddingH
+    justifyContent: 'space-between'
 };
 const button = {
     height: 36,

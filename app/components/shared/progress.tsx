@@ -1,13 +1,18 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { observable, action } from 'mobx';
 import { View } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 
+interface ProgressProps {
+    value: any;
+    max: any;
+    hidden: any;
+}
+
 @observer
-export default class Progress extends SafeComponent {
+export default class Progress extends SafeComponent<ProgressProps> {
     @observable width = 0;
 
     get currentWidth() {
@@ -23,7 +28,6 @@ export default class Progress extends SafeComponent {
     }
 
     renderThrow() {
-        if (this.hidden) return null;
         const { value, max } = this.props;
         if (!max) return null;
         if (value >= max) return null;
@@ -33,7 +37,7 @@ export default class Progress extends SafeComponent {
             marginTop: -height,
             height,
             backgroundColor: vars.progressBarBackground,
-            opacity: this.hidden ? 0 : 1
+            opacity: 1
         };
         const pbProgress = {
             height,
@@ -50,9 +54,3 @@ export default class Progress extends SafeComponent {
         );
     }
 }
-
-Progress.propTypes = {
-    value: PropTypes.any,
-    max: PropTypes.any,
-    hidden: PropTypes.any
-};

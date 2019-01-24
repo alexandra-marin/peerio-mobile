@@ -79,5 +79,5 @@ class DrawerState {
 }
 
 const drawerState = new DrawerState();
-global.drawerState = drawerState;
+// global.drawerState = drawerState;
 export default drawerState;

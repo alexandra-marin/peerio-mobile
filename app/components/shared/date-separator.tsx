@@ -1,13 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import SafeComponent from '../shared/safe-component';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
 import { tx } from '../utils/translator';
 
-const conatinerStyle = {
+const conatinerStyle: ViewStyle = {
     flex: 1,
     flexGrow: 1,
     flexDirection: 'row',
@@ -29,8 +28,13 @@ const separator = {
     height: 11
 };
 
+interface DateSeparatorProps {
+    visible: boolean;
+    timestamp: any;
+}
+
 @observer
-export default class DateSeparator extends SafeComponent {
+export default class DateSeparator extends SafeComponent<DateSeparatorProps> {
     get date() {
         const { timestamp } = this.props;
 
@@ -56,8 +60,3 @@ export default class DateSeparator extends SafeComponent {
         );
     }
 }
-
-DateSeparator.propTypes = {
-    visible: PropTypes.bool,
-    timestamp: PropTypes.any
-};

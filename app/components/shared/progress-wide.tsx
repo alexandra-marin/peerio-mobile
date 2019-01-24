@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { observable, action } from 'mobx';
-import { View, TouchableOpacity, Platform } from 'react-native';
+import { View, TouchableOpacity, Platform, TextStyle, ViewStyle } from 'react-native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
 import FileTypeIcon from '../files/file-type-icon';
-import Thumbnail from '../shared/thumbnail';
+import Thumbnail from './thumbnail';
 import { fileHelpers } from '../../lib/icebear';
 import { transitionAnimation } from '../helpers/animations';
 
@@ -32,7 +31,7 @@ const pbProgress = {
     borderWidth: 0,
     borderColor: 'red'
 };
-const row = {
+const row: ViewStyle = {
     // minus overlapping border
     height: innerHeight - 2,
     left: 0,
@@ -48,24 +47,35 @@ const titleText = {
     marginLeft: 16,
     flexShrink: 1
 };
-const percentText = {
+const percentText: TextStyle = {
     backgroundColor: 'transparent',
     color: vars.extraSubtleText,
     fontStyle: 'italic',
     width: 44,
     marginLeft: 4
 };
-const iconStyle = {
+const iconStyle: ViewStyle = {
     position: 'absolute',
     top: 6,
     bottom: 0,
     right: 0
 };
 
+interface ProgressProps {
+    value: any;
+    max: any;
+    hidden: any;
+    title: any;
+    onCancel;
+    path;
+    file;
+}
+
 @observer
-export default class Progress extends SafeComponent {
+export default class Progress extends SafeComponent<ProgressProps> {
     @observable width = 0;
     @observable visible = false;
+    hidden: any;
 
     get currentWidth() {
         const { value, max } = this.props;
@@ -145,6 +155,9 @@ export default class Progress extends SafeComponent {
             </View>
         );
     }
+    plus(): React.ReactNode {
+        throw new Error('Method not implemented.');
+    }
 
     renderFolderProgress() {
         const { value, max } = this.props;
@@ -177,10 +190,3 @@ export default class Progress extends SafeComponent {
         return this.renderFileProgress();
     }
 }
-
-Progress.propTypes = {
-    value: PropTypes.any,
-    max: PropTypes.any,
-    hidden: PropTypes.any,
-    title: PropTypes.any
-};
