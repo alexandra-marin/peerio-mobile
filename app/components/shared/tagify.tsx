@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linking } from 'react-native';
+import { Linking, TextStyle } from 'react-native';
 import * as linkify from 'linkifyjs';
 import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
@@ -13,7 +13,7 @@ export default (m, username) => {
         });
     }; */
 
-    const tagifyExact = (t, r, s, n) => {
+    const tagifyExact = (t, r, s, n?) => {
         const items = t.split(new RegExp(`${r}`));
         const result = [];
         for (let i = 0; i < items.length; ++i) {
@@ -42,7 +42,7 @@ export default (m, username) => {
             : null;
         const str = token.toString();
         const t = token.isLink ? str : tagifyUsername(str);
-        const s = token.isLink
+        const s: TextStyle = token.isLink
             ? {
                   textDecorationLine: 'underline',
                   color: vars.peerioBlue

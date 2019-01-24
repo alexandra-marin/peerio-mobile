@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+import React from 'react';
+import { View, Image, ViewStyle } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { observable, when, action, reaction } from 'mobx';
 import ImagePicker from 'react-native-image-crop-picker';
 import { vars } from '../../styles/styles';
+import SafeComponent from './safe-component';
 
 const imagePreviewStyle = {
     borderRadius: 2
 };
 
+interface ThumbnailProps {
+    path: string;
+    style: ViewStyle;
+}
+
 @observer
-export default class Thumbnail extends Component {
+export default class Thumbnail extends SafeComponent<ThumbnailProps> {
     // width of the container in which image or file type icon is shown
     @observable previewContainerWidth;
     // height of the container in which image or file type icon is shown
@@ -47,7 +53,7 @@ export default class Thumbnail extends Component {
         );
         console.log(`file-share-preview: trying to make thumbnail for ${path}`);
         try {
-            const { width, height } = await ImagePicker.getImageDimensions(path);
+            const { width, height } = await (ImagePicker as any).getImageDimensions(path);
             console.log(`file-share-preview: got width ${width} and height ${height}`);
             Object.assign(this, { width, height });
         } catch (e) {
