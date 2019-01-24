@@ -60,9 +60,7 @@ export default class NoticeOfClosure extends SafeComponent {
         return (
             <ScrollView style={container}>
                 {this.zeroStateIllustration}
-                <View style={closeIconContainer}>
-                    {icons.dark('close', this.dismiss)}
-                </View>
+                <View style={closeIconContainer}>{icons.dark('close', this.dismiss)}</View>
                 <Text semibold serif style={headerStyle}>
                     Peerio will be closing
                 </Text>
