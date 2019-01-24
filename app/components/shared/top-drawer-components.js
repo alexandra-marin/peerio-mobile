@@ -198,7 +198,7 @@ class TopDrawerPeerioClosure extends SafeComponent {
         return (
             <TopDrawer
                 {...this.props}
-                heading="Service Outage"
+                heading="Announcement"
                 image={icons.imageIcon(
                     require('../../assets/icons/info-icon-red.png'),
                     vars.iconSizeMedium2x
