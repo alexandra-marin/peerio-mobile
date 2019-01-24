@@ -44,7 +44,8 @@ export default class NoticeOfClosure extends SafeComponent {
         );
     }
 
-    @action.bound dismiss() {
+    @action.bound
+    dismiss() {
         routes.modal.discard();
     }
 
@@ -56,14 +57,24 @@ export default class NoticeOfClosure extends SafeComponent {
                     Peerio will be closing
                 </Text>
                 <Text style={descriptionTextStyle}>
-                    The Peerio service will be shut down on July 15th, 2019.   
+                    The Peerio service will be shut down on July 15th, 2019.
                 </Text>
                 <Text style={descriptionTextStyle}>
-                    You will be able to use Peerio as usual until then. We strongly recommend you begin tranisitioning your files and important information out of Peerio. 
+                    You will be able to use Peerio as usual until then. We strongly recommend you
+                    begin tranisitioning your files and important information out of Peerio.
                 </Text>
                 <Text style={descriptionTextStyle}>
                     We want to offer a sincere thank you for your trust and support.&nbsp;
-                    <Text style={[descriptionTextStyle, { color: vars.linkColor, textDecorationLine: 'underline' }]} onPress={() => Linking.openURL('https://support.peerio.com/hc/en-us/articles/360021688172')}>
+                    <Text
+                        style={[
+                            descriptionTextStyle,
+                            { color: vars.linkColor, textDecorationLine: 'underline' }
+                        ]}
+                        onPress={() =>
+                            Linking.openURL(
+                                'https://support.peerio.com/hc/en-us/articles/360021688172'
+                            )
+                        }>
                         Learn More.
                     </Text>
                 </Text>

@@ -204,7 +204,7 @@ class TopDrawerPeerioClosure extends SafeComponent {
                     vars.iconSizeMedium2x
                 )}
                 descriptionLine1="The Peerio service will be shut down on July 15th, 2019."
-                buttonText="Learn more"
+                buttonText="Read More"
                 buttonAction={() => Linking.openURL(url)}
             />
         );
