@@ -1,14 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import { View, ViewStyle, TextStyle } from 'react-native';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import ReadReceipt from './read-receipt';
 import { tx } from '../utils/translator';
 import Text from '../controls/custom-text';
 
-const rowContainer = {
+const rowContainer: ViewStyle = {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -19,7 +18,7 @@ const readReceiptStyle = {
     marginLeft: -8,
     zIndex: 1
 };
-const numberSharedWithContainer = {
+const numberSharedWithContainer: ViewStyle = {
     justifyContent: 'center',
     height: 20,
     backgroundColor: vars.sharedWithNumberBackground,
@@ -28,14 +27,19 @@ const numberSharedWithContainer = {
     paddingRight: 8,
     zIndex: 0
 };
-const numberSharedWithText = {
+const numberSharedWithText: TextStyle = {
     fontSize: vars.font.size12,
     color: vars.sharedWithNumberFontColor,
     textAlign: 'right'
 };
 
+interface SharedWithRowProps {
+    contacts: any;
+    rooms: any;
+}
+
 @observer
-export default class SharedWithRow extends SafeComponent {
+export default class SharedWithRow extends SafeComponent<SharedWithRowProps> {
     renderThrow() {
         const { contacts, rooms } = this.props;
         if (!contacts.length && !rooms.length) return null;
@@ -125,9 +129,3 @@ export default class SharedWithRow extends SafeComponent {
         );
     }
 }
-
-// Having props be required is better than bloating code with conditions to check for null
-SharedWithRow.propTypes = {
-    contacts: PropTypes.any.isRequired,
-    rooms: PropTypes.any.isRequired
-};

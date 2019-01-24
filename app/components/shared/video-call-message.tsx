@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { action } from 'mobx';
-import { View, TouchableOpacity, Linking } from 'react-native';
+import { View, TouchableOpacity, Linking, ViewStyle } from 'react-native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import icons from '../helpers/icons';
 import { vars } from '../../styles/styles';
 
@@ -19,13 +18,18 @@ const linkStyle = {
     color: '#2F80ED'
 };
 
-const containerStyle = {
+const containerStyle: ViewStyle = {
     flex: 1,
     flexDirection: 'row'
 };
 
+interface VideoCallMessageProps {
+    videoCallMessage: any;
+    systemMessage: any;
+}
+
 @observer
-export default class VideoCallMessage extends SafeComponent {
+export default class VideoCallMessage extends SafeComponent<VideoCallMessageProps> {
     @action.bound
     onPress() {
         const { videoCallMessage } = this.props;
@@ -52,8 +56,3 @@ export default class VideoCallMessage extends SafeComponent {
         );
     }
 }
-
-VideoCallMessage.propTypes = {
-    videoCallMessage: PropTypes.any,
-    systemMessage: PropTypes.any
-};

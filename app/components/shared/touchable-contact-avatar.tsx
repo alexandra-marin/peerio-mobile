@@ -1,16 +1,19 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react/native';
 import { action } from 'mobx';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import AvatarCircle from './avatar-circle';
 import DeletedCircle from './deleted-circle';
 import contactState from '../contacts/contact-state';
 
+interface TouchableContactAvatarProps {
+    contact: any;
+}
+
 @observer
-export default class TouchableContactAvatar extends SafeComponent {
+export default class TouchableContactAvatar extends SafeComponent<TouchableContactAvatarProps> {
     @action.bound
     onPress() {
         const { contact } = this.props;
@@ -30,7 +33,3 @@ export default class TouchableContactAvatar extends SafeComponent {
         );
     }
 }
-
-TouchableContactAvatar.propTypes = {
-    contact: PropTypes.any
-};

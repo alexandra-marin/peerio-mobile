@@ -8,6 +8,7 @@ import { setScrollHelperRef, setScrollHelperOnScroll } from '../helpers/test-hel
 
 @observer
 export default class SectionListWithDrawer extends ListWithDrawer {
+    scrollView: any;
     @action.bound
     scrollViewRef(sv) {
         this.props.setScrollViewRef && this.props.setScrollViewRef(sv);
@@ -73,6 +74,7 @@ export default class SectionListWithDrawer extends ListWithDrawer {
                 ref={this.scrollViewRef}
                 scrollEventThrottle={1}
                 {...this.props}
+                sections={this.props.sections}
                 onScroll={setScrollHelperOnScroll}
                 ListHeaderComponent={this.topDrawer}
             />

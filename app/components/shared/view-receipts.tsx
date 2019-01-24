@@ -1,18 +1,17 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, ViewStyle } from 'react-native';
 import { reaction, observable } from 'mobx';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import ReadReceipt from './read-receipt';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
 import Text from '../controls/custom-text';
 import { transitionAnimation } from '../helpers/animations';
-import { action } from '../../../node_modules/mobx/lib/mobx';
+import { action } from 'mobx';
 
-const receiptRow = {
+const receiptRow: ViewStyle = {
     backgroundColor: vars.black25,
     alignSelf: 'flex-end',
     flexDirection: 'row',
@@ -24,14 +23,14 @@ const receiptRow = {
     paddingHorizontal: 2
 };
 
-const emptyReceiptRow = {
+const emptyReceiptRow: ViewStyle = {
     alignSelf: 'flex-end',
     height: 20,
     width: 40,
     marginHorizontal: 8
 };
 
-const half = {
+const half: ViewStyle = {
     flex: 1,
     alignItems: 'center',
     alignSelf: 'center'
@@ -42,10 +41,17 @@ const textStyle = {
     color: vars.darkBlue
 };
 
+interface ViewReceiptsProps {
+    receipts: any;
+    onPressReceipt;
+}
+
 @observer
-export default class ViewReceipts extends SafeComponent {
+export default class ViewReceipts extends SafeComponent<ViewReceiptsProps> {
     @observable forceLastAvatar;
     prev = 1;
+    _observer: any;
+    updateTimeout: any;
 
     componentDidMount() {
         this._observer = reaction(
@@ -118,7 +124,3 @@ export default class ViewReceipts extends SafeComponent {
         );
     }
 }
-
-ViewReceipts.propTypes = {
-    receipts: PropTypes.any
-};

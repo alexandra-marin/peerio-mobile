@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import VideoCallMessage from './video-call-message';
 import { systemMessages } from '../../lib/icebear';
@@ -18,8 +17,12 @@ const lastMessageTextStyle = {
     borderColor: 'green'
 };
 
+interface SystemMessageProps {
+    message: any;
+}
+
 @observer
-export default class SystemMessage extends SafeComponent {
+export default class SystemMessage extends SafeComponent<SystemMessageProps> {
     renderThrow() {
         const { message } = this.props;
         if (!message.systemData) return null;
@@ -47,7 +50,3 @@ export default class SystemMessage extends SafeComponent {
         return null;
     }
 }
-
-SystemMessage.propTypes = {
-    message: PropTypes.any
-};

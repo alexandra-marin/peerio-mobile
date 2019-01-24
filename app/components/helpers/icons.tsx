@@ -78,7 +78,7 @@ const icons = {
         return icons.basic(name, iconStyle, onPress, style, size, true, undefined, disabled);
     },
 
-    colored(name, onPress, colorFg, backgroundColor, disabled, testId) {
+    colored(name, onPress, colorFg, backgroundColor, disabled?, testId?) {
         return icons.basic(
             name,
             colorFg,

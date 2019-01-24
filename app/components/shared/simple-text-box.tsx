@@ -1,11 +1,17 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import uiState from '../layout/ui-state';
 import TextInputUncontrolled from '../controls/text-input-uncontrolled';
 
+interface SimpleTextBoxProps {
+    onBlur;
+    onFocus;
+}
+
 @observer
-export default class SimpleTextBox extends SafeComponent {
+export default class SimpleTextBox extends SafeComponent<SimpleTextBoxProps> {
+    _ref: any;
     focus() {
         this._ref.focus();
     }
@@ -22,7 +28,7 @@ export default class SimpleTextBox extends SafeComponent {
 
     onLayout = () => {
         if (!this._ref.offsetY) {
-            this._ref.measure((frameX, frameY, frameWidth, frameHeight, pageX, pageY) => {
+            this._ref.measure((_frameX, _frameY, _frameWidth, frameHeight, _pageX, pageY) => {
                 this._ref.offsetY = pageY;
                 this._ref.offsetHeight = frameHeight;
             });

@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View } from 'react-native';
+import { View, ViewStyle, TextStyle } from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
 import drawerState from './drawer-state';
 import BlueButtonText from '../buttons/blue-text-button';
+import { LocalizationStrings } from '../../lib/icebear';
 
-const container = {
+const container: ViewStyle = {
     backgroundColor: 'white',
     alignItems: 'center',
     height: vars.topDrawerHeight,
@@ -19,38 +19,48 @@ const container = {
     borderBottomWidth: 1
 };
 
-const headingStyle = {
+const headingStyle: ViewStyle = {
     paddingVertical: vars.spacing.medium.mini,
     borderBottomWidth: 1,
     borderBottomColor: vars.black12,
     alignSelf: 'stretch'
 };
 
-const headingTextStyle = {
+const headingTextStyle: TextStyle = {
     color: vars.darkBlue,
     textAlign: 'center'
 };
 
-const descriptionContainer = {
+const descriptionContainer: ViewStyle = {
     marginBottom: vars.spacing.small.midi2x,
     alignSelf: 'stretch'
 };
 
-const descriptionStyle = {
+const descriptionStyle: TextStyle = {
     fontSize: vars.font.size12,
     color: vars.textBlack54,
     paddingHorizontal: vars.spacing.huge.mini2x,
     textAlign: 'center'
 };
 
-const iconStyle = {
+const iconStyle: ViewStyle = {
     position: 'absolute',
     top: vars.spacing.small.maxi2x,
     right: vars.spacing.medium.mini2x
 };
 
+interface TopDrawerProps {
+    context: string;
+    heading: string;
+    image: any;
+    descriptionLine1: string;
+    descriptionLine2: string;
+    buttonText: keyof LocalizationStrings;
+    buttonAction: Function;
+}
+
 @observer
-export default class TopDrawer extends SafeComponent {
+export default class TopDrawer extends SafeComponent<TopDrawerProps> {
     onDismiss = () => drawerState.dismiss(this);
 
     onButtonAction = () => {
@@ -81,20 +91,10 @@ export default class TopDrawer extends SafeComponent {
                 <BlueButtonText
                     text={buttonText}
                     onPress={this.onButtonAction}
-                    accessibilityId={buttonText}
+                    accessibilityId={buttonText as string}
                 />
                 <View style={iconStyle}>{icons.darkNoPadding('close', this.onDismiss)}</View>
             </View>
         );
     }
 }
-
-TopDrawer.propTypes = {
-    context: PropTypes.string,
-    heading: PropTypes.string.isRequired,
-    image: PropTypes.any.isRequired,
-    descriptionLine1: PropTypes.string.isRequired,
-    descriptionLine2: PropTypes.string,
-    buttonText: PropTypes.string.isRequired,
-    buttonAction: PropTypes.func
-};
