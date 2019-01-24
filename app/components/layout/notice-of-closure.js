@@ -1,13 +1,14 @@
 import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react/native';
-import { Image, View, Dimensions, Linking } from 'react-native';
+import { Image, View, Dimensions, Linking, ScrollView } from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { adjustImageDimensions } from '../helpers/image';
 import { vars } from '../../styles/styles';
 import ButtonText from '../controls/button-text';
 import routes from '../routes/routes';
+import icons from '../helpers/icons';
 
 const { width } = Dimensions.get('window');
 
@@ -30,6 +31,12 @@ const descriptionTextStyle = {
     marginHorizontal: 16,
     paddingTop: vars.isDeviceScreenBig ? vars.spacing.medium.midi2x : vars.spacing.medium.mini2x
 };
+const closeIconContainer = {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0
+};
 
 @observer
 export default class NoticeOfClosure extends SafeComponent {
@@ -51,8 +58,11 @@ export default class NoticeOfClosure extends SafeComponent {
 
     renderThrow() {
         return (
-            <View style={container}>
+            <ScrollView style={container}>
                 {this.zeroStateIllustration}
+                <View style={closeIconContainer}>
+                    {icons.dark('close', this.dismiss)}
+                </View>
                 <Text semibold serif style={headerStyle}>
                     Peerio will be closing
                 </Text>
@@ -81,7 +91,7 @@ export default class NoticeOfClosure extends SafeComponent {
                 <View style={{ alignItems: 'flex-end', marginRight: 8 }}>
                     <ButtonText onPress={() => this.dismiss()} text="Got It" />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
