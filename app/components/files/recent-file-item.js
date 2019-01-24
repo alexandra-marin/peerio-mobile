@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { Dimensions, View, ViewStyle } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import moment from 'moment';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -8,28 +9,21 @@ import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
 import FileTypeIcon from './file-type-icon';
 import { fileHelpers } from '../../lib/icebear';
-import { File } from '../../lib/peerio-icebear/models';
 
 const { width } = Dimensions.get('window');
 const height = 64;
 
-const fileInfoContainerStyle: ViewStyle = {
+const fileInfoContainerStyle = {
     flexGrow: 1,
     flexDirection: 'row'
 };
 
-export interface RecentFileItemProps {
-    file?: File;
-    onMenu?: Function;
-    hideArrow?: boolean;
-}
-
 @observer
-export default class RecentFileItem extends SafeComponent<RecentFileItemProps> {
+export default class RecentFileItem extends SafeComponent {
     renderThrow() {
-        const { file, onMenu, hideArrow } = this.props;
+        const { file } = this.props;
         if (file.deleted) return null;
-        const iconRight = icons.dark('more-vert', onMenu);
+        const iconRight = icons.dark('more-vert', this.props.onMenu);
         const nameStyle = {
             color: vars.txtDark,
             fontSize: vars.font.size14
@@ -38,7 +32,7 @@ export default class RecentFileItem extends SafeComponent<RecentFileItemProps> {
             color: vars.extraSubtleText,
             fontSize: vars.font.size12
         };
-        const itemContainerStyle: ViewStyle = {
+        const itemContainerStyle = {
             flex: 1,
             flexGrow: 1,
             flexDirection: 'row',
@@ -50,7 +44,7 @@ export default class RecentFileItem extends SafeComponent<RecentFileItemProps> {
             width,
             paddingLeft: vars.spacing.medium.mini2x
         };
-        const arrow = hideArrow ? null : <View style={{ flex: 0 }}>{iconRight}</View>;
+        const arrow = this.props.hideArrow ? null : <View style={{ flex: 0 }}>{iconRight}</View>;
         return (
             <View style={fileInfoContainerStyle}>
                 <View style={[itemContainerStyle, { width }]}>
@@ -78,3 +72,8 @@ export default class RecentFileItem extends SafeComponent<RecentFileItemProps> {
         );
     }
 }
+
+RecentFileItem.propTypes = {
+    file: PropTypes.any.isRequired,
+    onMenu: PropTypes.func
+};

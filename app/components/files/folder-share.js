@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observable, action } from 'mobx';
 import { Keyboard, View } from 'react-native';
 import { observer } from 'mobx-react/native';
@@ -8,11 +8,9 @@ import SharedFolderFooter from './shared-folder-footer';
 import { vars } from '../../styles/styles';
 import routes from '../routes/routes';
 import { transitionAnimation } from '../helpers/animations';
-import SafeComponent from '../shared/safe-component';
-import { Volume } from '../../lib/peerio-icebear/models';
 
 @observer
-export default class FolderShare extends SafeComponent<{ folder: Volume }> {
+export default class FolderShare extends Component {
     @observable currentPage = 0;
 
     @action.bound

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View } from 'react-native';
@@ -7,23 +8,14 @@ import FileInnerItem from './file-inner-item';
 import FolderInnerItem from './folder-inner-item';
 import fileState from './file-state';
 import { vars } from '../../styles/styles';
-import { File, FileFolder } from '../../lib/peerio-icebear/models';
 
 const fileContainer = {
     backgroundColor: vars.filesBg,
     paddingHorizontal: vars.spacing.medium.mini2x
 };
 
-export interface FileItemProps {
-    file: File | FileFolder;
-    rowID: string;
-    onChangeFolder: Function;
-    onFileAction: Function;
-    onFolderAction: Function;
-}
-
 @observer
-export default class FileItem extends SafeComponent<FileItemProps> {
+export default class FileItem extends SafeComponent {
     @observable
     store = {
         get checkBoxHidden() {
@@ -31,7 +23,6 @@ export default class FileItem extends SafeComponent<FileItemProps> {
         },
 
         set checkBoxHidden(value) {
-            console.log(value);
             // noop
         }
     };
@@ -72,13 +63,13 @@ export default class FileItem extends SafeComponent<FileItemProps> {
             <View style={fileContainer}>
                 {file.isFolder ? (
                     <FolderInnerItem
-                        folder={file as FileFolder}
+                        folder={file}
                         onPress={this.onFolderPress}
                         onFolderAction={this.onFolderAction}
                     />
                 ) : (
                     <FileInnerItem
-                        file={file as File}
+                        file={file}
                         onPress={f => this.press(f)}
                         onFileAction={this.onFileAction}
                         rowID={this.props.rowID}
@@ -88,3 +79,10 @@ export default class FileItem extends SafeComponent<FileItemProps> {
         );
     }
 }
+
+FileItem.propTypes = {
+    file: PropTypes.any.isRequired,
+    onChangeFolder: PropTypes.any,
+    onFileAction: PropTypes.func,
+    onFolderAction: PropTypes.func
+};

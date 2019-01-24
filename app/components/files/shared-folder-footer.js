@@ -1,29 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react/native';
-import { View, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
-import { tu, LocalizationStrings } from '../utils/translator';
+import { tu } from '../utils/translator';
 import icons from '../helpers/icons';
 import SharedWithRow from '../shared/shared-with-row';
 import uiState from '../layout/ui-state';
 import Text from '../controls/custom-text';
-import { Volume } from '../../lib/peerio-icebear/models';
-
-export interface SharedFolderFooterProps {
-    title?: keyof LocalizationStrings;
-    action?: OnPressResponder;
-    icon?: string;
-    showAvatars?: boolean;
-    volume?: Volume;
-}
 
 @observer
-export default class SharedFolderFooter extends SafeComponent<SharedFolderFooterProps> {
+export default class SharedFolderFooter extends SafeComponent {
     renderThrow() {
         const { title, action, icon, showAvatars, volume } = this.props;
 
-        const bottomRowStyle: ViewStyle = {
+        const bottomRowStyle = {
             flexDirection: 'row',
             alignItems: 'center',
             paddingLeft: vars.spacing.small.mini,
@@ -50,3 +42,11 @@ export default class SharedFolderFooter extends SafeComponent<SharedFolderFooter
         );
     }
 }
+
+SharedFolderFooter.propTypes = {
+    title: PropTypes.any,
+    action: PropTypes.func,
+    icon: PropTypes.string,
+    showAvatars: PropTypes.bool,
+    volume: PropTypes.any
+};

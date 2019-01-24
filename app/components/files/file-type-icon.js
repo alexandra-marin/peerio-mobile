@@ -1,20 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Image, View } from 'react-native';
 import { vars } from '../../styles/styles';
-import SafeComponent from '../shared/safe-component';
-import { observer } from 'mobx-react/native';
 
-export interface FileTypeIconProps {
+export default class FileTypeIcon extends React.Component {
     /* props
         size: small, medium, large
         type: img, audio, video, txt, zip, pdf, ai, psd, word, xls, ppt, other
     */
-    type: string;
-    size: string;
-}
 
-@observer
-export default class FileTypeIcon extends SafeComponent<FileTypeIconProps> {
     render() {
         const iconSource = this.getIconSource();
         const size = vars.fileType[this.props.size];
@@ -77,3 +71,8 @@ export default class FileTypeIcon extends SafeComponent<FileTypeIconProps> {
         return iconSource;
     }
 }
+
+FileTypeIcon.propTypes = {
+    type: PropTypes.string,
+    size: PropTypes.string
+};

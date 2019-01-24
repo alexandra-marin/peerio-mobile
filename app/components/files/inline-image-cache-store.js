@@ -6,7 +6,7 @@ import { TinyDb } from '../../lib/icebear';
 // TODO: clean up the db once in a while
 const imageCacheTinyDb = TinyDb.open('imageCaches.v3');
 
-export class CachedImage {
+class CachedImage {
     @observable source = null;
     @observable width = undefined;
     @observable height = undefined;
@@ -90,20 +90,16 @@ class InlineImageCacheStore {
     }
 
     async getSizeByUrl(url) {
-        return new Promise<{ width: number; height: number }>(resolve =>
-            Image.getSize(
-                url,
-                (width, height) => {
-                    // console.log(width, height);
-                    resolve({ width, height });
-                },
-                null
-            )
+        return new Promise(resolve =>
+            Image.getSize(url, (width, height) => {
+                // console.log(width, height);
+                resolve({ width, height });
+            })
         );
     }
 
     async getSizeByFilename(path) {
-        return (ImagePicker as ImagePickerExtended).getImageDimensions(path);
+        return ImagePicker.getImageDimensions(path);
     }
 }
 

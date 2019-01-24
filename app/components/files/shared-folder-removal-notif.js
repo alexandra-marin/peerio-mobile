@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View, FlatList } from 'react-native';
@@ -33,12 +34,8 @@ const bottomTextStyle = {
     fontSize: vars.font.size14
 };
 
-export interface SharedFolderRemovalNotifProps {
-    folderNames: Array<string>;
-}
-
 @observer
-export default class SharedFolderRemovalNotif extends SafeComponent<SharedFolderRemovalNotifProps> {
+export default class SharedFolderRemovalNotif extends SafeComponent {
     // TODO: Wire up
     dismiss() {
         console.log('Dismissed');
@@ -99,3 +96,7 @@ export default class SharedFolderRemovalNotif extends SafeComponent<SharedFolder
         );
     }
 }
+
+SharedFolderRemovalNotif.propTypes = {
+    folderNames: PropTypes.any.isRequired
+};

@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react/native';
-import { Dimensions, View, TouchableOpacity, ViewStyle } from 'react-native';
+import { Dimensions, View, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -15,28 +16,18 @@ import FileProgress from './file-progress';
 import { fileHelpers, contactStore, User } from '../../lib/icebear';
 import MeasureableIcon from '../layout/measureable-icon';
 import filesBeacons from '../beacons/files-beacons';
-import { File } from '../../lib/peerio-icebear/models';
 
 const { width } = Dimensions.get('window');
 const height = vars.filesListItemHeight;
 const checkBoxWidth = height;
 
-const fileInfoContainerStyle: ViewStyle = {
+const fileInfoContainerStyle = {
     flexGrow: 1,
     flexDirection: 'row'
 };
 
-export interface FileInnerItemProps {
-    onPress: Function;
-    file: File;
-    checkbox?: string;
-    hideArrow?: boolean;
-    onFileAction?: Function;
-    rowID?: string;
-}
-
 @observer
-export default class FileInnerItem extends SafeComponent<FileInnerItemProps> {
+export default class FileInnerItem extends SafeComponent {
     @action.bound
     onPress() {
         const { file } = this.props;
@@ -52,7 +43,7 @@ export default class FileInnerItem extends SafeComponent<FileInnerItemProps> {
         const iconColor = checked ? v.checkboxIconActive : v.checkboxIconInactive;
         const iconBgColor = 'transparent';
         const icon = checked ? 'check-box' : 'check-box-outline-blank';
-        const outer: ViewStyle = {
+        const outer = {
             backgroundColor: checked ? vars.peerioBlueBackground05 : vars.filesBg,
             padding: vars.spacing.small.mini2x,
             flex: 0,
@@ -103,7 +94,7 @@ export default class FileInnerItem extends SafeComponent<FileInnerItemProps> {
             color: vars.extraSubtleText,
             fontSize: vars.font.size12
         };
-        const itemContainerStyle: ViewStyle = {
+        const itemContainerStyle = {
             flex: 1,
             flexGrow: 1,
             flexDirection: 'row',
@@ -184,3 +175,11 @@ export default class FileInnerItem extends SafeComponent<FileInnerItemProps> {
         );
     }
 }
+
+FileInnerItem.propTypes = {
+    onPress: PropTypes.func,
+    file: PropTypes.any.isRequired,
+    checkbox: PropTypes.string,
+    hideArrow: PropTypes.bool,
+    onFileAction: PropTypes.func
+};

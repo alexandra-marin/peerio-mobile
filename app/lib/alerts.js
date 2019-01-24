@@ -11,7 +11,7 @@ function button(style, text, onPress) {
 const cancel = onPress => button('cancel', 'Cancel', onPress);
 const ok = onPress => button('default', 'OK', onPress);
 
-export function rnAlertYesNo(title, message) {
+function rnAlertYesNo(title, message) {
     return new Promise((resolve, reject) => {
         Alert.alert(title, message, [
             cancel(() => reject(new Error('user cancelled'))),
@@ -20,8 +20,10 @@ export function rnAlertYesNo(title, message) {
     });
 }
 
-export function rnAlertYes(title, message) {
+function rnAlertYes(title, message) {
     return new Promise(resolve => {
         Alert.alert(title, message, [ok(resolve)]);
     });
 }
+
+module.exports = { rnAlertYesNo, rnAlertYes };
