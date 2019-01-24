@@ -33,7 +33,7 @@ const descriptionTextStyle = {
 };
 const closeIconContainer = {
     position: 'absolute',
-    top: 0,
+    top: vars.statusBarHeight,
     right: 0,
     bottom: 0
 };
