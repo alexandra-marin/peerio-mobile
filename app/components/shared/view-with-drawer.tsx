@@ -9,6 +9,7 @@ import { setScrollHelperRef, setScrollHelperOnScroll } from '../helpers/test-hel
 @observer
 export default class ViewWithDrawer extends ListWithDrawer {
     @observable layoutHeight;
+    scrollView: ScrollView;
 
     @action.bound
     scrollViewRef(sv) {
