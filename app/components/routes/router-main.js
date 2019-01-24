@@ -97,6 +97,7 @@ class RouterMain extends Router {
     initialRoute() {
         this._initialRoute = uiState.isFirstLogin ? 'welcomeZeroState' : 'chats';
         this[this._initialRoute](null, true);
+        routes.modal.noticeOfClosure();
     }
 
     get isInitialRoute() {
