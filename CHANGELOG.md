@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.435.0"></a>
+# [3.435.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.434.0...v3.435.0) (2019-01-24)
+
+
+### Bug Fixes
+
+* move closing cross a bit down ([7ef2082](https://github.com/PeerioTechnologies/peerio-mobile/commit/7ef2082))
+
+
+
 <a name="3.434.0"></a>
 # [3.434.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.434.0) (2019-01-24)
 
