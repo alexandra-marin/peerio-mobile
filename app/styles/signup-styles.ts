@@ -1,4 +1,5 @@
 import vars from './vars';
+import { ViewStyle } from 'react-native';
 
 const pagePaddingLarge = vars.spacing.medium.maxi2x;
 const pagePadding = vars.spacing.medium.mini2x;
@@ -7,7 +8,7 @@ const page = {
     backgroundColor: vars.white
 };
 
-const progressBarContainer = {
+const progressBarContainer: ViewStyle = {
     marginTop: vars.spacing.small.mini,
     marginHorizontal: vars.spacing.small.mini,
     height: vars.progressBarHeight,
@@ -32,7 +33,7 @@ const container = {
     paddingTop:
         vars.spacing.huge.midi2x -
         // because container is always below the progressBar in the signup screens
-        (progressBarContainer.marginTop + progressBarContainer.height) -
+        ((progressBarContainer.marginTop as number) + (progressBarContainer.height as number)) -
         // smaller distance on smaller phones
         (vars.isDeviceScreenSmall ? vars.spacing.medium.maxi2x : 0)
 };
