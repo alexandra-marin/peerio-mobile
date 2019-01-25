@@ -48,7 +48,6 @@
 		02B2F2AC216FFB8E006CF183 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 020D14882167F2AA007484E3 /* libRNDeviceInfo.a */; };
 		02B66B7E21F8D1AC000BCF2B /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */; };
 		02B66B7F21F8D1BB000BCF2B /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02BCD7291DFDE9AF000B8FCF /* libRNFileOpener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BCD7281DFDE9A2000B8FCF /* libRNFileOpener.a */; };
 		02BCD72D1DFE1606000B8FCF /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BCD72C1DFE1606000B8FCF /* QuickLook.framework */; };
 		02D3728A2194B4480020FDC8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D372462194B4470020FDC8 /* QuartzCore.framework */; };
 		02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3728B2194B5EE0020FDC8 /* ImageIO.framework */; };
@@ -369,13 +368,6 @@
 			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
 			remoteInfo = React;
 		};
-		02BCD7271DFDE9A2000B8FCF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DB8F70EF1CD3047700E71D6D;
-			remoteInfo = RNFileOpener;
-		};
 		02D3729C2194BABD0020FDC8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02D372982194BABD0020FDC8 /* RNFLAnimatedImage.xcodeproj */;
@@ -506,7 +498,6 @@
 		02AF5ADC20842C18005056CF /* OpenSansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSansBold.ttf; path = ../app/assets/fonts/OpenSansBold.ttf; sourceTree = "<group>"; };
 		02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = peerio_chat_framework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/peerio-framework-workspace-crblhixurjxcvrenwyqdayakviqe/Build/Products/Debug-iphonesimulator/peerio_chat_framework.framework"; sourceTree = "<group>"; };
 		02B66BD921FA6119000BCF2B /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "/Users/seavan/Documents/peerio/peerio-mobile/peerio-chat-framework/../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<absolute>"; };
-		02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFileOpener.xcodeproj; path = "../node_modules/react-native-file-opener/ios/RNFileOpener.xcodeproj"; sourceTree = "<group>"; };
 		02BCD72C1DFE1606000B8FCF /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		02D372462194B4470020FDC8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02D3728B2194B5EE0020FDC8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -571,7 +562,6 @@
 				02D764D31D9B13B300E7E57C /* libRNVectorIcons.a in Frameworks */,
 				02E096DA1DAE3B7600641B85 /* libRNFS.a in Frameworks */,
 				0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */,
-				02BCD7291DFDE9AF000B8FCF /* libRNFileOpener.a in Frameworks */,
 				026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */,
 				0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */,
 				025935601E809AAF00FAEE7E /* libInAppUtils.a in Frameworks */,
@@ -726,14 +716,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		02BCD7241DFDE9A2000B8FCF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02BCD7281DFDE9A2000B8FCF /* libRNFileOpener.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		02BCD72B1DFE1606000B8FCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,7 +822,6 @@
 				025935571E809AA300FAEE7E /* InAppUtils.xcodeproj */,
 				0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */,
 				026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */,
-				02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
 				78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */,
 				139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */,
@@ -1085,10 +1066,6 @@
 				{
 					ProductGroup = 020D14832167F2AA007484E3 /* Products */;
 					ProjectRef = 020D14822167F2AA007484E3 /* RNDeviceInfo.xcodeproj */;
-				},
-				{
-					ProductGroup = 02BCD7241DFDE9A2000B8FCF /* Products */;
-					ProjectRef = 02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */;
 				},
 				{
 					ProductGroup = 02D372992194BABD0020FDC8 /* Products */;
@@ -1394,13 +1371,6 @@
 			fileType = archive.ar;
 			path = "libprivatedata-tvOS.a";
 			remoteRef = 02B66C0A21FA6119000BCF2B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02BCD7281DFDE9A2000B8FCF /* libRNFileOpener.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFileOpener.a;
-			remoteRef = 02BCD7271DFDE9A2000B8FCF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		02D3729D2194BABD0020FDC8 /* libRNFLAnimatedImage.a */ = {

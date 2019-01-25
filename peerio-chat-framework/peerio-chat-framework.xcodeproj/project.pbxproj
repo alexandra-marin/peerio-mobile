@@ -23,6 +23,7 @@
 		02E2806321FB985100AC71F4 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2806021FB984100AC71F4 /* libRNShare.a */; };
 		02E2806A21FB9A5600AC71F4 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2806921FB9A5000AC71F4 /* libRCTActionSheet.a */; };
 		02E2807821FB9BB000AC71F4 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2807321FB9BA400AC71F4 /* libRCTNetwork.a */; };
+		02E2807F21FB9D2500AC71F4 /* libRNFileOpener.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2807E21FB9D1A00AC71F4 /* libRNFileOpener.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +363,20 @@
 			remoteGlobalIDString = 58B511DA1A9E6C8500147676;
 			remoteInfo = RCTNetwork;
 		};
+		02E2807D21FB9D1A00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB8F70EF1CD3047700E71D6D;
+			remoteInfo = RNFileOpener;
+		};
+		02E2808021FB9D2E00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DB8F70EE1CD3047700E71D6D;
+			remoteInfo = RNFileOpener;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -384,6 +399,7 @@
 		02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 		02E2806D21FB9BA400AC71F4 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
+		02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFileOpener.xcodeproj; path = "../node_modules/react-native-file-opener/ios/RNFileOpener.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +407,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E2807F21FB9D2500AC71F4 /* libRNFileOpener.a in Frameworks */,
 				02E2806A21FB9A5600AC71F4 /* libRCTActionSheet.a in Frameworks */,
 				02B66C2121FA63EF000BCF2B /* libfishhook.a in Frameworks */,
 				02B66C2221FA6406000BCF2B /* libRCTWebSocket.a in Frameworks */,
@@ -415,6 +432,7 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */,
 				02E2806D21FB9BA400AC71F4 /* RCTNetwork.xcodeproj */,
 				02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */,
 				02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */,
@@ -587,6 +605,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02E2807A21FB9D1A00AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E2807E21FB9D1A00AC71F4 /* libRNFileOpener.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -613,6 +639,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				02E2808121FB9D2E00AC71F4 /* PBXTargetDependency */,
 				02E2807721FB9BAA00AC71F4 /* PBXTargetDependency */,
 				02E2806C21FB9A5B00AC71F4 /* PBXTargetDependency */,
 				02E2806221FB984C00AC71F4 /* PBXTargetDependency */,
@@ -688,6 +715,10 @@
 				{
 					ProductGroup = 02B66B0221F78C3C000BCF2B /* Products */;
 					ProjectRef = 02B66B0121F78C3C000BCF2B /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 02E2807A21FB9D1A00AC71F4 /* Products */;
+					ProjectRef = 02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66B7821F8C0A5000BCF2B /* Products */;
@@ -963,6 +994,13 @@
 			remoteRef = 02E2807421FB9BA400AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02E2807E21FB9D1A00AC71F4 /* libRNFileOpener.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFileOpener.a;
+			remoteRef = 02E2807D21FB9D1A00AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1050,6 +1088,11 @@
 			isa = PBXTargetDependency;
 			name = RCTNetwork;
 			targetProxy = 02E2807621FB9BAA00AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E2808121FB9D2E00AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNFileOpener;
+			targetProxy = 02E2808021FB9D2E00AC71F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
