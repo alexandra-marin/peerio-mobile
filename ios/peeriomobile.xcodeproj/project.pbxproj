@@ -15,7 +15,6 @@
 		020C45FF2138C95D00A0691D /* account_key_backup_medcryptor.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 020C45C92138C95D00A0691D /* account_key_backup_medcryptor.pdf */; };
 		0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC560210F699500F546CE /* QBImagePicker.framework */; };
 		0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC562210F699500F546CE /* RSKImageCropper.framework */; };
-		02210A811E019037006D7AC0 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02210A7F1E01902A006D7AC0 /* libRNSound.a */; };
 		02210A841E0191BA006D7AC0 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 02210A831E0191BA006D7AC0 /* sounds */; };
 		0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0221BD341DDDC22700706A4F /* libRNImagePicker.a */; };
 		0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0222C3801E0C989D0084C586 /* libRCTPushNotification.a */; };
@@ -168,13 +167,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = E72EC1401F7ABB5A0001BC90;
 			remoteInfo = "RNDeviceInfo-tvOS";
-		};
-		02210A7E1E01902A006D7AC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
-			remoteInfo = RNSound;
 		};
 		0221BD331DDDC22700706A4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -587,7 +579,6 @@
 		020C45292138710200A0691D /* privacy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = privacy.txt; path = ../app/assets/privacy.txt; sourceTree = "<group>"; };
 		020C45C92138C95D00A0691D /* account_key_backup_medcryptor.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = account_key_backup_medcryptor.pdf; path = ../app/assets/account_key_backup_medcryptor.pdf; sourceTree = "<group>"; };
 		020D14822167F2AA007484E3 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
-		02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		02210A831E0191BA006D7AC0 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = ../app/sounds; sourceTree = "<group>"; };
 		0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		022651CD21324DAA003EEF56 /* SourceSerifPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SourceSerifPro.ttf; path = ../app/assets/fonts/SourceSerifPro.ttf; sourceTree = "<group>"; };
@@ -695,7 +686,6 @@
 				02E096DA1DAE3B7600641B85 /* libRNFS.a in Frameworks */,
 				0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */,
 				02BCD7291DFDE9AF000B8FCF /* libRNFileOpener.a in Frameworks */,
-				02210A811E019037006D7AC0 /* libRNSound.a in Frameworks */,
 				026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */,
 				0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */,
 				029F0E641E55303400C8586F /* libRNShare.a in Frameworks */,
@@ -773,14 +763,6 @@
 			children = (
 				020D14882167F2AA007484E3 /* libRNDeviceInfo.a */,
 				020D148A2167F2AA007484E3 /* libRNDeviceInfo-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		02210A6B1E01902A006D7AC0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02210A7F1E01902A006D7AC0 /* libRNSound.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1043,7 +1025,6 @@
 				025935571E809AA300FAEE7E /* InAppUtils.xcodeproj */,
 				0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */,
 				026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */,
-				02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */,
 				02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
@@ -1361,10 +1342,6 @@
 					ProjectRef = 26029CF21DF64479AF373AC9 /* RNShare.xcodeproj */;
 				},
 				{
-					ProductGroup = 02210A6B1E01902A006D7AC0 /* Products */;
-					ProjectRef = 02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */;
-				},
-				{
 					ProductGroup = 02D763E11D9918E800E7E57C /* Products */;
 					ProjectRef = 53F9542E76844F59917732EA /* RNVectorIcons.xcodeproj */;
 				},
@@ -1453,13 +1430,6 @@
 			fileType = archive.ar;
 			path = "libRNDeviceInfo-tvOS.a";
 			remoteRef = 020D14892167F2AA007484E3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02210A7F1E01902A006D7AC0 /* libRNSound.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNSound.a;
-			remoteRef = 02210A7E1E01902A006D7AC0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0221BD341DDDC22700706A4F /* libRNImagePicker.a */ = {

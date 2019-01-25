@@ -16,6 +16,7 @@
 		02B66C4A21FB7271000BCF2B /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7C21F8C0A5000BCF2B /* libRNMail.a */; };
 		02B66C5621FB7480000BCF2B /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66C5321FB7475000BCF2B /* libRCTImage.a */; };
 		02E27EBA21FB86AD00AC71F4 /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E27EA521FB86A400AC71F4 /* libRCTRestart.a */; };
+		02E27F0121FB879D00AC71F4 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E27EFE21FB879100AC71F4 /* libRNSound.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,20 @@
 			remoteGlobalIDString = 3245CDEC1BFEE35C00EABF68;
 			remoteInfo = RCTRestart;
 		};
+		02E27EFD21FB879100AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
+		02E27EFF21FB879700AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 19825A1D1BD4A89800EE0337;
+			remoteInfo = RNSound;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -223,6 +238,7 @@
 		02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		02B66C4D21FB7475000BCF2B /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		02E27E9E21FB86A400AC71F4 /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRestart.xcodeproj; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; };
+		02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +254,7 @@
 				02B66C4A21FB7271000BCF2B /* libRNMail.a in Frameworks */,
 				02B66C5621FB7480000BCF2B /* libRCTImage.a in Frameworks */,
 				02E27EBA21FB86AD00AC71F4 /* libRCTRestart.a in Frameworks */,
+				02E27F0121FB879D00AC71F4 /* libRNSound.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +264,7 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */,
 				02E27E9E21FB86A400AC71F4 /* RCTRestart.xcodeproj */,
 				02B66C4D21FB7475000BCF2B /* RCTImage.xcodeproj */,
 				02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */,
@@ -353,6 +371,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02E27EFA21FB879100AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E27EFE21FB879100AC71F4 /* libRNSound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -379,6 +405,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				02E27F0021FB879700AC71F4 /* PBXTargetDependency */,
 				02E27EBC21FB86B400AC71F4 /* PBXTargetDependency */,
 				02B66C4C21FB72BC000BCF2B /* PBXTargetDependency */,
 			);
@@ -431,6 +458,10 @@
 				{
 					ProductGroup = 02B66B7821F8C0A5000BCF2B /* Products */;
 					ProjectRef = 02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */;
+				},
+				{
+					ProductGroup = 02E27EFA21FB879100AC71F4 /* Products */;
+					ProjectRef = 02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66B6921F7BA83000BCF2B /* Products */;
@@ -620,6 +651,13 @@
 			remoteRef = 02E27EA421FB86A400AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02E27EFE21FB879100AC71F4 /* libRNSound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSound.a;
+			remoteRef = 02E27EFD21FB879100AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -652,6 +690,11 @@
 			isa = PBXTargetDependency;
 			name = RCTRestart;
 			targetProxy = 02E27EBB21FB86B400AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E27F0021FB879700AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNSound;
+			targetProxy = 02E27EFF21FB879700AC71F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
