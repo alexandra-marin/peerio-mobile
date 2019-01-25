@@ -29,6 +29,7 @@
 		02E280B121FBA1E500AC71F4 /* libLottieReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280AE21FBA1CD00AC71F4 /* libLottieReactNative.a */; };
 		02E280B221FBA2A300AC71F4 /* libLottie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280A621FBA1AD00AC71F4 /* libLottie.a */; };
 		02E280BE21FBADAC00AC71F4 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280BB21FBADA300AC71F4 /* libRCTAnimation.a */; };
+		02E280CE21FBAF7400AC71F4 /* libRNFLAnimatedImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280CC21FBAF6100AC71F4 /* libRNFLAnimatedImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -494,6 +495,34 @@
 			remoteGlobalIDString = 58B511DA1A9E6C8500147676;
 			remoteInfo = RCTAnimation;
 		};
+		02E280C521FBAF5100AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
+			remoteInfo = FLAnimatedImage;
+		};
+		02E280CB21FBAF6100AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B5EE7B8C1D884FA5008938BC;
+			remoteInfo = RNFLAnimatedImage;
+		};
+		02E280CF21FBAF7800AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92C9BC0B1B199DC500D79B06;
+			remoteInfo = FLAnimatedImage;
+		};
+		02E280D121FBAF7B00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B5EE7B8B1D884FA5008938BC;
+			remoteInfo = RNFLAnimatedImage;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -522,6 +551,8 @@
 		02E2809721FBA1AD00AC71F4 /* Lottie.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../node_modules/lottie-ios/Lottie.xcodeproj"; sourceTree = "<group>"; };
 		02E280A921FBA1CD00AC71F4 /* LottieReactNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LottieReactNative.xcodeproj; path = "../node_modules/lottie-react-native/src/ios/LottieReactNative.xcodeproj"; sourceTree = "<group>"; };
 		02E280B521FBADA300AC71F4 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
+		02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/RNFLAnimatedImage/RNFLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +560,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E280CE21FBAF7400AC71F4 /* libRNFLAnimatedImage.a in Frameworks */,
 				02E280BE21FBADAC00AC71F4 /* libRCTAnimation.a in Frameworks */,
 				02E280B221FBA2A300AC71F4 /* libLottie.a in Frameworks */,
 				02E280B121FBA1E500AC71F4 /* libLottieReactNative.a in Frameworks */,
@@ -559,6 +591,8 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */,
+				02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */,
 				02E280B521FBADA300AC71F4 /* RCTAnimation.xcodeproj */,
 				02E280A921FBA1CD00AC71F4 /* LottieReactNative.xcodeproj */,
 				02E2809721FBA1AD00AC71F4 /* Lottie.xcodeproj */,
@@ -791,6 +825,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02E280C221FBAF5100AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E280C621FBAF5100AC71F4 /* FLAnimatedImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02E280C821FBAF6100AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E280CC21FBAF6100AC71F4 /* libRNFLAnimatedImage.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -817,6 +867,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				02E280D221FBAF7B00AC71F4 /* PBXTargetDependency */,
+				02E280D021FBAF7800AC71F4 /* PBXTargetDependency */,
 				02E280C021FBADB000AC71F4 /* PBXTargetDependency */,
 				02E280B421FBA2A700AC71F4 /* PBXTargetDependency */,
 				02E280B021FBA1DF00AC71F4 /* PBXTargetDependency */,
@@ -868,6 +920,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 02E280C221FBAF5100AC71F4 /* Products */;
+					ProjectRef = 02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */;
+				},
+				{
 					ProductGroup = 02E2809821FBA1AD00AC71F4 /* Products */;
 					ProjectRef = 02E2809721FBA1AD00AC71F4 /* Lottie.xcodeproj */;
 				},
@@ -918,6 +974,10 @@
 				{
 					ProductGroup = 02E2807A21FB9D1A00AC71F4 /* Products */;
 					ProjectRef = 02E2807921FB9D1A00AC71F4 /* RNFileOpener.xcodeproj */;
+				},
+				{
+					ProductGroup = 02E280C821FBAF6100AC71F4 /* Products */;
+					ProjectRef = 02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66B7821F8C0A5000BCF2B /* Products */;
@@ -1281,6 +1341,20 @@
 			remoteRef = 02E280BC21FBADA300AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02E280C621FBAF5100AC71F4 /* FLAnimatedImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FLAnimatedImage.framework;
+			remoteRef = 02E280C521FBAF5100AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02E280CC21FBAF6100AC71F4 /* libRNFLAnimatedImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFLAnimatedImage.a;
+			remoteRef = 02E280CB21FBAF6100AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1398,6 +1472,16 @@
 			isa = PBXTargetDependency;
 			name = RCTAnimation;
 			targetProxy = 02E280BF21FBADB000AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E280D021FBAF7800AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FLAnimatedImage;
+			targetProxy = 02E280CF21FBAF7800AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E280D221FBAF7B00AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNFLAnimatedImage;
+			targetProxy = 02E280D121FBAF7B00AC71F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -48,13 +48,12 @@
 		02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3728B2194B5EE0020FDC8 /* ImageIO.framework */; };
 		02D3728E2194B5FD0020FDC8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3728D2194B5FD0020FDC8 /* MobileCoreServices.framework */; };
 		02D372902194B6050020FDC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3728F2194B6050020FDC8 /* CoreGraphics.framework */; };
-		02D372A42194BB090020FDC8 /* libRNFLAnimatedImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3729D2194BABD0020FDC8 /* libRNFLAnimatedImage.a */; };
-		02D372A62194C3EE0020FDC8 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D372A32194BAE90020FDC8 /* FLAnimatedImage.framework */; };
-		02D372A72194C3EE0020FDC8 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02D372A32194BAE90020FDC8 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02DB41591DCD1B1C00E04176 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		02E096B31DAE398B00641B85 /* locales in Resources */ = {isa = PBXBuildFile; fileRef = 02E096B21DAE398B00641B85 /* locales */; };
 		02E096DA1DAE3B7600641B85 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E096D11DAE3B3B00641B85 /* libRNFS.a */; };
 		02E096DC1DAE50E100641B85 /* dict in Resources */ = {isa = PBXBuildFile; fileRef = 02E096DB1DAE50E100641B85 /* dict */; };
+		02E280D921FBB1FB00AC71F4 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02E280DA21FBB20E00AC71F4 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */; };
 		02F966301E9D493900FBECFF /* libRCTPrivacySnapshot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F966101E9D490700FBECFF /* libRCTPrivacySnapshot.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -284,33 +283,19 @@
 			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
 			remoteInfo = React;
 		};
-		02D3729C2194BABD0020FDC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02D372982194BABD0020FDC8 /* RNFLAnimatedImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B5EE7B8C1D884FA5008938BC;
-			remoteInfo = RNFLAnimatedImage;
-		};
-		02D372A22194BAE90020FDC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02D3729E2194BAE90020FDC8 /* FLAnimatedImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
-			remoteInfo = FLAnimatedImage;
-		};
-		02D372A82194C3EE0020FDC8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02D3729E2194BAE90020FDC8 /* FLAnimatedImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 92C9BC0B1B199DC500D79B06;
-			remoteInfo = FLAnimatedImage;
-		};
 		02E096D01DAE3B3B00641B85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 85F72AE1AB9C4B249FDE6333 /* RNFS.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
 			remoteInfo = RNFS;
+		};
+		02E280D721FBB1EF00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
+			remoteInfo = FLAnimatedImage;
 		};
 		02F9660F1E9D490700FBECFF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -342,9 +327,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				02E280D921FBB1FB00AC71F4 /* FLAnimatedImage.framework in Embed Frameworks */,
 				02B66B7F21F8D1BB000BCF2B /* peerio_chat_framework.framework in Embed Frameworks */,
 				029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */,
-				02D372A72194C3EE0020FDC8 /* FLAnimatedImage.framework in Embed Frameworks */,
 				029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -402,11 +387,10 @@
 		02D3728B2194B5EE0020FDC8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		02D3728D2194B5FD0020FDC8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		02D3728F2194B6050020FDC8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		02D372982194BABD0020FDC8 /* RNFLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/RNFLAnimatedImage/RNFLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
-		02D3729E2194BAE90020FDC8 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 		02D764581D9AAF4D00E7E57C /* peeriomobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = peeriomobile.entitlements; path = peeriomobile/peeriomobile.entitlements; sourceTree = "<group>"; };
 		02E096B21DAE398B00641B85 /* locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = locales; path = ../locales; sourceTree = "<group>"; };
 		02E096DB1DAE50E100641B85 /* dict */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dict; path = "../node_modules/peerio-copy/phrase/dict"; sourceTree = "<group>"; };
+		02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* peeriomobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = peeriomobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = peeriomobile/AppDelegate.h; sourceTree = "<group>"; };
@@ -442,11 +426,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E280DA21FBB20E00AC71F4 /* FLAnimatedImage.framework in Frameworks */,
 				02D372902194B6050020FDC8 /* CoreGraphics.framework in Frameworks */,
 				02D3728E2194B5FD0020FDC8 /* MobileCoreServices.framework in Frameworks */,
 				02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */,
 				02D3728A2194B4480020FDC8 /* QuartzCore.framework in Frameworks */,
-				02D372A62194C3EE0020FDC8 /* FLAnimatedImage.framework in Frameworks */,
 				02BCD72D1DFE1606000B8FCF /* QuickLook.framework in Frameworks */,
 				0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */,
 				025373851EB3751800752E61 /* libsodium.a in Frameworks */,
@@ -463,7 +447,6 @@
 				0268189C1F746B9400A42812 /* libRCTCameraRoll.a in Frameworks */,
 				02B2F2AA216FFA88006CF183 /* libRCTBlob.a in Frameworks */,
 				02B2F2AC216FFB8E006CF183 /* libRNDeviceInfo.a in Frameworks */,
-				02D372A42194BB090020FDC8 /* libRNFLAnimatedImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,27 +565,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		02D372992194BABD0020FDC8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02D3729D2194BABD0020FDC8 /* libRNFLAnimatedImage.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		02D3729F2194BAE90020FDC8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02D372A32194BAE90020FDC8 /* FLAnimatedImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		02E096C21DAE3B3B00641B85 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				02E096D11DAE3B3B00641B85 /* libRNFS.a */,
 				020D12A121670C1D007484E3 /* libRNFS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02E280D421FBB1EF00AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -647,9 +622,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */,
 				02B66BD921FA6119000BCF2B /* React.xcodeproj */,
-				02D3729E2194BAE90020FDC8 /* FLAnimatedImage.xcodeproj */,
-				02D372982194BABD0020FDC8 /* RNFLAnimatedImage.xcodeproj */,
 				020D14822167F2AA007484E3 /* RNDeviceInfo.xcodeproj */,
 				0204B9B7215ABFC100BAD78D /* RCTBlob.xcodeproj */,
 				026818931F742B9100A42812 /* RCTCameraRoll.xcodeproj */,
@@ -755,7 +729,6 @@
 			dependencies = (
 				02B66C0D21FA613B000BCF2B /* PBXTargetDependency */,
 				96CEC5A221107C3600F546CE /* PBXTargetDependency */,
-				02D372A92194C3EE0020FDC8 /* PBXTargetDependency */,
 			);
 			name = peeriomobile;
 			productName = peeriomobile;
@@ -832,8 +805,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 02D3729F2194BAE90020FDC8 /* Products */;
-					ProjectRef = 02D3729E2194BAE90020FDC8 /* FLAnimatedImage.xcodeproj */;
+					ProductGroup = 02E280D421FBB1EF00AC71F4 /* Products */;
+					ProjectRef = 02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */;
 				},
 				{
 					ProductGroup = 029F852E1EE804E500C0CC31 /* Products */;
@@ -874,10 +847,6 @@
 				{
 					ProductGroup = 020D14832167F2AA007484E3 /* Products */;
 					ProjectRef = 020D14822167F2AA007484E3 /* RNDeviceInfo.xcodeproj */;
-				},
-				{
-					ProductGroup = 02D372992194BABD0020FDC8 /* Products */;
-					ProjectRef = 02D372982194BABD0020FDC8 /* RNFLAnimatedImage.xcodeproj */;
 				},
 				{
 					ProductGroup = 02E096C21DAE3B3B00641B85 /* Products */;
@@ -1100,25 +1069,18 @@
 			remoteRef = 02B66C0A21FA6119000BCF2B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		02D3729D2194BABD0020FDC8 /* libRNFLAnimatedImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFLAnimatedImage.a;
-			remoteRef = 02D3729C2194BABD0020FDC8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02D372A32194BAE90020FDC8 /* FLAnimatedImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FLAnimatedImage.framework;
-			remoteRef = 02D372A22194BAE90020FDC8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		02E096D11DAE3B3B00641B85 /* libRNFS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNFS.a;
 			remoteRef = 02E096D01DAE3B3B00641B85 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FLAnimatedImage.framework;
+			remoteRef = 02E280D721FBB1EF00AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		02F966101E9D490700FBECFF /* libRCTPrivacySnapshot.a */ = {
@@ -1230,11 +1192,6 @@
 			isa = PBXTargetDependency;
 			name = React;
 			targetProxy = 02B66C0C21FA613B000BCF2B /* PBXContainerItemProxy */;
-		};
-		02D372A92194C3EE0020FDC8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FLAnimatedImage;
-			targetProxy = 02D372A82194C3EE0020FDC8 /* PBXContainerItemProxy */;
 		};
 		96CEC5A221107C3600F546CE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
