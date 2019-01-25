@@ -2,9 +2,9 @@ import React from 'react';
 import { observer } from 'mobx-react/native';
 import { View, Dimensions, Image } from 'react-native';
 import Text from '../controls/custom-text';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
-import { popupConfirmCancelIllustration } from '../shared/popups';
+import { popupConfirmCancelIllustration } from './popups';
 import { tx } from '../utils/translator';
 
 const { width } = Dimensions.get('window');
@@ -49,7 +49,7 @@ class ImagePopups extends SafeComponent {
         };
     }
 
-    async roomActionConfirmation(title, description, illustration, confirmLabel, warning) {
+    async roomActionConfirmation(title, description, illustration, confirmLabel, warning?) {
         const content = (
             <View>
                 {warning && <View style={warningStyle} />}
@@ -98,4 +98,4 @@ class ImagePopups extends SafeComponent {
     }
 }
 
-export default new ImagePopups();
+export default new ImagePopups({});
