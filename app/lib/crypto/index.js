@@ -6,6 +6,9 @@
 const { randomBytes } = require('react-native-randombytes');
 const nacl = require('tweetnacl');
 
+console.log(`randombytes:`);
+console.log(randomBytes(10));
+
 nacl.setPRNG((x, n) => {
     const a = randomBytes(n);
     a.copy(x);
