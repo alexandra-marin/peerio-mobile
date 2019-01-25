@@ -17,7 +17,6 @@
 		0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC562210F699500F546CE /* RSKImageCropper.framework */; };
 		02210A811E019037006D7AC0 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02210A7F1E01902A006D7AC0 /* libRNSound.a */; };
 		02210A841E0191BA006D7AC0 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 02210A831E0191BA006D7AC0 /* sounds */; };
-		0221BCD21DDC710400706A4F /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0221BCD11DDC6D3C00706A4F /* libRCTRestart.a */; };
 		0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0221BD341DDDC22700706A4F /* libRNImagePicker.a */; };
 		0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0222C3801E0C989D0084C586 /* libRCTPushNotification.a */; };
 		0226520121324DAB003EEF56 /* SourceSerifPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022651CD21324DAA003EEF56 /* SourceSerifPro.ttf */; };
@@ -176,13 +175,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
 			remoteInfo = RNSound;
-		};
-		0221BCD01DDC6D3C00706A4F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0221BCCC1DDC6D3C00706A4F /* RCTRestart.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3245CDED1BFEE35C00EABF68;
-			remoteInfo = RCTRestart;
 		};
 		0221BD331DDDC22700706A4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -597,7 +589,6 @@
 		020D14822167F2AA007484E3 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
 		02210A831E0191BA006D7AC0 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = ../app/sounds; sourceTree = "<group>"; };
-		0221BCCC1DDC6D3C00706A4F /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRestart.xcodeproj; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; };
 		0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		022651CD21324DAA003EEF56 /* SourceSerifPro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SourceSerifPro.ttf; path = ../app/assets/fonts/SourceSerifPro.ttf; sourceTree = "<group>"; };
 		022651FF21324DAA003EEF56 /* SourceSerifProBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SourceSerifProBold.ttf; path = ../app/assets/fonts/SourceSerifProBold.ttf; sourceTree = "<group>"; };
@@ -702,7 +693,6 @@
 				02D764D31D9B13B300E7E57C /* libRNVectorIcons.a in Frameworks */,
 				023A731F1DA6D58B00E47992 /* libRNRandomBytes.a in Frameworks */,
 				02E096DA1DAE3B7600641B85 /* libRNFS.a in Frameworks */,
-				0221BCD21DDC710400706A4F /* libRCTRestart.a in Frameworks */,
 				0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */,
 				02BCD7291DFDE9AF000B8FCF /* libRNFileOpener.a in Frameworks */,
 				02210A811E019037006D7AC0 /* libRNSound.a in Frameworks */,
@@ -791,14 +781,6 @@
 			isa = PBXGroup;
 			children = (
 				02210A7F1E01902A006D7AC0 /* libRNSound.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0221BCCD1DDC6D3C00706A4F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0221BCD11DDC6D3C00706A4F /* libRCTRestart.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1063,7 +1045,6 @@
 				026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */,
 				02210A6A1E01902A006D7AC0 /* RNSound.xcodeproj */,
 				02BCD7231DFDE9A2000B8FCF /* RNFileOpener.xcodeproj */,
-				0221BCCC1DDC6D3C00706A4F /* RCTRestart.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
 				78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */,
@@ -1332,10 +1313,6 @@
 					ProjectRef = 0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */;
 				},
 				{
-					ProductGroup = 0221BCCD1DDC6D3C00706A4F /* Products */;
-					ProjectRef = 0221BCCC1DDC6D3C00706A4F /* RCTRestart.xcodeproj */;
-				},
-				{
 					ProductGroup = 139105B71AF99BAD00B5F7CC /* Products */;
 					ProjectRef = 139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */;
 				},
@@ -1483,13 +1460,6 @@
 			fileType = archive.ar;
 			path = libRNSound.a;
 			remoteRef = 02210A7E1E01902A006D7AC0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0221BCD11DDC6D3C00706A4F /* libRCTRestart.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTRestart.a;
-			remoteRef = 0221BCD01DDC6D3C00706A4F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0221BD341DDDC22700706A4F /* libRNImagePicker.a */ = {
