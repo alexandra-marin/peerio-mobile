@@ -20,6 +20,8 @@
 		02E2803621FB8C9A00AC71F4 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2802021FB8C6100AC71F4 /* libRCTVibration.a */; };
 		02E2804021FB8D1B00AC71F4 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2803D21FB8D1500AC71F4 /* libRCTText.a */; };
 		02E2805821FB954300AC71F4 /* libRNRandomBytes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2805521FB953800AC71F4 /* libRNRandomBytes.a */; };
+		02E2806321FB985100AC71F4 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2806021FB984100AC71F4 /* libRNShare.a */; };
+		02E2806A21FB9A5600AC71F4 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2806921FB9A5000AC71F4 /* libRCTActionSheet.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +312,34 @@
 			remoteGlobalIDString = 73EEC9381BFE4B1D00D468EB;
 			remoteInfo = RNRandomBytes;
 		};
+		02E2805F21FB984100AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNShare;
+		};
+		02E2806121FB984C00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 58B511DA1A9E6C8500147676;
+			remoteInfo = RNShare;
+		};
+		02E2806821FB9A5000AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTActionSheet;
+		};
+		02E2806B21FB9A5B00AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 58B511DA1A9E6C8500147676;
+			remoteInfo = RCTActionSheet;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -329,6 +359,8 @@
 		02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		02E2803721FB8D1500AC71F4 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		02E2804F21FB953800AC71F4 /* RNRandomBytes.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNRandomBytes.xcodeproj; path = "../node_modules/react-native-randombytes/RNRandomBytes.xcodeproj"; sourceTree = "<group>"; };
+		02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
+		02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +368,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E2806A21FB9A5600AC71F4 /* libRCTActionSheet.a in Frameworks */,
 				02B66C2121FA63EF000BCF2B /* libfishhook.a in Frameworks */,
 				02B66C2221FA6406000BCF2B /* libRCTWebSocket.a in Frameworks */,
 				02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */,
@@ -348,6 +381,7 @@
 				02E2803621FB8C9A00AC71F4 /* libRCTVibration.a in Frameworks */,
 				02E2804021FB8D1B00AC71F4 /* libRCTText.a in Frameworks */,
 				02E2805821FB954300AC71F4 /* libRNRandomBytes.a in Frameworks */,
+				02E2806321FB985100AC71F4 /* libRNShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +391,8 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */,
+				02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */,
 				02E2804F21FB953800AC71F4 /* RNRandomBytes.xcodeproj */,
 				02E2803721FB8D1500AC71F4 /* RCTText.xcodeproj */,
 				02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */,
@@ -501,6 +537,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02E2805C21FB984100AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E2806021FB984100AC71F4 /* libRNShare.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02E2806521FB9A5000AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E2806921FB9A5000AC71F4 /* libRCTActionSheet.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -527,6 +579,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				02E2806C21FB9A5B00AC71F4 /* PBXTargetDependency */,
+				02E2806221FB984C00AC71F4 /* PBXTargetDependency */,
 				02E2805A21FB954B00AC71F4 /* PBXTargetDependency */,
 				02E2804E21FB8EA400AC71F4 /* PBXTargetDependency */,
 				02E2804C21FB8E9100AC71F4 /* PBXTargetDependency */,
@@ -569,6 +623,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 02E2806521FB9A5000AC71F4 /* Products */;
+					ProjectRef = 02E2806421FB9A5000AC71F4 /* RCTActionSheet.xcodeproj */;
+				},
+				{
 					ProductGroup = 02B66C4E21FB7475000BCF2B /* Products */;
 					ProjectRef = 02B66C4D21FB7475000BCF2B /* RCTImage.xcodeproj */;
 				},
@@ -599,6 +657,10 @@
 				{
 					ProductGroup = 02E2805021FB953800AC71F4 /* Products */;
 					ProjectRef = 02E2804F21FB953800AC71F4 /* RNRandomBytes.xcodeproj */;
+				},
+				{
+					ProductGroup = 02E2805C21FB984100AC71F4 /* Products */;
+					ProjectRef = 02E2805B21FB984100AC71F4 /* RNShare.xcodeproj */;
 				},
 				{
 					ProductGroup = 02E27EFA21FB879100AC71F4 /* Products */;
@@ -834,6 +896,20 @@
 			remoteRef = 02E2805621FB953800AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02E2806021FB984100AC71F4 /* libRNShare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNShare.a;
+			remoteRef = 02E2805F21FB984100AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02E2806921FB9A5000AC71F4 /* libRCTActionSheet.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTActionSheet.a;
+			remoteRef = 02E2806821FB9A5000AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -906,6 +982,16 @@
 			isa = PBXTargetDependency;
 			name = RNRandomBytes;
 			targetProxy = 02E2805921FB954B00AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E2806221FB984C00AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNShare;
+			targetProxy = 02E2806121FB984C00AC71F4 /* PBXContainerItemProxy */;
+		};
+		02E2806C21FB9A5B00AC71F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RCTActionSheet;
+			targetProxy = 02E2806B21FB9A5B00AC71F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

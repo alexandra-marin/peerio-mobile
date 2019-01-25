@@ -32,7 +32,6 @@
 		026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026B0DA61E0384D700B24721 /* libRCTAnimation.a */; };
 		02726F581EB33C7A00D82BF5 /* libsodium-ios in Resources */ = {isa = PBXBuildFile; fileRef = 02726F571EB33C7A00D82BF5 /* libsodium-ios */; };
 		02726F891EB33E3000D82BF5 /* RNSodium.m in Sources */ = {isa = PBXBuildFile; fileRef = 02726F881EB33E3000D82BF5 /* RNSodium.m */; };
-		029F0E641E55303400C8586F /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F0E601E55301200C8586F /* libRNShare.a */; };
 		029F85611EE8052000C0CC31 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85331EE804E500C0CC31 /* libimageCropPicker.a */; };
 		029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85621EE8067E00C0CC31 /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85661EE8068400C0CC31 /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -244,13 +243,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
 			remoteInfo = "RCTAnimation-tvOS";
-		};
-		029F0E5F1E55301200C8586F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 26029CF21DF64479AF373AC9 /* RNShare.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNShare;
 		};
 		029F85321EE804E500C0CC31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -552,7 +544,6 @@
 		1D58BC509EB240BF97F97E0E /* Lottie.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../node_modules/lottie-ios/Lottie.xcodeproj"; sourceTree = "<group>"; };
 		1FAA700E927442478D70768D /* LottieReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = LottieReactNative.xcodeproj; path = "../node_modules/lottie-react-native/src/ios/LottieReactNative.xcodeproj"; sourceTree = "<group>"; };
 		21D883CDAA7C4E718E6EE873 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		26029CF21DF64479AF373AC9 /* RNShare.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		2E792C39C6774D5F9DDB3025 /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		372E848CA7B444A09B937444 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		4FC9400FF0F74C249A550AC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
@@ -600,7 +591,6 @@
 				02BCD7291DFDE9AF000B8FCF /* libRNFileOpener.a in Frameworks */,
 				026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */,
 				0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */,
-				029F0E641E55303400C8586F /* libRNShare.a in Frameworks */,
 				025935601E809AAF00FAEE7E /* libInAppUtils.a in Frameworks */,
 				0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */,
 				02F966301E9D493900FBECFF /* libRCTPrivacySnapshot.a in Frameworks */,
@@ -719,14 +709,6 @@
 			children = (
 				026B0DA61E0384D700B24721 /* libRCTAnimation.a */,
 				026B0DA81E0384D700B24721 /* libRCTAnimation.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		029F0E411E55301200C8586F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				029F0E601E55301200C8586F /* libRNShare.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -892,7 +874,6 @@
 				53F9542E76844F59917732EA /* RNVectorIcons.xcodeproj */,
 				85F72AE1AB9C4B249FDE6333 /* RNFS.xcodeproj */,
 				88D6237453EF462AAED942D1 /* RNImagePicker.xcodeproj */,
-				26029CF21DF64479AF373AC9 /* RNShare.xcodeproj */,
 				E324EB0D0FAE4F96A2D57F34 /* RCTPrivacySnapshot.xcodeproj */,
 				EBD14F572C0F4C24BF45471F /* RCTContacts.xcodeproj */,
 				2E792C39C6774D5F9DDB3025 /* imageCropPicker.xcodeproj */,
@@ -1153,10 +1134,6 @@
 					ProjectRef = 88D6237453EF462AAED942D1 /* RNImagePicker.xcodeproj */;
 				},
 				{
-					ProductGroup = 029F0E411E55301200C8586F /* Products */;
-					ProjectRef = 26029CF21DF64479AF373AC9 /* RNShare.xcodeproj */;
-				},
-				{
 					ProductGroup = 02D763E11D9918E800E7E57C /* Products */;
 					ProjectRef = 53F9542E76844F59917732EA /* RNVectorIcons.xcodeproj */;
 				},
@@ -1329,13 +1306,6 @@
 			fileType = archive.ar;
 			path = libRCTAnimation.a;
 			remoteRef = 026B0DA71E0384D700B24721 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		029F0E601E55301200C8586F /* libRNShare.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNShare.a;
-			remoteRef = 029F0E5F1E55301200C8586F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		029F85331EE804E500C0CC31 /* libimageCropPicker.a */ = {
