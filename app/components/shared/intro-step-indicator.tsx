@@ -5,8 +5,8 @@ import { signupStyles } from '../../styles/styles';
 import SafeComponent from './safe-component';
 
 interface IntroStepIndicatorProps {
-    current;
-    max;
+    current: number;
+    max: number;
 }
 
 @observer
