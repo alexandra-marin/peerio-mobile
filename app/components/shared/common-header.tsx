@@ -5,12 +5,12 @@ import { vars } from '../../styles/styles';
 import testLabel from '../helpers/test-label';
 
 interface CommonHeaderProps {
-    outerStyle;
-    testID;
-    titleComponent;
-    leftIcon;
-    rightIcon;
-    unique;
+    outerStyle: any;
+    testID: any;
+    titleComponent: React.ReactNode;
+    leftIcon: React.ReactNode;
+    rightIcon: React.ReactNode;
+    unique?: React.ReactText;
 }
 
 @observer

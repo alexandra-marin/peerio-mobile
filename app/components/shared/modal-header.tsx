@@ -4,10 +4,21 @@ import Text from '../controls/custom-text';
 import CommonHeader from './common-header';
 import { vars } from '../../styles/styles';
 import { tx } from '../utils/translator';
+import { TextStyle } from 'react-native';
+
+interface ModalHeaderProps {
+    outerStyle: any;
+    fontSize: any;
+    title: any;
+    leftIcon: any;
+    rightIcon: any;
+    testID: any;
+}
 
 @observer
-export default class ModalHeader extends Component {
+export default class ModalHeader extends Component<ModalHeaderProps> {
     render() {
+        const { leftIcon, rightIcon, testID } = this.props;
         const outerStyle = [
             {
                 backgroundColor: vars.darkBlueBackground15,
@@ -16,7 +27,7 @@ export default class ModalHeader extends Component {
             this.props.outerStyle
         ];
 
-        const textStyle = {
+        const textStyle: TextStyle = {
             textAlign: 'center',
             flexGrow: 1,
             flexShrink: 1,
@@ -29,7 +40,6 @@ export default class ModalHeader extends Component {
                 {tx(this.props.title)}
             </Text>
         );
-        const { leftIcon, rightIcon, testID } = this.props;
         return <CommonHeader {...{ titleComponent, leftIcon, rightIcon, outerStyle, testID }} />;
     }
 }
