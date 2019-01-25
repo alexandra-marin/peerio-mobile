@@ -17,6 +17,7 @@
 		02B66C5621FB7480000BCF2B /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66C5321FB7475000BCF2B /* libRCTImage.a */; };
 		02E27EBA21FB86AD00AC71F4 /* libRCTRestart.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E27EA521FB86A400AC71F4 /* libRCTRestart.a */; };
 		02E27F0121FB879D00AC71F4 /* libRNSound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E27EFE21FB879100AC71F4 /* libRNSound.a */; };
+		02E2803621FB8C9A00AC71F4 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E2802021FB8C6100AC71F4 /* libRCTVibration.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +224,13 @@
 			remoteGlobalIDString = 19825A1D1BD4A89800EE0337;
 			remoteInfo = RNSound;
 		};
+		02E2801F21FB8C6100AC71F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 832C81801AAF6DEF007FA2F7;
+			remoteInfo = RCTVibration;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -239,6 +247,7 @@
 		02B66C4D21FB7475000BCF2B /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		02E27E9E21FB86A400AC71F4 /* RCTRestart.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTRestart.xcodeproj; path = "../node_modules/react-native-restart/ios/RCTRestart.xcodeproj"; sourceTree = "<group>"; };
 		02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSound.xcodeproj; path = "../node_modules/react-native-sound/RNSound.xcodeproj"; sourceTree = "<group>"; };
+		02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +264,7 @@
 				02B66C5621FB7480000BCF2B /* libRCTImage.a in Frameworks */,
 				02E27EBA21FB86AD00AC71F4 /* libRCTRestart.a in Frameworks */,
 				02E27F0121FB879D00AC71F4 /* libRNSound.a in Frameworks */,
+				02E2803621FB8C9A00AC71F4 /* libRCTVibration.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +274,7 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */,
 				02E27EF921FB879100AC71F4 /* RNSound.xcodeproj */,
 				02E27E9E21FB86A400AC71F4 /* RCTRestart.xcodeproj */,
 				02B66C4D21FB7475000BCF2B /* RCTImage.xcodeproj */,
@@ -379,6 +390,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02E2801A21FB8C6100AC71F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E2802021FB8C6100AC71F4 /* libRCTVibration.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -446,6 +465,10 @@
 				{
 					ProductGroup = 02E27E9F21FB86A400AC71F4 /* Products */;
 					ProjectRef = 02E27E9E21FB86A400AC71F4 /* RCTRestart.xcodeproj */;
+				},
+				{
+					ProductGroup = 02E2801A21FB8C6100AC71F4 /* Products */;
+					ProjectRef = 02E2801921FB8C6100AC71F4 /* RCTVibration.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66C0F21FA63CC000BCF2B /* Products */;
@@ -656,6 +679,13 @@
 			fileType = archive.ar;
 			path = libRNSound.a;
 			remoteRef = 02E27EFD21FB879100AC71F4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02E2802021FB8C6100AC71F4 /* libRCTVibration.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTVibration.a;
+			remoteRef = 02E2801F21FB8C6100AC71F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
