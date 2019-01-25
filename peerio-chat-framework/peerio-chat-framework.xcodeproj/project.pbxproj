@@ -10,9 +10,10 @@
 		02B66A4E21F77AFC000BCF2B /* peerio_chat_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */; };
 		02B66B4D21F7A6C0000BCF2B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B1521F78C3C000BCF2B /* libReact.a */; };
-		02B66B6521F7AF1F000BCF2B /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B6421F7AF1F000BCF2B /* libRCTWebSocket.a */; };
-		02B66B6721F7AF23000BCF2B /* libfishhook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B6621F7AF23000BCF2B /* libfishhook.a */; };
-		02B66B6E21F7BA9D000BCF2B /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B6D21F7BA83000BCF2B /* libSQLite.a */; };
+		02B66C2121FA63EF000BCF2B /* libfishhook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66C1A21FA63CC000BCF2B /* libfishhook.a */; };
+		02B66C2221FA6406000BCF2B /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66C1621FA63CC000BCF2B /* libRCTWebSocket.a */; };
+		02B66C2321FA6689000BCF2B /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B6D21F7BA83000BCF2B /* libSQLite.a */; };
+		02B66C4A21FB7271000BCF2B /* libRNMail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7C21F8C0A5000BCF2B /* libRNMail.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,48 @@
 			remoteGlobalIDString = E23D7B471ACEFE2A00C59171;
 			remoteInfo = SQLite;
 		};
+		02B66B7B21F8C0A5000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 46FEDE7F1AFF192F00D3261C;
+			remoteInfo = RNMail;
+		};
+		02B66C1521FA63CC000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
+			remoteInfo = RCTWebSocket;
+		};
+		02B66C1721FA63CC000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D2A28881D9B049200D4039D;
+			remoteInfo = "RCTWebSocket-tvOS";
+		};
+		02B66C1921FA63CC000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DBE0D001F3B181A0099AA32;
+			remoteInfo = fishhook;
+		};
+		02B66C1B21FA63CC000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DBE0D0D1F3B181C0099AA32;
+			remoteInfo = "fishhook-tvOS";
+		};
+		02B66C4B21FB72BC000BCF2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 46FEDE7E1AFF192F00D3261C;
+			remoteInfo = RNMail;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -150,10 +193,11 @@
 		02B66A4D21F77AFC000BCF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B66B0121F78C3C000BCF2B /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		02B66B5521F7AEF6000BCF2B /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		02B66B6421F7AF1F000BCF2B /* libRCTWebSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTWebSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B66B6621F7AF23000BCF2B /* libfishhook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libfishhook.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B66B6821F7BA83000BCF2B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../node_modules/react-native-sqlcipher-storage/src/ios/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNMail.xcodeproj; path = "../node_modules/react-native-mail/RNMail.xcodeproj"; sourceTree = "<group>"; };
+		02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,11 +205,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B66C2121FA63EF000BCF2B /* libfishhook.a in Frameworks */,
+				02B66C2221FA6406000BCF2B /* libRCTWebSocket.a in Frameworks */,
 				02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */,
-				02B66B6721F7AF23000BCF2B /* libfishhook.a in Frameworks */,
-				02B66B6521F7AF1F000BCF2B /* libRCTWebSocket.a in Frameworks */,
+				02B66C2321FA6689000BCF2B /* libSQLite.a in Frameworks */,
 				02B66B4D21F7A6C0000BCF2B /* libReact.a in Frameworks */,
-				02B66B6E21F7BA9D000BCF2B /* libSQLite.a in Frameworks */,
+				02B66C4A21FB7271000BCF2B /* libRNMail.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,9 +220,10 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */,
+				02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */,
 				02B66B6821F7BA83000BCF2B /* SQLite.xcodeproj */,
 				02B66B0121F78C3C000BCF2B /* React.xcodeproj */,
-				02B66B5521F7AEF6000BCF2B /* RCTWebSocket.xcodeproj */,
 				02B66A4B21F77AFC000BCF2B /* peerio-chat-framework */,
 				02B66A4A21F77AFC000BCF2B /* Products */,
 				02B66AFF21F782A7000BCF2B /* Frameworks */,
@@ -242,6 +288,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		02B66B7821F8C0A5000BCF2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02B66B7C21F8C0A5000BCF2B /* libRNMail.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02B66C0F21FA63CC000BCF2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02B66C1621FA63CC000BCF2B /* libRCTWebSocket.a */,
+				02B66C1821FA63CC000BCF2B /* libRCTWebSocket-tvOS.a */,
+				02B66C1A21FA63CC000BCF2B /* libfishhook.a */,
+				02B66C1C21FA63CC000BCF2B /* libfishhook-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -268,6 +333,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				02B66C4C21FB72BC000BCF2B /* PBXTargetDependency */,
 				02B66B3521F78CC5000BCF2B /* PBXTargetDependency */,
 			);
 			name = "peerio-chat-framework";
@@ -301,8 +367,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 02B66C0F21FA63CC000BCF2B /* Products */;
+					ProjectRef = 02B66C0E21FA63CC000BCF2B /* RCTWebSocket.xcodeproj */;
+				},
+				{
 					ProductGroup = 02B66B0221F78C3C000BCF2B /* Products */;
 					ProjectRef = 02B66B0121F78C3C000BCF2B /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 02B66B7821F8C0A5000BCF2B /* Products */;
+					ProjectRef = 02B66B7721F8C0A5000BCF2B /* RNMail.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66B6921F7BA83000BCF2B /* Products */;
@@ -436,6 +510,41 @@
 			remoteRef = 02B66B6C21F7BA83000BCF2B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		02B66B7C21F8C0A5000BCF2B /* libRNMail.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNMail.a;
+			remoteRef = 02B66B7B21F8C0A5000BCF2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02B66C1621FA63CC000BCF2B /* libRCTWebSocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTWebSocket.a;
+			remoteRef = 02B66C1521FA63CC000BCF2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02B66C1821FA63CC000BCF2B /* libRCTWebSocket-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRCTWebSocket-tvOS.a";
+			remoteRef = 02B66C1721FA63CC000BCF2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02B66C1A21FA63CC000BCF2B /* libfishhook.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libfishhook.a;
+			remoteRef = 02B66C1921FA63CC000BCF2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		02B66C1C21FA63CC000BCF2B /* libfishhook-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libfishhook-tvOS.a";
+			remoteRef = 02B66C1B21FA63CC000BCF2B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -463,6 +572,11 @@
 			isa = PBXTargetDependency;
 			name = React;
 			targetProxy = 02B66B3421F78CC5000BCF2B /* PBXContainerItemProxy */;
+		};
+		02B66C4C21FB72BC000BCF2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNMail;
+			targetProxy = 02B66C4B21FB72BC000BCF2B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -596,6 +710,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React";
 				INFOPLIST_FILE = "peerio-chat-framework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -629,6 +744,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../node_modules/react-native/React";
 				INFOPLIST_FILE = "peerio-chat-framework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
