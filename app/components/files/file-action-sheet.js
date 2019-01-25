@@ -5,7 +5,7 @@ import { fileState } from '../states';
 import routes from '../routes/routes';
 import ActionSheetLayout from '../layout/action-sheet-layout';
 import { fileHelpers, config, User } from '../../lib/icebear';
-import FileActionSheetHeader from './file-action-sheet-header';
+import FileActionSheetHeader from '../files/file-action-sheet-header';
 import { popupFileRename } from '../shared/popups';
 import snackbarState from '../snackbars/snackbar-state';
 

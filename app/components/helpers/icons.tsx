@@ -47,7 +47,7 @@ const icons = {
         return icons.plain(name, size, vars.darkIcon, undefined, style);
     },
 
-    plainalert(name, size?, style?) {
+    plainalert(name, size, style) {
         return icons.plain(name, size, vars.red, null, style);
     },
 
@@ -78,7 +78,7 @@ const icons = {
         return icons.basic(name, iconStyle, onPress, style, size, true, undefined, disabled);
     },
 
-    colored(name, onPress, colorFg?, backgroundColor?, disabled?, testId?) {
+    colored(name, onPress, colorFg, backgroundColor, disabled, testId) {
         return icons.basic(
             name,
             colorFg,

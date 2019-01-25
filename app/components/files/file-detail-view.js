@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, ViewStyle, TextStyle } from 'react-native';
+import { View } from 'react-native';
 import { action } from 'mobx';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
@@ -15,14 +15,14 @@ import MenuIcon from '../layout/menu-icon';
 import { tx } from '../utils/translator';
 import snackbarState from '../snackbars/snackbar-state';
 
-const textStyle: TextStyle = {
+const textStyle = {
     textAlign: 'center',
     fontSize: vars.font.size16,
     color: vars.extraSubtleText,
     marginBottom: vars.spacing.medium.mini2x
 };
 
-const fileProgressContainer: ViewStyle = {
+const fileProgressContainer = {
     justifyContent: 'center',
     height: vars.progressBarHeight,
     paddingHorizontal: vars.spacing.huge.midi2x,
@@ -30,7 +30,7 @@ const fileProgressContainer: ViewStyle = {
     marginBottom: vars.spacing.small.midi2x
 };
 
-const centered: ViewStyle = {
+const centered = {
     alignItems: 'center'
 };
 

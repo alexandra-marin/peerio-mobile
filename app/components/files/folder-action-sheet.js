@@ -3,7 +3,7 @@ import { tx } from '../utils/translator';
 import { fileState } from '../states';
 import { popupFileRename, popupFolderDelete } from '../shared/popups';
 import { fileHelpers, volumeStore, config, User } from '../../lib/icebear';
-import FileActionSheetHeader from './file-action-sheet-header';
+import FileActionSheetHeader from '../files/file-action-sheet-header';
 import ActionSheetLayout from '../layout/action-sheet-layout';
 import routes from '../routes/routes';
 import chatState from '../messaging/chat-state';
@@ -21,8 +21,7 @@ export default class FoldersActionSheet {
                 const contacts = await routes.modal.shareFolderTo({ folder });
                 if (!contacts) return;
                 await volumeStore.shareFolder(folder, contacts);
-            },
-            isDestructive: false
+            }
         };
         const actionButtons = [
             {
@@ -30,8 +29,7 @@ export default class FoldersActionSheet {
                 disabled: isShared,
                 action: async () => {
                     await routes.modal.moveFileTo({ fsObject: folder });
-                },
-                isDestructive: false
+                }
             },
             {
                 title: tx('button_rename'),
@@ -44,8 +42,7 @@ export default class FoldersActionSheet {
                     if (newFolderName) {
                         await folder.rename(`${newFolderName}`);
                     }
-                },
-                isDestructive: false
+                }
             }
         ];
 
@@ -54,8 +51,7 @@ export default class FoldersActionSheet {
                 title: tx('button_unshare'),
                 action: async () => {
                     folder.removeParticipants([chatState.currentChat.otherParticipants[0]]);
-                },
-                isDestructive: false
+                }
             });
         }
 

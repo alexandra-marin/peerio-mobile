@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { observable, action, when } from 'mobx';
 import { observer } from 'mobx-react/native';
-import ImagePicker, { ImageCropPicker } from 'react-native-image-crop-picker';
+import ImagePicker from 'react-native-image-crop-picker';
 import Text from '../controls/custom-text';
 import { tx } from '../utils/translator';
 import { vars } from '../../styles/styles';
-import FileTypeIcon from './file-type-icon';
+import FileTypeIcon from '../files/file-type-icon';
 import SafeComponent from '../shared/safe-component';
 import { fileHelpers, config, warnings } from '../../lib/icebear';
 import Thumbnail from '../shared/thumbnail';
@@ -34,7 +34,7 @@ const inputStyle = {
 
 const thumbnailDim = vars.searchInputHeight * 2;
 
-const previewContainerSmall: ViewStyle = {
+const previewContainerSmall = {
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: thumbnailDim,
@@ -42,27 +42,8 @@ const previewContainerSmall: ViewStyle = {
     flex: 0
 };
 
-interface ImageDimensions {
-    width: number;
-    height: number;
-}
-
-// TODO: move the type definition to plugin
-interface ImagePickerPlugin extends ImageCropPicker {
-    getImageDimensions: (path: string) => ImageDimensions;
-}
-
-export interface FilePreviewProps {
-    state: {
-        fileName: string;
-        path: string;
-        name: string;
-        ext: string;
-    };
-}
-
 @observer
-export default class FilePreview extends SafeComponent<FilePreviewProps> {
+export default class FilePreview extends SafeComponent {
     // width of the container in which image or file type icon is shown
     @observable previewContainerWidth;
     // height of the container in which image or file type icon is shown
@@ -92,7 +73,7 @@ export default class FilePreview extends SafeComponent<FilePreviewProps> {
             }
         );
         const { path } = this.props.state;
-        const { width, height } = await (ImagePicker as ImagePickerPlugin).getImageDimensions(path);
+        const { width, height } = await ImagePicker.getImageDimensions(path);
         Object.assign(this, { width, height });
     }
 
@@ -105,7 +86,7 @@ export default class FilePreview extends SafeComponent<FilePreviewProps> {
 
     @action.bound
     launchPreviewViewer() {
-        config.FileStream.launchViewer(this.props.state.path /*, this.props.state.fileName*/).catch(
+        config.FileStream.launchViewer(this.props.state.path, this.props.state.fileName).catch(
             () => {
                 warnings.add('snackbar_couldntOpenFile');
             }

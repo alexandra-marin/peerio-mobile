@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity, ViewStyle, GestureResponderEvent } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, TouchableOpacity } from 'react-native';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react/native';
 import Text from '../controls/custom-text';
@@ -10,13 +11,12 @@ import SafeComponent from '../shared/safe-component';
 import ButtonText from '../controls/button-text';
 import popupState from '../layout/popup-state';
 import routes from '../routes/routes';
-import fileState, { FilePreviewProps } from './file-state';
+import fileState from './file-state';
 import { User, fileHelpers, chatStore } from '../../lib/icebear';
 import FilePreview from './file-preview';
-import { File } from '../../lib/peerio-icebear/models';
 
 // TODO Workaround negative margin
-const buttonContainer: ViewStyle = {
+const buttonContainer = {
     flex: 0,
     marginTop: vars.spacing.large.mini,
     marginBottom: -12,
@@ -25,7 +25,7 @@ const buttonContainer: ViewStyle = {
     justifyContent: 'flex-end'
 };
 
-const shareContainer: ViewStyle = {
+const shareContainer = {
     marginVertical: vars.spacing.medium.mini,
     flexDirection: 'row',
     alignItems: 'center'
@@ -42,17 +42,8 @@ const recipientStyle = {
     color: vars.lighterBlackText
 };
 
-export interface FileSharePreviewProps {
-    file?: File;
-    files?: Array<File>;
-    onSubmit: Function;
-    onChooseRecipients: (event: GestureResponderEvent) => void;
-    state: { fileName: string; path: string; name: string; ext: string };
-    onCancel?: Function;
-}
-
 @observer
-export default class FileSharePreview extends SafeComponent<FileSharePreviewProps> {
+export default class FileSharePreview extends SafeComponent {
     static popup(path, fileName) {
         console.debug(`path: ${path}, filename: ${fileName}`);
         fileState.previewFile = observable({
@@ -70,7 +61,7 @@ export default class FileSharePreview extends SafeComponent<FileSharePreviewProp
             // contact to be selected in "change recipient"
             contact: {}
         });
-        return new Promise<FilePreviewProps | false>(resolve => {
+        return new Promise(resolve => {
             const showPopup = () =>
                 popupState.showPopup({
                     title: tx('title_uploadAndShare'),
@@ -98,7 +89,7 @@ export default class FileSharePreview extends SafeComponent<FileSharePreviewProp
         });
     }
 
-    recipientText(text, italicText?) {
+    recipientText(text, italicText) {
         return (
             <Text style={recipientStyle}>
                 {text}
@@ -162,3 +153,9 @@ export default class FileSharePreview extends SafeComponent<FileSharePreviewProp
         );
     }
 }
+
+FileSharePreview.propTypes = {
+    file: PropTypes.any,
+    files: PropTypes.any,
+    onSubmit: PropTypes.any
+};

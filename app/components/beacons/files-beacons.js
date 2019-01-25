@@ -65,4 +65,4 @@ function createBeacon(props) {
     });
 }
 
-export default filesBeacons;
+module.exports = filesBeacons;

@@ -1,13 +1,13 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { observer } from 'mobx-react/native';
-import { View, TouchableOpacity, Dimensions, TextStyle, ViewStyle } from 'react-native';
+import { View, TouchableOpacity, Dimensions } from 'react-native';
 import { tx } from '../utils/translator';
 import Text from '../controls/custom-text';
 import SafeComponent from '../shared/safe-component';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
-import { File } from '../../lib/peerio-icebear/models';
 
 const { width } = Dimensions.get('window');
 
@@ -17,7 +17,7 @@ const lineStyle = {
     backgroundColor: vars.actionSheetButtonBorderColor
 };
 
-const container: ViewStyle = {
+const container = {
     backgroundColor: vars.actionSheetButtonColor,
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,7 +34,7 @@ const infoIconStyle = {
     bottom: 8
 };
 
-const infoTextStyle: TextStyle = {
+const infoTextStyle = {
     fontSize: vars.font.size12,
     alignItems: 'center',
     textAlign: 'center',
@@ -42,13 +42,8 @@ const infoTextStyle: TextStyle = {
     lineHeight: 16
 };
 
-export interface FileActionSheetProps {
-    file: File;
-    onPress?: OnPressResponder;
-}
-
 @observer
-export default class FileActionSheetHeader extends SafeComponent<FileActionSheetProps> {
+export default class FileActionSheetHeader extends SafeComponent {
     // Android border color does not work with border radius
     get borderBottom() {
         return <View style={lineStyle} />;
@@ -79,3 +74,8 @@ export default class FileActionSheetHeader extends SafeComponent<FileActionSheet
         );
     }
 }
+
+FileActionSheetHeader.propTypes = {
+    file: PropTypes.any,
+    onPress: PropTypes.func
+};
