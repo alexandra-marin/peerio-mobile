@@ -2,11 +2,17 @@ import React from 'react';
 import { reaction } from 'mobx';
 import { observer } from 'mobx-react/native';
 import { View } from 'react-native';
-import SafeComponent from '../shared/safe-component';
+import SafeComponent from './safe-component';
 import { uiState } from '../states';
 
+interface MeasureableViewProps {
+    onMeasure: Function;
+}
+
 @observer
-export default class MeasureableView extends SafeComponent {
+export default class MeasureableView extends SafeComponent<MeasureableViewProps> {
+    retriggerLayout: any;
+    ref: any;
     componentDidMount() {
         this.retriggerLayout = reaction(() => uiState.modalShown, this.layout);
     }
