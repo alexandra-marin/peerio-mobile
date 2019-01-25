@@ -8,6 +8,7 @@ import { setScrollHelperRef, setScrollHelperOnScroll } from '../helpers/test-hel
 
 @observer
 export default class FlatListWithDrawer extends ListWithDrawer {
+    scrollView: any;
     @action.bound
     scrollViewRef(sv) {
         this.props.setScrollViewRef && this.props.setScrollViewRef(sv);
@@ -38,6 +39,8 @@ export default class FlatListWithDrawer extends ListWithDrawer {
             <FlatList
                 scrollEventThrottle={1}
                 {...this.props}
+                data={this.props.data}
+                renderItem={this.props.renderItem}
                 onScroll={setScrollHelperOnScroll}
                 ref={this.scrollViewRef}
                 ListHeaderComponent={this.topDrawer}
