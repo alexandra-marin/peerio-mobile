@@ -25,7 +25,6 @@
 		025935601E809AAF00FAEE7E /* libInAppUtils.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0259355D1E809AA400FAEE7E /* libInAppUtils.a */; };
 		0268189C1F746B9400A42812 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026818981F742B9100A42812 /* libRCTCameraRoll.a */; };
 		026A54881F9A5F8600D26E34 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026A54871F9A5F8600D26E34 /* Launch Screen.storyboard */; };
-		026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 026B0DA61E0384D700B24721 /* libRCTAnimation.a */; };
 		02726F581EB33C7A00D82BF5 /* libsodium-ios in Resources */ = {isa = PBXBuildFile; fileRef = 02726F571EB33C7A00D82BF5 /* libsodium-ios */; };
 		02726F891EB33E3000D82BF5 /* RNSodium.m in Sources */ = {isa = PBXBuildFile; fileRef = 02726F881EB33E3000D82BF5 /* RNSodium.m */; };
 		029F85611EE8052000C0CC31 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85331EE804E500C0CC31 /* libimageCropPicker.a */; };
@@ -166,20 +165,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 2D2A28611D9B046600D4039D;
 			remoteInfo = "RCTSettings-tvOS";
-		};
-		026B0DA51E0384D700B24721 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RCTAnimation;
-		};
-		026B0DA71E0384D700B24721 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2D2A28201D9B03D100D4039D;
-			remoteInfo = "RCTAnimation-tvOS";
 		};
 		029F85321EE804E500C0CC31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -411,7 +396,6 @@
 		025935571E809AA300FAEE7E /* InAppUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = InAppUtils.xcodeproj; path = "../node_modules/react-native-in-app-utils/InAppUtils.xcodeproj"; sourceTree = "<group>"; };
 		026818931F742B9100A42812 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		026A54871F9A5F8600D26E34 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		02726F571EB33C7A00D82BF5 /* libsodium-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "libsodium-ios"; path = "peeriomobile/libsodium-ios"; sourceTree = "<group>"; };
 		02726F871EB33E3000D82BF5 /* RNSodium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNSodium.h; path = peeriomobile/RNSodium.h; sourceTree = "<group>"; };
 		02726F881EB33E3000D82BF5 /* RNSodium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNSodium.m; path = peeriomobile/RNSodium.m; sourceTree = "<group>"; };
@@ -487,7 +471,6 @@
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				02E096DA1DAE3B7600641B85 /* libRNFS.a in Frameworks */,
 				0221BD371DDDC24200706A4F /* libRNImagePicker.a in Frameworks */,
-				026B0DA91E0384EF00B24721 /* libRCTAnimation.a in Frameworks */,
 				0222C3941E0C98B40084C586 /* libRCTPushNotification.a in Frameworks */,
 				025935601E809AAF00FAEE7E /* libInAppUtils.a in Frameworks */,
 				0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */,
@@ -567,15 +550,6 @@
 			isa = PBXGroup;
 			children = (
 				026818981F742B9100A42812 /* libRCTCameraRoll.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		026B0DA11E0384D600B24721 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				026B0DA61E0384D700B24721 /* libRCTAnimation.a */,
-				026B0DA81E0384D700B24721 /* libRCTAnimation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -707,7 +681,6 @@
 				026818931F742B9100A42812 /* RCTCameraRoll.xcodeproj */,
 				025935571E809AA300FAEE7E /* InAppUtils.xcodeproj */,
 				0222C3701E0C989D0084C586 /* RCTPushNotification.xcodeproj */,
-				026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
 				139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */,
 				85F72AE1AB9C4B249FDE6333 /* RNFS.xcodeproj */,
@@ -898,10 +871,6 @@
 					ProjectRef = 025935571E809AA300FAEE7E /* InAppUtils.xcodeproj */;
 				},
 				{
-					ProductGroup = 026B0DA11E0384D600B24721 /* Products */;
-					ProjectRef = 026B0DA01E0384D600B24721 /* RCTAnimation.xcodeproj */;
-				},
-				{
 					ProductGroup = 0204B9B8215ABFC100BAD78D /* Products */;
 					ProjectRef = 0204B9B7215ABFC100BAD78D /* RCTBlob.xcodeproj */;
 				},
@@ -1048,20 +1017,6 @@
 			fileType = archive.ar;
 			path = "libRCTSettings-tvOS.a";
 			remoteRef = 026B0D851E037FED00B24721 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		026B0DA61E0384D700B24721 /* libRCTAnimation.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTAnimation.a;
-			remoteRef = 026B0DA51E0384D700B24721 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		026B0DA81E0384D700B24721 /* libRCTAnimation.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTAnimation.a;
-			remoteRef = 026B0DA71E0384D700B24721 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		029F85331EE804E500C0CC31 /* libimageCropPicker.a */ = {
