@@ -62,7 +62,7 @@ const iconStyle: ViewStyle = {
 };
 
 interface ProgressProps {
-    value: any;
+    value: number;
     max: number;
     hidden: boolean;
     title: string;

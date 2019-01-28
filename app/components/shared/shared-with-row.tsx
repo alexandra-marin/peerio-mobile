@@ -6,6 +6,8 @@ import { vars } from '../../styles/styles';
 import ReadReceipt from './read-receipt';
 import { tx } from '../utils/translator';
 import Text from '../controls/custom-text';
+import { Contact } from '../../lib/icebear';
+import { Chat } from '../../lib/peerio-icebear/models';
 
 const rowContainer: ViewStyle = {
     flex: 1,
@@ -34,8 +36,8 @@ const numberSharedWithText: TextStyle = {
 };
 
 interface SharedWithRowProps {
-    contacts: any;
-    rooms: any;
+    contacts: Contact[];
+    rooms: Chat[];
 }
 
 @observer
