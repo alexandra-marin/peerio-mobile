@@ -9,14 +9,15 @@ import SystemMessage from './system-message';
 import ChatMessageText from './chat-message-text';
 import ChatMessageSendError from './chat-message-error';
 import ChatMessageInlineUrls from './chat-message-inline-urls';
+import { Message, Chat } from '../../lib/peerio-icebear/models';
 
 interface ChatMessageBodyProps {
-    messageObject: any;
-    chat: any;
-    onFileAction: any;
-    onLegacyFileAction: any;
-    onInlineImageAction: any;
-    isClosed?;
+    messageObject: Message;
+    chat: Chat;
+    onFileAction: Function;
+    onLegacyFileAction: Function;
+    onInlineImageAction: Function;
+    isClosed?: boolean;
 }
 
 @observer

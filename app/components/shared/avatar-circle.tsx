@@ -14,9 +14,10 @@ import icons from '../helpers/icons';
 import ErrorCircle from './error-circle';
 import { vars } from '../../styles/styles';
 import testLabel from '../helpers/test-label';
+import { Contact } from '../../lib/icebear';
 
 interface AvatarCircleProps {
-    contact: any;
+    contact: Contact;
     loading?: boolean;
     large?: boolean;
     medium?: boolean;
@@ -58,7 +59,7 @@ export default class AvatarCircle extends SafeComponent<AvatarCircleProps> {
         }
 
         const { color, tofuError, letter } = contact;
-        const tryColor = color || {};
+        const tryColor = color || { value: null, isLight: false };
         const coloredAvatarStyle: ViewStyle[] = [
             avatarStyle[0],
             {
