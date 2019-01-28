@@ -4,6 +4,7 @@ import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
 import { TextStyle } from 'react-native';
+import { Contact } from '../../lib/icebear';
 
 const fullnameTextStyle = {
     color: vars.txtDark,
@@ -17,8 +18,8 @@ const usernameTextStyle: TextStyle = {
 };
 
 interface DmTitleProps {
-    contact: any;
-    unread: any;
+    contact: Contact;
+    unread: boolean;
 }
 
 @observer

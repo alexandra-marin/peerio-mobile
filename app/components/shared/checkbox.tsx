@@ -7,13 +7,13 @@ import { vars } from '../../styles/styles';
 import testLabel from '../helpers/test-label';
 
 interface CheckBoxProps {
-    text: any;
+    text: string;
     isChecked: boolean;
-    onChange: any;
+    onChange: Function;
     alignLeft: boolean;
-    state;
-    accessibilityLabel;
-    property;
+    state: Object;
+    accessibilityLabel: string;
+    property: string;
 }
 
 @observer

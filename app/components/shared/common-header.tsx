@@ -6,7 +6,7 @@ import testLabel from '../helpers/test-label';
 
 interface CommonHeaderProps {
     outerStyle: any;
-    testID: any;
+    testID: string;
     titleComponent: React.ReactNode;
     leftIcon: React.ReactNode;
     rightIcon: React.ReactNode;

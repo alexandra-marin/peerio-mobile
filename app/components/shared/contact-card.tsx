@@ -1,12 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { View, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, TouchableOpacity, ViewStyle, GestureResponderEvent } from 'react-native';
 import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import AvatarCircle from './avatar-circle';
 import DeletedCircle from './deleted-circle';
 import testLabel from '../helpers/test-label';
 import ContactNameInfo from './contact-name-info';
+import { Contact } from '../../lib/icebear';
 
 const itemStyle: ViewStyle = {
     flex: 1,
@@ -51,12 +52,12 @@ const avatarStyle: ViewStyle = {
 
 interface ContactCardProps {
     backgroundColor?: any;
-    contact?: any;
-    invited?: any;
-    onPress?: any;
+    contact?: Contact;
+    invited?: boolean;
+    onPress?: (event: GestureResponderEvent) => void;
     faded?: boolean;
-    disableTapping?;
-    loading?;
+    disableTapping?: boolean;
+    loading?: boolean;
 }
 
 @observer

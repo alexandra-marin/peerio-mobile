@@ -30,7 +30,7 @@ const separator = {
 
 interface DateSeparatorProps {
     visible: boolean;
-    timestamp: any;
+    timestamp: Date;
 }
 
 @observer
