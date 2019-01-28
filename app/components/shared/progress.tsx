@@ -6,9 +6,9 @@ import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 
 interface ProgressProps {
-    value: any;
-    max: any;
-    hidden: any;
+    value: number;
+    max: number;
+    hidden: boolean;
 }
 
 @observer

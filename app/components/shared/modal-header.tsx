@@ -8,11 +8,11 @@ import { TextStyle } from 'react-native';
 
 interface ModalHeaderProps {
     outerStyle?: any;
-    fontSize?: any;
+    fontSize?: number;
     title: any;
     leftIcon: any;
     rightIcon: any;
-    testID: any;
+    testID: string;
 }
 
 @observer

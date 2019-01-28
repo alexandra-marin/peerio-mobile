@@ -5,6 +5,7 @@ import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import VideoCallMessage from './video-call-message';
 import { systemMessages } from '../../lib/icebear';
+import { Message } from '../../lib/peerio-icebear/models';
 
 const lastMessageTextStyle = {
     flex: 1,
@@ -18,7 +19,7 @@ const lastMessageTextStyle = {
 };
 
 interface SystemMessageProps {
-    message: any;
+    message: Message;
 }
 
 @observer

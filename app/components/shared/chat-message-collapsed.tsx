@@ -6,6 +6,7 @@ import CorruptedMessage from './corrupted-message';
 import ViewReceipts from './view-receipts';
 import ChatMessageBody from './chat-message-body';
 import MessageSentError from './message-sent-error';
+import { Message, Chat } from '../../lib/peerio-icebear/models';
 
 const itemStyle = {
     marginTop: 8,
@@ -22,14 +23,14 @@ const itemContainerStyle = {
 };
 
 interface ChatMessageCollapsedProps {
-    messageObject: any;
-    chat: any;
-    onFileAction: any;
-    onLegacyFileAction: any;
-    onInlineImageAction: any;
+    messageObject: Message;
+    chat: Chat;
+    onFileAction: Function;
+    onLegacyFileAction: Function;
+    onInlineImageAction: Function;
     backgroundColor: any;
     errorStyle: any;
-    onPressReceipt;
+    onPressReceipt: Function;
 }
 
 @observer

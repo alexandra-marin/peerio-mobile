@@ -7,9 +7,10 @@ import { vars } from '../../styles/styles';
 import AvatarCircle from './avatar-circle';
 import DeletedCircle from './deleted-circle';
 import contactState from '../contacts/contact-state';
+import { Contact } from '../../lib/icebear';
 
 interface TouchableContactAvatarProps {
-    contact: any;
+    contact: Contact;
 }
 
 @observer

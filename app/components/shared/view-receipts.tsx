@@ -51,7 +51,7 @@ export default class ViewReceipts extends SafeComponent<ViewReceiptsProps> {
     @observable forceLastAvatar;
     prev = 1;
     _observer: any;
-    updateTimeout: any;
+    updateTimeout: NodeJS.Timeout;
 
     componentDidMount() {
         this._observer = reaction(

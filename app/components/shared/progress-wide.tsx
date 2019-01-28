@@ -63,11 +63,11 @@ const iconStyle: ViewStyle = {
 
 interface ProgressProps {
     value: any;
-    max: any;
-    hidden: any;
-    title: any;
-    onCancel;
-    path;
+    max: number;
+    hidden: boolean;
+    title: string;
+    onCancel: Function;
+    path: string;
     file;
 }
 
