@@ -8,18 +8,10 @@ import DateSeparator from './date-separator';
 import ChatMessageCollapsed from './chat-message-collapsed';
 import ChatMessageFull from './chat-message-full';
 import { chatState } from '../states';
-
-interface ChatMessageContainerProps {
-    messageObject: any;
-    chat: any;
-    onFileAction: any;
-    onLegacyFileAction: any;
-    onInlineImageAction: any;
-    backgroundColor: any;
-}
+import { ChatMessageProps } from './chat-message-props';
 
 @observer
-export default class ChatMessageContainer extends SafeComponent<ChatMessageContainerProps> {
+export default class ChatMessageContainer extends SafeComponent<ChatMessageProps> {
     get errorStyle() {
         return this.props.messageObject.sendError
             ? {

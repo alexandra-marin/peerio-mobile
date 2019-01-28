@@ -4,6 +4,7 @@ import { observer } from 'mobx-react/native';
 import SafeComponent from './safe-component';
 import { vars } from '../../styles/styles';
 import Text from '../controls/custom-text';
+import { ChatMessageProps } from './chat-message-props';
 
 const containerStyle: ViewStyle = {
     marginRight: 8,
@@ -34,12 +35,8 @@ const dateTextStyle = {
     marginLeft: vars.spacing.small.midi2x
 };
 
-interface ChatMessageDataProps {
-    message: any;
-}
-
 @observer
-export default class ChatMessageData extends SafeComponent<ChatMessageDataProps> {
+export default class ChatMessageData extends SafeComponent<ChatMessageProps> {
     renderThrow() {
         const { sender, messageTimestampText } = this.props.message;
         return (

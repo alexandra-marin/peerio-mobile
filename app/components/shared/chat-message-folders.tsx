@@ -3,14 +3,10 @@ import { View } from 'react-native';
 import { observer } from 'mobx-react/native';
 import SafeComponent from './safe-component';
 import FolderInlineContainer from '../files/folder-inline-container';
-
-interface ChatMessageFoldersProps {
-    folders: any;
-    chat: any;
-}
+import { ChatMessageProps } from './chat-message-props';
 
 @observer
-export default class ChatMessageFolders extends SafeComponent<ChatMessageFoldersProps> {
+export default class ChatMessageFolders extends SafeComponent<ChatMessageProps> {
     get folders() {
         const { folders, chat } = this.props;
         return folders.map(folderId => (

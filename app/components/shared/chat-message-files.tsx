@@ -4,16 +4,10 @@ import { observer } from 'mobx-react/native';
 import SafeComponent from './safe-component';
 import FileInlineProgress from '../files/file-inline-progress';
 import fileState from '../files/file-state';
-
-interface ChatMessageFilesProps {
-    message: any;
-    chat: any;
-    onFileAction: any;
-    onLegacyFileAction: any;
-}
+import { ChatMessageProps } from './chat-message-props';
 
 @observer
-export default class ChatMessageFiles extends SafeComponent<ChatMessageFilesProps> {
+export default class ChatMessageFiles extends SafeComponent<ChatMessageProps> {
     get files() {
         const { message, chat } = this.props;
 

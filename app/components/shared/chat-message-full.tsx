@@ -9,6 +9,7 @@ import ViewReceipts from './view-receipts';
 import TouchableContactAvatar from './touchable-contact-avatar';
 import ChatMessageBody from './chat-message-body';
 import MessageSentError from './message-sent-error';
+import { ChatMessageProps } from './chat-message-props';
 
 const { width } = Dimensions.get('window');
 
@@ -49,19 +50,8 @@ const flexRow: ViewStyle = {
     flexShrink: 1
 };
 
-interface ChatMessageFullProps {
-    messageObject: any;
-    chat: any;
-    onFileAction: any;
-    onLegacyFileAction: any;
-    onInlineImageAction: any;
-    backgroundColor: any;
-    errorStyle: any;
-    onPressReceipt;
-}
-
 @observer
-export default class ChatMessageFull extends SafeComponent<ChatMessageFullProps> {
+export default class ChatMessageFull extends SafeComponent<ChatMessageProps> {
     renderThrow() {
         const {
             errorStyle,

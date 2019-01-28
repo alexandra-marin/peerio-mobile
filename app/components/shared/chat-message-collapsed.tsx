@@ -6,7 +6,7 @@ import CorruptedMessage from './corrupted-message';
 import ViewReceipts from './view-receipts';
 import ChatMessageBody from './chat-message-body';
 import MessageSentError from './message-sent-error';
-import { Message, Chat } from '../../lib/peerio-icebear/models';
+import { ChatMessageProps } from './chat-message-props';
 
 const itemStyle = {
     marginTop: 8,
@@ -22,19 +22,8 @@ const itemContainerStyle = {
     marginRight: 6
 };
 
-interface ChatMessageCollapsedProps {
-    messageObject: Message;
-    chat: Chat;
-    onFileAction: Function;
-    onLegacyFileAction: Function;
-    onInlineImageAction: Function;
-    backgroundColor: any;
-    errorStyle: any;
-    onPressReceipt: Function;
-}
-
 @observer
-export default class ChatMessageCollapsed extends SafeComponent<ChatMessageCollapsedProps> {
+export default class ChatMessageCollapsed extends SafeComponent<ChatMessageProps> {
     renderThrow() {
         const {
             errorStyle,
