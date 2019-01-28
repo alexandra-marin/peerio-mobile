@@ -6,10 +6,9 @@ import ContactSelectorUniversal from '../contacts/contact-selector-universal';
 import { tu, tx } from '../utils/translator';
 import { vars } from '../../styles/styles';
 import icons from '../helpers/icons';
-import ChannelUpgradeOffer from './channel-upgrade-offer';
 import CreateChannelTextBox from './create-channel-textbox';
 import chatState from '../messaging/chat-state';
-import { User, config, socket } from '../../lib/icebear';
+import { config, socket } from '../../lib/icebear';
 import SnackBarConnection from '../snackbars/snackbar-connection';
 import Text from '../controls/custom-text';
 import ModalHeader from '../shared/modal-header';
@@ -39,7 +38,7 @@ export default class CreateChannel extends Component {
     _disableScrollUpdate: boolean;
     _scrollView: ScrollView;
     _contactSelector: ContactSelectorUniversal;
-    
+
     componentDidMount() {
         reaction(
             () => this.step,
@@ -163,19 +162,10 @@ export default class CreateChannel extends Component {
         );
     }
 
-    get paywall() {
-        return (
-            <View style={card}>
-                {this.exitRow()}
-                <ChannelUpgradeOffer />
-            </View>
-        );
-    }
-
     render() {
         return (
             <View style={fillView}>
-                {User.current.channelsLeft <= 0 ? this.paywall : this.scrollView}
+                {this.scrollView}
                 <SnackBarConnection />
             </View>
         );
