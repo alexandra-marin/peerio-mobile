@@ -7,8 +7,8 @@ import { tx } from '../utils/translator';
 import { TextStyle } from 'react-native';
 
 interface ModalHeaderProps {
-    outerStyle: any;
-    fontSize: any;
+    outerStyle?: any;
+    fontSize?: any;
     title: any;
     leftIcon: any;
     rightIcon: any;

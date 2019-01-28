@@ -1,6 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react/native';
-import { ActivityIndicator, View, Image, TouchableOpacity, ViewStyle } from 'react-native';
+import {
+    ActivityIndicator,
+    View,
+    Image,
+    TouchableOpacity,
+    ViewStyle,
+    GestureResponderEvent
+} from 'react-native';
 import Text from '../controls/custom-text';
 import SafeComponent from './safe-component';
 import icons from '../helpers/icons';
@@ -14,7 +21,7 @@ interface AvatarCircleProps {
     large?: boolean;
     medium?: boolean;
     invited?: boolean;
-    onPress?;
+    onPress?: (event: GestureResponderEvent) => void;
 }
 
 @observer

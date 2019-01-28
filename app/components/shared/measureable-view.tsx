@@ -6,7 +6,11 @@ import SafeComponent from './safe-component';
 import { uiState } from '../states';
 
 interface MeasureableViewProps {
-    onMeasure: Function;
+    spotBgColor?: string;
+    beacon?: JSX.Element;
+    onPress?: Function;
+    onMeasure?: Function;
+    iconSource?: string;
 }
 
 @observer
