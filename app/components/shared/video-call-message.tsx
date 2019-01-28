@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 import { observer } from 'mobx-react/native';
 import { action } from 'mobx';
 import { View, TouchableOpacity, Linking, ViewStyle } from 'react-native';
@@ -24,8 +24,8 @@ const containerStyle: ViewStyle = {
 };
 
 interface VideoCallMessageProps {
-    videoCallMessage: any;
-    systemMessage: any;
+    videoCallMessage: string;
+    systemMessage: string | ReactChild[];
 }
 
 @observer

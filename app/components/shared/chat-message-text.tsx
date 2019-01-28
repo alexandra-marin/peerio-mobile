@@ -8,6 +8,7 @@ import Text from '../controls/custom-text';
 import { vars } from '../../styles/styles';
 import { chatSchema, Renderer } from '../messaging/chat-schema';
 import contacState from '../contacts/contact-state';
+import Message from 'peerio-icebear/src/models/chats/message';
 
 const textStyle = {
     color: vars.txtMedium,
@@ -42,9 +43,9 @@ function renderRichText(richText) {
 }
 
 interface ChatMessageTextProps {
-    message?: any;
-    plainText;
-    richText;
+    message?: Message;
+    plainText: unknown;
+    richText: unknown;
 }
 
 @observer

@@ -2,9 +2,10 @@ import React from 'react';
 import { observer } from 'mobx-react/native';
 import SafeComponent from './safe-component';
 import InlineUrlContainer from '../messaging/inline-url-container';
+import { Message } from '../../lib/peerio-icebear/models';
 
 interface ChatMessageInlineUrlsProps {
-    message: any;
+    message: Message;
     isClosed;
 }
 
@@ -18,7 +19,7 @@ export default class ChatMessageInlineUrls extends SafeComponent<ChatMessageInli
         return externalWebsites.map(externalWebsite => {
             return (
                 <InlineUrlContainer
-                    key={externalWebsite}
+                    key={externalWebsite.title}
                     externalWebsite={externalWebsite}
                     isClosed={this.props.isClosed}
                 />
