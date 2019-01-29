@@ -21,6 +21,7 @@
 		029952D7220104CD00A36D00 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D6220104CD00A36D00 /* ImageIO.framework */; };
 		029952D9220104D700A36D00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D8220104D600A36D00 /* CoreGraphics.framework */; };
 		029952E02201080A00A36D00 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952DF220107F000A36D00 /* FLAnimatedImage.framework */; };
+		029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 029952E32201122E00A36D00 /* MaterialIcons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		029952D6220104CD00A36D00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		029952D8220104D600A36D00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
+		029952E32201122E00A36D00 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,8 @@
 		029952A72200FA6700A36D00 = {
 			isa = PBXGroup;
 			children = (
+				029952E22201122100A36D00 /* Resources */,
+				029952E12201121700A36D00 /* Libraries */,
 				029952B22200FA6700A36D00 /* test-embed-peerio */,
 				029952B12200FA6700A36D00 /* Products */,
 				029952CC2200FABF00A36D00 /* Frameworks */,
@@ -116,7 +120,6 @@
 				029952C12200FA6900A36D00 /* LaunchScreen.storyboard */,
 				029952C42200FA6900A36D00 /* Info.plist */,
 				029952C52200FA6900A36D00 /* main.m */,
-				029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */,
 			);
 			path = "test-embed-peerio";
 			sourceTree = "<group>";
@@ -139,6 +142,22 @@
 				029952DF220107F000A36D00 /* FLAnimatedImage.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		029952E12201121700A36D00 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		029952E22201122100A36D00 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				029952E32201122E00A36D00 /* MaterialIcons.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */,
 				029952C32200FA6900A36D00 /* LaunchScreen.storyboard in Resources */,
 				029952C02200FA6900A36D00 /* Assets.xcassets in Resources */,
 				029952BE2200FA6700A36D00 /* Main.storyboard in Resources */,

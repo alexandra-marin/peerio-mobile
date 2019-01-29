@@ -13,7 +13,7 @@ const load = name => {
     };
     const sound = new Sound(path, Sound.MAIN_BUNDLE, error => {
         if (error) {
-            console.error(`sounds.js: failed to load the sound ${path}`, error);
+            console.warn(`sounds.js: failed to load the sound ${path}`, error);
         } else {
             console.log(`sounds.js: duration in seconds: ${sound.getDuration()}`);
             soundStorage[name] = () => {
