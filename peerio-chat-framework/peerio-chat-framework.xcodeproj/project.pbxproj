@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		028ACB862200C5730063FE17 /* libRCTContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACB502200C53B0063FE17 /* libRCTContacts.a */; };
 		02B66A4E21F77AFC000BCF2B /* peerio_chat_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */; };
 		02B66B4D21F7A6C0000BCF2B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B1521F78C3C000BCF2B /* libReact.a */; };
@@ -34,6 +35,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		028ACB4F2200C53B0063FE17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 028ACB452200C53B0063FE17 /* RCTContacts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1441618E1BD0A79300FA4F59;
+			remoteInfo = RCTContacts;
+		};
+		028ACB872200C5820063FE17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 028ACB452200C53B0063FE17 /* RCTContacts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1441618D1BD0A79300FA4F59;
+			remoteInfo = RCTContacts;
+		};
 		02B66B1421F78C3C000BCF2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02B66B0121F78C3C000BCF2B /* React.xcodeproj */;
@@ -541,6 +556,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		028ACB452200C53B0063FE17 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
 		02B66A4921F77AFC000BCF2B /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = peerio_chat_framework.h; sourceTree = "<group>"; };
 		02B66A4D21F77AFC000BCF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -576,6 +592,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028ACB862200C5730063FE17 /* libRCTContacts.a in Frameworks */,
 				02E280E421FBB38D00AC71F4 /* libRNFS.a in Frameworks */,
 				02E280CE21FBAF7400AC71F4 /* libRNFLAnimatedImage.a in Frameworks */,
 				02E280BE21FBADAC00AC71F4 /* libRCTAnimation.a in Frameworks */,
@@ -605,9 +622,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		028ACB462200C53B0063FE17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				028ACB502200C53B0063FE17 /* libRCTContacts.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				028ACB452200C53B0063FE17 /* RCTContacts.xcodeproj */,
 				02E280DB21FBB38800AC71F4 /* RNFS.xcodeproj */,
 				02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */,
 				02E280C121FBAF5100AC71F4 /* FLAnimatedImage.xcodeproj */,
@@ -894,6 +920,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				028ACB882200C5820063FE17 /* PBXTargetDependency */,
 				02E280E621FBB39700AC71F4 /* PBXTargetDependency */,
 				02E280D221FBAF7B00AC71F4 /* PBXTargetDependency */,
 				02E280C021FBADB000AC71F4 /* PBXTargetDependency */,
@@ -965,6 +992,10 @@
 				{
 					ProductGroup = 02E280B621FBADA300AC71F4 /* Products */;
 					ProjectRef = 02E280B521FBADA300AC71F4 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = 028ACB462200C53B0063FE17 /* Products */;
+					ProjectRef = 028ACB452200C53B0063FE17 /* RCTContacts.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66C4E21FB7475000BCF2B /* Products */;
@@ -1043,6 +1074,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		028ACB502200C53B0063FE17 /* libRCTContacts.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTContacts.a;
+			remoteRef = 028ACB4F2200C53B0063FE17 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		02B66B1521F78C3C000BCF2B /* libReact.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1423,6 +1461,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		028ACB882200C5820063FE17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RCTContacts;
+			targetProxy = 028ACB872200C5820063FE17 /* PBXContainerItemProxy */;
+		};
 		02B66C4C21FB72BC000BCF2B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = RNMail;
