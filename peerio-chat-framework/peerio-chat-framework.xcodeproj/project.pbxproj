@@ -18,7 +18,8 @@
 		028ACC7E2200DA3E0063FE17 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC7B2200DA160063FE17 /* libimageCropPicker.a */; };
 		028ACC932200E1900063FE17 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC902200E1360063FE17 /* libRNKeychain.a */; };
 		028ACCA32200E70E0063FE17 /* libRNSodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACCA02200E7050063FE17 /* libRNSodium.a */; };
-		02B66A4E21F77AFC000BCF2B /* peerio_chat_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		028ACDB12200F14C0063FE17 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 028ACDB02200F14C0063FE17 /* include */; };
+		028ACDB22200F1510063FE17 /* include in Headers */ = {isa = PBXBuildFile; fileRef = 028ACDB02200F14C0063FE17 /* include */; settings = {ATTRIBUTES = (Public, ); }; };
 		02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */; };
 		02B66B4D21F7A6C0000BCF2B /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B1521F78C3C000BCF2B /* libReact.a */; };
 		02B66C2121FA63EF000BCF2B /* libfishhook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66C1A21FA63CC000BCF2B /* libfishhook.a */; };
@@ -745,8 +746,8 @@
 		028ACC762200DA160063FE17 /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../ios/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 		028ACC9B2200E7050063FE17 /* RNSodium.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSodium.xcodeproj; path = "../ios/react-native-sodium/RNSodium.xcodeproj"; sourceTree = "<group>"; };
+		028ACDB02200F14C0063FE17 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		02B66A4921F77AFC000BCF2B /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = peerio_chat_framework.h; sourceTree = "<group>"; };
 		02B66A4D21F77AFC000BCF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B66B0121F78C3C000BCF2B /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -915,6 +916,7 @@
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
+				028ACDB02200F14C0063FE17 /* include */,
 				028ACC9B2200E7050063FE17 /* RNSodium.xcodeproj */,
 				028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */,
 				028ACC762200DA160063FE17 /* imageCropPicker.xcodeproj */,
@@ -965,7 +967,6 @@
 		02B66A4B21F77AFC000BCF2B /* peerio-chat-framework */ = {
 			isa = PBXGroup;
 			children = (
-				02B66A4C21F77AFC000BCF2B /* peerio_chat_framework.h */,
 				02B66A4D21F77AFC000BCF2B /* Info.plist */,
 			);
 			path = "peerio-chat-framework";
@@ -1193,7 +1194,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B66A4E21F77AFC000BCF2B /* peerio_chat_framework.h in Headers */,
+				028ACDB22200F1510063FE17 /* include in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1885,6 +1886,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028ACDB12200F14C0063FE17 /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

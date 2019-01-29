@@ -21,35 +21,6 @@ CNContactStore* contactStore = nil;
 
 @implementation AppDelegate
 
-/* ABAddressBookRef _addressBook;
-
-void RogerAddressBookChangeCallback(ABAddressBookRef addressBook, CFDictionaryRef info, void *context) {
-    NSLog(@"Address book change");
-    CFArrayRef peopleRefs = ABAddressBookCopyArrayOfAllPeopleInSource(addressBook, kABSourceTypeLocal);
-    long count = CFArrayGetCount(peopleRefs);
-    NSLog(@"Count: %ld", count);
-    for (long i = 0; i < count; i++) {
-        ABRecordRef ref = CFArrayGetValueAtIndex(peopleRefs, i);
-        NSDate* datemod = (__bridge_transfer NSDate *)(ABRecordCopyValue(ref, kABPersonModificationDateProperty));
-
-
-        NSTimeInterval distanceBetweenDates = [[NSDate date] timeIntervalSinceDate:datemod];
-
-        int seconds = round(distanceBetweenDates);
-
-        if(seconds < 60) {
-            // NSLog(@"modifactiondate: %@", datemod);
-        }
-    }
-
-
-    NSLog(@"Yes it does get called by this change %@", context);
-
-    // ABAddressBookRevert(addressBook);
-    // RogerAddressBook *instance = (__bridge RogerAddressBook *)context;
-    // [instance import];
-} */
-
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -77,21 +48,6 @@ void RogerAddressBookChangeCallback(ABAddressBookRef addressBook, CFDictionaryRe
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-  
-  // Set up address book API.
-  /* CFErrorRef *error = NULL;
-  _addressBook = ABAddressBookCreateWithOptions(NULL, error);
-  if (error) {
-      NSLog(@"Could not initialize address book: %@", CFBridgingRelease(CFErrorCopyFailureReason(*error)));
-  } else {
-      ABAddressBookRegisterExternalChangeCallback(_addressBook, RogerAddressBookChangeCallback, (__bridge void *)self);
-      NSLog(@"Registered callback");
-  } */
-  /* contactStore = [[CNContactStore alloc] init];
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                  selector:@selector(userContactsChange:)
-             name:CNContactStoreDidChangeNotification object:nil]; */
-
   return YES;
 }
 
