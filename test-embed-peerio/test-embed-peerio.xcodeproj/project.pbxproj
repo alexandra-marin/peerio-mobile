@@ -20,19 +20,9 @@
 		029952D5220104C700A36D00 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D4220104C700A36D00 /* CoreImage.framework */; };
 		029952D7220104CD00A36D00 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D6220104CD00A36D00 /* ImageIO.framework */; };
 		029952D9220104D700A36D00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D8220104D600A36D00 /* CoreGraphics.framework */; };
-		029952E02201080A00A36D00 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952DF220107F000A36D00 /* FLAnimatedImage.framework */; };
 		029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 029952E32201122E00A36D00 /* MaterialIcons.ttf */; };
+		02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A733A62204DE3800205942 /* OpenSans.ttf */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		029952DE220107F000A36D00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
-			remoteInfo = FLAnimatedImage;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		029952D12200FACA00A36D00 /* Embed Frameworks */ = {
@@ -66,8 +56,8 @@
 		029952D4220104C700A36D00 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		029952D6220104CD00A36D00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		029952D8220104D600A36D00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 		029952E32201122E00A36D00 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		02A733A62204DE3800205942 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSans.ttf; path = ../../app/assets/fonts/OpenSans.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +70,6 @@
 				029952D5220104C700A36D00 /* CoreImage.framework in Frameworks */,
 				029952D3220104BF00A36D00 /* MobileCoreServices.framework in Frameworks */,
 				029952CE2200FABF00A36D00 /* peerio_chat_framework.framework in Frameworks */,
-				029952E02201080A00A36D00 /* FLAnimatedImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,18 +125,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		029952DB220107F000A36D00 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				029952DF220107F000A36D00 /* FLAnimatedImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		029952E12201121700A36D00 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -155,6 +135,7 @@
 		029952E22201122100A36D00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02A733A62204DE3800205942 /* OpenSans.ttf */,
 				029952E32201122E00A36D00 /* MaterialIcons.ttf */,
 			);
 			path = Resources;
@@ -206,28 +187,12 @@
 			mainGroup = 029952A72200FA6700A36D00;
 			productRefGroup = 029952B12200FA6700A36D00 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 029952DB220107F000A36D00 /* Products */;
-					ProjectRef = 029952DA220107F000A36D00 /* FLAnimatedImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				029952AF2200FA6700A36D00 /* test-embed-peerio */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		029952DF220107F000A36D00 /* FLAnimatedImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FLAnimatedImage.framework;
-			remoteRef = 029952DE220107F000A36D00 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		029952AE2200FA6700A36D00 /* Resources */ = {
@@ -237,6 +202,7 @@
 				029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */,
 				029952C32200FA6900A36D00 /* LaunchScreen.storyboard in Resources */,
 				029952C02200FA6900A36D00 /* Assets.xcassets in Resources */,
+				02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */,
 				029952BE2200FA6700A36D00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
