@@ -18,7 +18,6 @@
 		028ACC7E2200DA3E0063FE17 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC7B2200DA160063FE17 /* libimageCropPicker.a */; };
 		028ACC932200E1900063FE17 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC902200E1360063FE17 /* libRNKeychain.a */; };
 		028ACCA32200E70E0063FE17 /* libRNSodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACCA02200E7050063FE17 /* libRNSodium.a */; };
-		028ACDB12200F14C0063FE17 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 028ACDB02200F14C0063FE17 /* include */; };
 		028ACDB22200F1510063FE17 /* include in Headers */ = {isa = PBXBuildFile; fileRef = 028ACDB02200F14C0063FE17 /* include */; settings = {ATTRIBUTES = (Public, ); }; };
 		02A7337A2204D31000205942 /* libFLAnimatedImageLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A733792204D31000205942 /* libFLAnimatedImageLib.a */; };
 		02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */; };
@@ -1911,7 +1910,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028ACDB12200F14C0063FE17 /* include in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2148,7 +2146,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2204,7 +2202,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -2219,9 +2217,9 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7L45B96YPK;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2243,6 +2241,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peerio.peerio-chat-framework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2253,9 +2252,9 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 7L45B96YPK;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2276,6 +2275,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peerio.peerio-chat-framework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
