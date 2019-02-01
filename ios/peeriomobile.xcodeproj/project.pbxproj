@@ -39,8 +39,6 @@
 		02DB41591DCD1B1C00E04176 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		02E096B31DAE398B00641B85 /* locales in Resources */ = {isa = PBXBuildFile; fileRef = 02E096B21DAE398B00641B85 /* locales */; };
 		02E096DC1DAE50E100641B85 /* dict in Resources */ = {isa = PBXBuildFile; fileRef = 02E096DB1DAE50E100641B85 /* dict */; };
-		02E280D921FBB1FB00AC71F4 /* FLAnimatedImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		02E280DA21FBB20E00AC71F4 /* FLAnimatedImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1467A9A8E0304BE0953E715B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE216B2DFB25438F8922A621 /* Octicons.ttf */; };
@@ -58,13 +56,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		02E280D721FBB1EF00AC71F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92C9BC0C1B199DC500D79B06;
-			remoteInfo = FLAnimatedImage;
-		};
 		96CEC5A121107C3600F546CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -81,7 +72,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02E280D921FBB1FB00AC71F4 /* FLAnimatedImage.framework in Embed Frameworks */,
 				02B66B7F21F8D1BB000BCF2B /* peerio_chat_framework.framework in Embed Frameworks */,
 				029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */,
 				029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */,
@@ -132,7 +122,6 @@
 		02D764581D9AAF4D00E7E57C /* peeriomobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = peeriomobile.entitlements; path = peeriomobile/peeriomobile.entitlements; sourceTree = "<group>"; };
 		02E096B21DAE398B00641B85 /* locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = locales; path = ../locales; sourceTree = "<group>"; };
 		02E096DB1DAE50E100641B85 /* dict */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dict; path = "../node_modules/peerio-copy/phrase/dict"; sourceTree = "<group>"; };
-		02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/FLAnimatedImage/FLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* peeriomobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = peeriomobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = peeriomobile/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = peeriomobile/AppDelegate.m; sourceTree = "<group>"; };
@@ -162,7 +151,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E280DA21FBB20E00AC71F4 /* FLAnimatedImage.framework in Frameworks */,
 				02D372902194B6050020FDC8 /* CoreGraphics.framework in Frameworks */,
 				02D3728E2194B5FD0020FDC8 /* MobileCoreServices.framework in Frameworks */,
 				02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */,
@@ -198,14 +186,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		02E280D421FBB1EF00AC71F4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* peeriomobile */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +204,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -392,12 +371,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 02E280D421FBB1EF00AC71F4 /* Products */;
-					ProjectRef = 02E280D321FBB1EF00AC71F4 /* FLAnimatedImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* peeriomobile */,
@@ -405,16 +378,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		02E280D821FBB1EF00AC71F4 /* FLAnimatedImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FLAnimatedImage.framework;
-			remoteRef = 02E280D721FBB1EF00AC71F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
