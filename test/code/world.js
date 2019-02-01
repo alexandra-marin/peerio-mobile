@@ -190,7 +190,7 @@ class World {
     }
 
     async acceptPeerioClosurePopup() {
-    if (this.alertsPage.peerioClosurePopup.isVisible()) {
+        if (this.alertsPage.peerioClosurePopup.isVisible()) {
             this.alertsPage.peerioClosurePopup.click();
         }
     }
