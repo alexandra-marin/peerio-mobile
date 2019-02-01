@@ -13,7 +13,6 @@ const LoginPage = require('./pages/login/loginPage');
 const HomePage = require('./pages/start/homePage');
 const TwoStepVerificationPage = require('./pages/settings/twoStepVerificationPage');
 const TwoFactorAuthPrompt = require('./pages/popups/twoFactorAuthPrompt');
-const SettingsPage = require('./pages/settings/settingsPage');
 const ProfileSettingsPage = require('./pages/settings/profileSettingsPage');
 const otplib = require('otplib');
 const FileViewPage = require('./pages/files/fileViewPage');
@@ -137,6 +136,7 @@ class World {
         await this.alertsPage.dismissNotificationsAlert();
         if (await this.loginPage.backButtonVisible) await this.loginPage.backButton.click();
         await this.startPage.createAccountButton.click();
+        await this.acceptPeerioClosurePopup();
     }
 
     async typePersonalInfo() {
@@ -178,6 +178,7 @@ class World {
     }
 
     async seeWelcomeScreen() {
+        await this.listener.request(`routes.modal.discard()`);
         await this.homePage.isVisible;
         await this.homePage.chatTab.click();
     }
@@ -185,6 +186,12 @@ class World {
     async dismissEmailConfirmationPopup() {
         if (this.alertsPage.emailConfirmationPopup.isVisible()) {
             this.alertsPage.emailConfirmationPopup.click();
+        }
+    }
+
+    async acceptPeerioClosurePopup() {
+    if (this.alertsPage.peerioClosurePopup.isVisible()) {
+            this.alertsPage.peerioClosurePopup.click();
         }
     }
 
