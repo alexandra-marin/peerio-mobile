@@ -243,6 +243,7 @@ class World {
             `signupState.testQuickSignup(${JSON.stringify(params || {})})`
         );
         Object.assign(this, { helperUsername: username, helperPassphrase: passphrase });
+        await this.seeWelcomeScreen();
     }
 
     async callQuickSignup(params) {
