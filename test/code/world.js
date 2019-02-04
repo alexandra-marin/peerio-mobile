@@ -178,7 +178,7 @@ class World {
     }
 
     async seeWelcomeScreen() {
-        await this.listener.request(`routes.modal.discard()`);
+        await this.homePage.gotItButton.click();
         await this.homePage.isVisible;
         await this.homePage.chatTab.click();
     }

@@ -20,6 +20,10 @@ class HomePage extends Page {
     get isVisible() {
         return this.app.waitForVisible('~forum');
     }
+
+    get gotItButton() {
+        return this.getWhenVisible('~popupButton-gotIt');
+    }
 }
 
 module.exports = HomePage;

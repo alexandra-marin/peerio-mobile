@@ -105,7 +105,7 @@ export default class NoticeOfClosure extends SafeComponent {
                     </View>
                     <Spacer />
                     <View style={{ alignItems: 'flex-end', marginRight: 8 }}>
-                        <ButtonText onPress={this.dismiss} text="Got It" />
+                        <ButtonText onPress={this.dismiss} text="Got It" testID="gotIt" />
                     </View>
                 </View>
             </ScrollView>
