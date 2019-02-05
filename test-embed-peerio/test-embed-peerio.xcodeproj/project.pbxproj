@@ -22,6 +22,8 @@
 		029952D9220104D700A36D00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D8220104D600A36D00 /* CoreGraphics.framework */; };
 		029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 029952E32201122E00A36D00 /* MaterialIcons.ttf */; };
 		02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A733A62204DE3800205942 /* OpenSans.ttf */; };
+		02A733A92204EEBF00205942 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 02A733A82204EEBF00205942 /* main.jsbundle */; };
+		02A733B32204F7C800205942 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 02A733B22204F7C800205942 /* assets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +60,8 @@
 		029952D8220104D600A36D00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		029952E32201122E00A36D00 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		02A733A62204DE3800205942 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSans.ttf; path = ../../app/assets/fonts/OpenSans.ttf; sourceTree = "<group>"; };
+		02A733A82204EEBF00205942 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../ios/main.jsbundle; sourceTree = "<group>"; };
+		02A733B22204F7C800205942 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../ios/assets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 		029952A72200FA6700A36D00 = {
 			isa = PBXGroup;
 			children = (
+				02A733B22204F7C800205942 /* assets */,
+				02A733A82204EEBF00205942 /* main.jsbundle */,
 				029952E22201122100A36D00 /* Resources */,
 				029952E12201121700A36D00 /* Libraries */,
 				029952B22200FA6700A36D00 /* test-embed-peerio */,
@@ -201,7 +207,9 @@
 			files = (
 				029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */,
 				029952C32200FA6900A36D00 /* LaunchScreen.storyboard in Resources */,
+				02A733B32204F7C800205942 /* assets in Resources */,
 				029952C02200FA6900A36D00 /* Assets.xcassets in Resources */,
+				02A733A92204EEBF00205942 /* main.jsbundle in Resources */,
 				02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */,
 				029952BE2200FA6700A36D00 /* Main.storyboard in Resources */,
 			);

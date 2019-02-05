@@ -10,7 +10,7 @@
     "icebear:compile-code": "rm -rf app/lib/peerio-icebear && babel -x .js,.jsx,.ts,.tsx --source-maps -d ./app/lib/peerio-icebear ./node_modules/peerio-icebear/src && cp -r node_modules/peerio-icebear/src/copy app/lib/peerio-icebear/ && bash ./scripts/remove-require-crypto.sh && ./scripts/copy-icebear-resources.sh",
     "icebear:compile-types": "tsc --skipLibCheck -p ./node_modules/peerio-icebear/test/tsconfig.json --emitDeclarationOnly --outDir ./app/lib/peerio-icebear -d",
     "icebear:watch": "npm run icebear:compile -- -w",
-    "start": "source env.sh && npm run icebear:compile && npm run code:packager",
+    "start": "source env.sh && npm run code:packager",
     "expandoo": "source env-expandoo.sh && ./node_modules/react-native/scripts/packager.sh --reset-cache",
     "medcryptor": "APP_LABEL='medcryptor' EXECUTABLE_NAME='medcryptor' npm start",
     "clean": "rm -rf ios/build && rm -rf android/build",

@@ -10,7 +10,6 @@
 		020C455F2138710300A0691D /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 020C45292138710200A0691D /* privacy.txt */; };
 		020C45FF2138C95D00A0691D /* account_key_backup_medcryptor.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 020C45C92138C95D00A0691D /* account_key_backup_medcryptor.pdf */; };
 		0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC560210F699500F546CE /* QBImagePicker.framework */; };
-		0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC562210F699500F546CE /* RSKImageCropper.framework */; };
 		02210A841E0191BA006D7AC0 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 02210A831E0191BA006D7AC0 /* sounds */; };
 		0226520121324DAB003EEF56 /* SourceSerifPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022651CD21324DAA003EEF56 /* SourceSerifPro.ttf */; };
 		0226520221324DAB003EEF56 /* SourceSerifProBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022651FF21324DAA003EEF56 /* SourceSerifProBold.ttf */; };
@@ -29,8 +28,6 @@
 		02AF5AE020842C18005056CF /* OpenSansBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AF5ADA20842C18005056CF /* OpenSansBoldItalic.ttf */; };
 		02AF5AE120842C18005056CF /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AF5ADB20842C18005056CF /* OpenSans.ttf */; };
 		02AF5AE220842C18005056CF /* OpenSansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AF5ADC20842C18005056CF /* OpenSansBold.ttf */; };
-		02B66B7E21F8D1AC000BCF2B /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */; };
-		02B66B7F21F8D1BB000BCF2B /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02BCD72D1DFE1606000B8FCF /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BCD72C1DFE1606000B8FCF /* QuickLook.framework */; };
 		02D3728A2194B4480020FDC8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D372462194B4470020FDC8 /* QuartzCore.framework */; };
 		02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02D3728B2194B5EE0020FDC8 /* ImageIO.framework */; };
@@ -44,6 +41,8 @@
 		1467A9A8E0304BE0953E715B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE216B2DFB25438F8922A621 /* Octicons.ttf */; };
 		17093292DCFB4EFBB929257F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F1F7CA2F44844A0FC718E /* Zocial.ttf */; };
 		51CAD96E068B4E2EAA239290 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7DDFAC6A6F74107A3D45471 /* FontAwesome.ttf */; };
+		620E1275220A14F800EEDC38 /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */; };
+		620E1276220A14F800EEDC38 /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8390076B9DE5486982F0EBE9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED79A42A8D3144739CE4C04B /* Ionicons.ttf */; };
 		8560D839D75A4E9590C8B1F5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372E848CA7B444A09B937444 /* SimpleLineIcons.ttf */; };
 		86F7F88564164E3CA0B1265B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F64612EAF249BC98CB3DE2 /* Entypo.ttf */; };
@@ -72,8 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02B66B7F21F8D1BB000BCF2B /* peerio_chat_framework.framework in Embed Frameworks */,
 				029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */,
+				620E1276220A14F800EEDC38 /* peerio_chat_framework.framework in Embed Frameworks */,
 				029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -113,7 +112,6 @@
 		02AF5ADA20842C18005056CF /* OpenSansBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSansBoldItalic.ttf; path = ../app/assets/fonts/OpenSansBoldItalic.ttf; sourceTree = "<group>"; };
 		02AF5ADB20842C18005056CF /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSans.ttf; path = ../app/assets/fonts/OpenSans.ttf; sourceTree = "<group>"; };
 		02AF5ADC20842C18005056CF /* OpenSansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSansBold.ttf; path = ../app/assets/fonts/OpenSansBold.ttf; sourceTree = "<group>"; };
-		02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = peerio_chat_framework.framework; path = "../../../../Library/Developer/Xcode/DerivedData/peerio-framework-workspace-crblhixurjxcvrenwyqdayakviqe/Build/Products/Debug-iphonesimulator/peerio_chat_framework.framework"; sourceTree = "<group>"; };
 		02BCD72C1DFE1606000B8FCF /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		02D372462194B4470020FDC8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02D3728B2194B5EE0020FDC8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -132,6 +130,7 @@
 		21D883CDAA7C4E718E6EE873 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		372E848CA7B444A09B937444 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		4FC9400FF0F74C249A550AC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9632AAC1211230D7001A290F /* peerioshare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = peerioshare.entitlements; sourceTree = "<group>"; };
 		96CEC560210F699500F546CE /* QBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CEC562210F699500F546CE /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,10 +154,9 @@
 				02D3728E2194B5FD0020FDC8 /* MobileCoreServices.framework in Frameworks */,
 				02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */,
 				02D3728A2194B4480020FDC8 /* QuartzCore.framework in Frameworks */,
+				620E1275220A14F800EEDC38 /* peerio_chat_framework.framework in Frameworks */,
 				02BCD72D1DFE1606000B8FCF /* QuickLook.framework in Frameworks */,
 				0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */,
-				02B66B7E21F8D1AC000BCF2B /* peerio_chat_framework.framework in Frameworks */,
-				0214A64D21DA7EC2003BE0F8 /* RSKImageCropper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +209,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				02B66B7D21F8D1AC000BCF2B /* peerio_chat_framework.framework */,
+				620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */,
 				029F85661EE8068400C0CC31 /* QBImagePicker.framework */,
 				029F85621EE8067E00C0CC31 /* RSKImageCropper.framework */,
 				13B07FAE1A68108700A75B9A /* peeriomobile */,
