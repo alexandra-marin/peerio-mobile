@@ -137,6 +137,7 @@
     "react-native-sound": "github:PeerioTechnologies/react-native-sound#fix-android-notification-sound",
     "react-native-sqlcipher-storage": "github:PeerioTechnologies/react-native-sqlcipher-storage#0.55",
     "react-native-vector-icons": "5.0.0",
+    "react-native-sodium": "git@bitbucket.org:workjam/react-native-sodium.git",
     "rimraf": "2.6.2",
     "safe-json-stringify": "1.2.0",
     "scrypt-async": "2.0.1",
