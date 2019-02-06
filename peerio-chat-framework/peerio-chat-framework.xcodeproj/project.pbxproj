@@ -15,7 +15,6 @@
 		028ACC632200D82E0063FE17 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC602200D8200063FE17 /* libRCTGeolocation.a */; };
 		028ACC6C2200D8820063FE17 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC692200D8780063FE17 /* libRNImagePicker.a */; };
 		028ACC752200D8F40063FE17 /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC722200D8E20063FE17 /* libRCTCameraRoll.a */; };
-		028ACC932200E1900063FE17 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ACC902200E1360063FE17 /* libRNKeychain.a */; };
 		028ACDB22200F1510063FE17 /* include in Headers */ = {isa = PBXBuildFile; fileRef = 028ACDB02200F14C0063FE17 /* include */; settings = {ATTRIBUTES = (Public, ); }; };
 		02A7337A2204D31000205942 /* libFLAnimatedImageLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A733792204D31000205942 /* libFLAnimatedImageLib.a */; };
 		02B66B3D21F79BAC000BCF2B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B66B3C21F79BAC000BCF2B /* libsqlite3.0.tbd */; };
@@ -42,6 +41,7 @@
 		02E280CE21FBAF7400AC71F4 /* libRNFLAnimatedImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280CC21FBAF6100AC71F4 /* libRNFLAnimatedImage.a */; };
 		02E280E421FBB38D00AC71F4 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E280E121FBB38800AC71F4 /* libRNFS.a */; };
 		620E12A2220B65DD00EEDC38 /* libRNSodium.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620E129F220B65AF00EEDC38 /* libRNSodium.a */; };
+		620E12A9220B6A9E00EEDC38 /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620E12A8220B6A8D00EEDC38 /* libRNKeychain.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,20 +184,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 58B5115C1A9E6B3D00147676;
 			remoteInfo = RCTCameraRoll;
-		};
-		028ACC8F2200E1360063FE17 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
-			remoteInfo = RNKeychain;
-		};
-		028ACC912200E1600063FE17 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = DA5891D71BA9A9FC002B4DB2;
-			remoteInfo = RNKeychain;
 		};
 		02A733782204D31000205942 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -731,6 +717,20 @@
 			remoteGlobalIDString = DA5891D71BA9A9FC002B4DB2;
 			remoteInfo = RNSodium;
 		};
+		620E12A7220B6A8D00EEDC38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 620E12A3220B6A8C00EEDC38 /* RNKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
+			remoteInfo = RNKeychain;
+		};
+		620E12AA220B6AA400EEDC38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 620E12A3220B6A8C00EEDC38 /* RNKeychain.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DA5891D71BA9A9FC002B4DB2;
+			remoteInfo = RNKeychain;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -742,7 +742,6 @@
 		028ACC5B2200D8200063FE17 /* RCTGeolocation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGeolocation.xcodeproj; path = "../node_modules/react-native/Libraries/Geolocation/RCTGeolocation.xcodeproj"; sourceTree = "<group>"; };
 		028ACC642200D8780063FE17 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		028ACC6D2200D8E20063FE17 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
-		028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../ios/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 		028ACDB02200F14C0063FE17 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		02B66A4921F77AFC000BCF2B /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02B66A4D21F77AFC000BCF2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -772,6 +771,7 @@
 		02E280C721FBAF6100AC71F4 /* RNFLAnimatedImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFLAnimatedImage.xcodeproj; path = "../node_modules/react-native-gif/RNFLAnimatedImage/RNFLAnimatedImage.xcodeproj"; sourceTree = "<group>"; };
 		02E280DB21FBB38800AC71F4 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		620E129A220B65AF00EEDC38 /* RNSodium.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSodium.xcodeproj; path = "../node_modules/react-native-sodium/ios/RNSodium.xcodeproj"; sourceTree = "<group>"; };
+		620E12A3220B6A8C00EEDC38 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../node_modules/react-native-keychain/ios/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -779,7 +779,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028ACC932200E1900063FE17 /* libRNKeychain.a in Frameworks */,
 				028ACC752200D8F40063FE17 /* libRCTCameraRoll.a in Frameworks */,
 				028ACC6C2200D8820063FE17 /* libRNImagePicker.a in Frameworks */,
 				028ACC632200D82E0063FE17 /* libRCTGeolocation.a in Frameworks */,
@@ -813,6 +812,7 @@
 				02E2808B21FB9DEC00AC71F4 /* libRCTLinking.a in Frameworks */,
 				02A7337A2204D31000205942 /* libFLAnimatedImageLib.a in Frameworks */,
 				620E12A2220B65DD00EEDC38 /* libRNSodium.a in Frameworks */,
+				620E12A9220B6A9E00EEDC38 /* libRNKeychain.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,20 +887,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		028ACC8C2200E1360063FE17 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				028ACC902200E1360063FE17 /* libRNKeychain.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		02B66A3F21F77AFC000BCF2B = {
 			isa = PBXGroup;
 			children = (
 				028ACDB02200F14C0063FE17 /* include */,
+				620E12A3220B6A8C00EEDC38 /* RNKeychain.xcodeproj */,
 				620E129A220B65AF00EEDC38 /* RNSodium.xcodeproj */,
-				028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */,
 				028ACC6D2200D8E20063FE17 /* RCTCameraRoll.xcodeproj */,
 				028ACC642200D8780063FE17 /* RNImagePicker.xcodeproj */,
 				028ACC5B2200D8200063FE17 /* RCTGeolocation.xcodeproj */,
@@ -1177,6 +1169,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		620E12A4220B6A8C00EEDC38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				620E12A8220B6A8D00EEDC38 /* libRNKeychain.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1203,9 +1203,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				620E12AB220B6AA400EEDC38 /* PBXTargetDependency */,
 				620E12A1220B65C900EEDC38 /* PBXTargetDependency */,
 				02A7339D2204D38600205942 /* PBXTargetDependency */,
-				028ACC922200E1600063FE17 /* PBXTargetDependency */,
 				028ACC742200D8EE0063FE17 /* PBXTargetDependency */,
 				028ACC6B2200D87E0063FE17 /* PBXTargetDependency */,
 				028ACC622200D8280063FE17 /* PBXTargetDependency */,
@@ -1363,8 +1363,8 @@
 					ProjectRef = 028ACC642200D8780063FE17 /* RNImagePicker.xcodeproj */;
 				},
 				{
-					ProductGroup = 028ACC8C2200E1360063FE17 /* Products */;
-					ProjectRef = 028ACC8B2200E1360063FE17 /* RNKeychain.xcodeproj */;
+					ProductGroup = 620E12A4220B6A8C00EEDC38 /* Products */;
+					ProjectRef = 620E12A3220B6A8C00EEDC38 /* RNKeychain.xcodeproj */;
 				},
 				{
 					ProductGroup = 02B66B7821F8C0A5000BCF2B /* Products */;
@@ -1485,13 +1485,6 @@
 			fileType = archive.ar;
 			path = libRCTCameraRoll.a;
 			remoteRef = 028ACC712200D8E20063FE17 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		028ACC902200E1360063FE17 /* libRNKeychain.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNKeychain.a;
-			remoteRef = 028ACC8F2200E1360063FE17 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		02A733792204D31000205942 /* libFLAnimatedImageLib.a */ = {
@@ -1865,6 +1858,13 @@
 			remoteRef = 620E129E220B65AF00EEDC38 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		620E12A8220B6A8D00EEDC38 /* libRNKeychain.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNKeychain.a;
+			remoteRef = 620E12A7220B6A8D00EEDC38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1927,11 +1927,6 @@
 			isa = PBXTargetDependency;
 			name = RCTCameraRoll;
 			targetProxy = 028ACC732200D8EE0063FE17 /* PBXContainerItemProxy */;
-		};
-		028ACC922200E1600063FE17 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RNKeychain;
-			targetProxy = 028ACC912200E1600063FE17 /* PBXContainerItemProxy */;
 		};
 		02A7339D2204D38600205942 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2047,6 +2042,11 @@
 			isa = PBXTargetDependency;
 			name = RNSodium;
 			targetProxy = 620E12A0220B65C900EEDC38 /* PBXContainerItemProxy */;
+		};
+		620E12AB220B6AA400EEDC38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RNKeychain;
+			targetProxy = 620E12AA220B6AA400EEDC38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
