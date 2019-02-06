@@ -83,7 +83,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = Learnium;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					DA5891D71BA9A9FC002B4DB2 = {
 						CreatedOnToolsVersion = 7.0;
@@ -207,6 +207,7 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"../../peerio-chat-framework/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
@@ -225,6 +226,7 @@
 					"$(SRCROOT)/node_modules/react-native/React/**",
 					"$(SRCROOT)/../react-native/React/**",
 					"$(SRCROOT)/../../../node_modules/react-native/React/**",
+					"../../peerio-chat-framework/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
