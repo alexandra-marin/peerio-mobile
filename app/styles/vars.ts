@@ -28,11 +28,13 @@ function getDevicePixelRatio() {
 const devicePixelRatio = getDevicePixelRatio();
 
 function isIphoneX() {
+    // parent view takes care of iphonex
+    if (process.env.PEERIO_EMBEDDED) return false;
     return deviceInfo.hasNotch();
 }
 
 const iPhoneXTop = isIphoneX() ? 16 : 0;
-const iPhoneStatusBar = Platform.OS === 'ios' ? 18 + iPhoneXTop : 0;
+const iPhoneStatusBar = Platform.OS === 'ios' && !process.env.PEERIO_EMBEDDED ? 18 + iPhoneXTop : 0;
 const iPhoneXBottom = isIphoneX() ? 16 : 0;
 
 const isDeviceScreenBig = isBigScreenSize();
