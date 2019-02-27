@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		020C455F2138710300A0691D /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 020C45292138710200A0691D /* privacy.txt */; };
 		020C45FF2138C95D00A0691D /* account_key_backup_medcryptor.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 020C45C92138C95D00A0691D /* account_key_backup_medcryptor.pdf */; };
-		0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CEC560210F699500F546CE /* QBImagePicker.framework */; };
 		02210A841E0191BA006D7AC0 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 02210A831E0191BA006D7AC0 /* sounds */; };
 		0226520121324DAB003EEF56 /* SourceSerifPro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022651CD21324DAA003EEF56 /* SourceSerifPro.ttf */; };
 		0226520221324DAB003EEF56 /* SourceSerifProBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 022651FF21324DAA003EEF56 /* SourceSerifProBold.ttf */; };
@@ -18,8 +17,6 @@
 		02321C5D1D80558E00282EB1 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 02321C5C1D80558E00282EB1 /* main.jsbundle */; };
 		0248F0721E5A59BF00C437A9 /* terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0248F0711E5A59BF00C437A9 /* terms.txt */; };
 		026A54881F9A5F8600D26E34 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026A54871F9A5F8600D26E34 /* Launch Screen.storyboard */; };
-		029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85621EE8067E00C0CC31 /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029F85661EE8068400C0CC31 /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02A076271E6D8876008974C5 /* maincert.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 02A075FF1E6D880E008974C5 /* maincert.com.cer */; };
 		02AF517C212AA6170025F6A8 /* account_key_backup.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AF514A212AA6170025F6A8 /* account_key_backup.pdf */; };
 		02AF5ADD20842C18005056CF /* OpenSansSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AF5AD720842C18005056CF /* OpenSansSemiBold.ttf */; };
@@ -41,8 +38,8 @@
 		1467A9A8E0304BE0953E715B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE216B2DFB25438F8922A621 /* Octicons.ttf */; };
 		17093292DCFB4EFBB929257F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A7F1F7CA2F44844A0FC718E /* Zocial.ttf */; };
 		51CAD96E068B4E2EAA239290 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7DDFAC6A6F74107A3D45471 /* FontAwesome.ttf */; };
-		620E1275220A14F800EEDC38 /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */; };
-		620E1276220A14F800EEDC38 /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		627A954E2227186500AD1526 /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627A954A2227182400AD1526 /* peerio_chat_framework.framework */; };
+		627A954F2227186500AD1526 /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 627A954A2227182400AD1526 /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8390076B9DE5486982F0EBE9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED79A42A8D3144739CE4C04B /* Ionicons.ttf */; };
 		8560D839D75A4E9590C8B1F5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372E848CA7B444A09B937444 /* SimpleLineIcons.ttf */; };
 		86F7F88564164E3CA0B1265B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F64612EAF249BC98CB3DE2 /* Entypo.ttf */; };
@@ -65,15 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		029F85651EE8067F00C0CC31 /* Embed Frameworks */ = {
+		627A95502227186500AD1526 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				029F85641EE8067E00C0CC31 /* RSKImageCropper.framework in Embed Frameworks */,
-				620E1276220A14F800EEDC38 /* peerio_chat_framework.framework in Embed Frameworks */,
-				029F85681EE8068400C0CC31 /* QBImagePicker.framework in Embed Frameworks */,
+				627A954F2227186500AD1526 /* peerio_chat_framework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,8 +97,6 @@
 		02321C5C1D80558E00282EB1 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.jsbundle; sourceTree = "<group>"; };
 		0248F0711E5A59BF00C437A9 /* terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = terms.txt; path = ../app/assets/terms.txt; sourceTree = "<group>"; };
 		026A54871F9A5F8600D26E34 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		029F85621EE8067E00C0CC31 /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		029F85661EE8068400C0CC31 /* QBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A075FF1E6D880E008974C5 /* maincert.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = maincert.com.cer; path = ../app/assets/maincert.com.cer; sourceTree = "<group>"; };
 		02AF514A212AA6170025F6A8 /* account_key_backup.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = account_key_backup.pdf; path = ../app/assets/account_key_backup.pdf; sourceTree = "<group>"; };
 		02AF5AD720842C18005056CF /* OpenSansSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSansSemiBold.ttf; path = ../app/assets/fonts/OpenSansSemiBold.ttf; sourceTree = "<group>"; };
@@ -130,7 +123,7 @@
 		21D883CDAA7C4E718E6EE873 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		372E848CA7B444A09B937444 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		4FC9400FF0F74C249A550AC2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		627A954A2227182400AD1526 /* peerio_chat_framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = peerio_chat_framework.framework; path = "../node_modules/@workjam/react-native-chat-framework/peerio_chat_framework.framework"; sourceTree = "<group>"; };
 		9632AAC1211230D7001A290F /* peerioshare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = peerioshare.entitlements; sourceTree = "<group>"; };
 		96CEC560210F699500F546CE /* QBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CEC562210F699500F546CE /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,12 +144,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D372902194B6050020FDC8 /* CoreGraphics.framework in Frameworks */,
+				627A954E2227186500AD1526 /* peerio_chat_framework.framework in Frameworks */,
 				02D3728E2194B5FD0020FDC8 /* MobileCoreServices.framework in Frameworks */,
 				02D3728C2194B5EE0020FDC8 /* ImageIO.framework in Frameworks */,
 				02D3728A2194B4480020FDC8 /* QuartzCore.framework in Frameworks */,
-				620E1275220A14F800EEDC38 /* peerio_chat_framework.framework in Frameworks */,
 				02BCD72D1DFE1606000B8FCF /* QuickLook.framework in Frameworks */,
-				0214A64C21DA7EBD003BE0F8 /* QBImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +201,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				620E1274220A14F800EEDC38 /* peerio_chat_framework.framework */,
-				029F85661EE8068400C0CC31 /* QBImagePicker.framework */,
-				029F85621EE8067E00C0CC31 /* RSKImageCropper.framework */,
+				627A954A2227182400AD1526 /* peerio_chat_framework.framework */,
 				13B07FAE1A68108700A75B9A /* peeriomobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				96CEC59A21107C3600F546CE /* peerioshare */,
@@ -288,8 +278,8 @@
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
-				029F85651EE8067F00C0CC31 /* Embed Frameworks */,
 				96BCC954208780AA00742C23 /* Embed App Extensions */,
+				627A95502227186500AD1526 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -495,7 +485,15 @@
 				CURRENT_PROJECT_VERSION = 306;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7L45B96YPK;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"../node_modules/@workjam/react-native-chat-framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"../node_modules/\\@workjam/react-native-chat-framework/peerio_chat_framework.framework/Headers",
+				);
 				INFOPLIST_FILE = peeriomobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -528,7 +526,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 306;
 				DEVELOPMENT_TEAM = 7L45B96YPK;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"../node_modules/@workjam/react-native-chat-framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"../node_modules/\\@workjam/react-native-chat-framework/peerio_chat_framework.framework/Headers",
+				);
 				INFOPLIST_FILE = peeriomobile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

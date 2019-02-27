@@ -14,16 +14,16 @@
 		029952C02200FA6900A36D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029952BF2200FA6900A36D00 /* Assets.xcassets */; };
 		029952C32200FA6900A36D00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029952C12200FA6900A36D00 /* LaunchScreen.storyboard */; };
 		029952C62200FA6900A36D00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 029952C52200FA6900A36D00 /* main.m */; };
-		029952CE2200FABF00A36D00 /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952CD2200FABF00A36D00 /* peerio_chat_framework.framework */; };
-		029952D02200FACA00A36D00 /* peerio_chat_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029952CD2200FABF00A36D00 /* peerio_chat_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029952D3220104BF00A36D00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D2220104BF00A36D00 /* MobileCoreServices.framework */; };
 		029952D5220104C700A36D00 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D4220104C700A36D00 /* CoreImage.framework */; };
 		029952D7220104CD00A36D00 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D6220104CD00A36D00 /* ImageIO.framework */; };
 		029952D9220104D700A36D00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029952D8220104D600A36D00 /* CoreGraphics.framework */; };
-		029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 029952E32201122E00A36D00 /* MaterialIcons.ttf */; };
-		02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02A733A62204DE3800205942 /* OpenSans.ttf */; };
-		02A733A92204EEBF00205942 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 02A733A82204EEBF00205942 /* main.jsbundle */; };
-		02A733B32204F7C800205942 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 02A733B22204F7C800205942 /* assets */; };
+		627A955622271F2800AD1526 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 627A955522271F2800AD1526 /* assets */; };
+		627A955822271FD000AD1526 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 627A955722271FD000AD1526 /* main.jsbundle */; };
+		627A955C2227221500AD1526 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 627A955A2227221500AD1526 /* MaterialIcons.ttf */; };
+		627A955D2227221500AD1526 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 627A955B2227221500AD1526 /* OpenSans.ttf */; };
+		627A955F2227246E00AD1526 /* peerio_chat_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627A955E2227246E00AD1526 /* peerio_chat_framework.framework */; };
+		627A956122272B3000AD1526 /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 627A956022272B2F00AD1526 /* sounds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				029952D02200FACA00A36D00 /* peerio_chat_framework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,15 +52,16 @@
 		029952C22200FA6900A36D00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029952C42200FA6900A36D00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		029952C52200FA6900A36D00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		029952CD2200FABF00A36D00 /* peerio_chat_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = peerio_chat_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		029952D2220104BF00A36D00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		029952D4220104C700A36D00 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		029952D6220104CD00A36D00 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		029952D8220104D600A36D00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		029952E32201122E00A36D00 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		02A733A62204DE3800205942 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSans.ttf; path = ../../app/assets/fonts/OpenSans.ttf; sourceTree = "<group>"; };
-		02A733A82204EEBF00205942 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../ios/main.jsbundle; sourceTree = "<group>"; };
-		02A733B22204F7C800205942 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../ios/assets; sourceTree = "<group>"; };
+		627A955522271F2800AD1526 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../dist/debug/assets; sourceTree = "<group>"; };
+		627A955722271FD000AD1526 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../dist/debug/main.jsbundle; sourceTree = "<group>"; };
+		627A955A2227221500AD1526 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = ../dist/fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		627A955B2227221500AD1526 /* OpenSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = OpenSans.ttf; path = ../dist/fonts/OpenSans.ttf; sourceTree = "<group>"; };
+		627A955E2227246E00AD1526 /* peerio_chat_framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = peerio_chat_framework.framework; path = ../dist/debug/peerio_chat_framework.framework; sourceTree = "<group>"; };
+		627A956022272B2F00AD1526 /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = ../dist/sounds; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +69,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				627A955F2227246E00AD1526 /* peerio_chat_framework.framework in Frameworks */,
 				029952D9220104D700A36D00 /* CoreGraphics.framework in Frameworks */,
 				029952D7220104CD00A36D00 /* ImageIO.framework in Frameworks */,
 				029952D5220104C700A36D00 /* CoreImage.framework in Frameworks */,
 				029952D3220104BF00A36D00 /* MobileCoreServices.framework in Frameworks */,
-				029952CE2200FABF00A36D00 /* peerio_chat_framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +83,9 @@
 		029952A72200FA6700A36D00 = {
 			isa = PBXGroup;
 			children = (
-				02A733B22204F7C800205942 /* assets */,
-				02A733A82204EEBF00205942 /* main.jsbundle */,
-				029952E22201122100A36D00 /* Resources */,
-				029952E12201121700A36D00 /* Libraries */,
+				627A955E2227246E00AD1526 /* peerio_chat_framework.framework */,
+				627A95592227202500AD1526 /* Resources */,
+				627A955722271FD000AD1526 /* main.jsbundle */,
 				029952B22200FA6700A36D00 /* test-embed-peerio */,
 				029952B12200FA6700A36D00 /* Products */,
 				029952CC2200FABF00A36D00 /* Frameworks */,
@@ -126,25 +125,19 @@
 				029952D6220104CD00A36D00 /* ImageIO.framework */,
 				029952D4220104C700A36D00 /* CoreImage.framework */,
 				029952D2220104BF00A36D00 /* MobileCoreServices.framework */,
-				029952CD2200FABF00A36D00 /* peerio_chat_framework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		029952E12201121700A36D00 /* Libraries */ = {
+		627A95592227202500AD1526 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				627A956022272B2F00AD1526 /* sounds */,
+				627A955522271F2800AD1526 /* assets */,
+				627A955A2227221500AD1526 /* MaterialIcons.ttf */,
+				627A955B2227221500AD1526 /* OpenSans.ttf */,
 			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		029952E22201122100A36D00 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				02A733A62204DE3800205942 /* OpenSans.ttf */,
-				029952E32201122E00A36D00 /* MaterialIcons.ttf */,
-			);
-			path = Resources;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,12 +198,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				029952E42201122E00A36D00 /* MaterialIcons.ttf in Resources */,
 				029952C32200FA6900A36D00 /* LaunchScreen.storyboard in Resources */,
-				02A733B32204F7C800205942 /* assets in Resources */,
 				029952C02200FA6900A36D00 /* Assets.xcassets in Resources */,
-				02A733A92204EEBF00205942 /* main.jsbundle in Resources */,
-				02A733A72204DE4C00205942 /* OpenSans.ttf in Resources */,
+				627A956122272B3000AD1526 /* sounds in Resources */,
+				627A955C2227221500AD1526 /* MaterialIcons.ttf in Resources */,
+				627A955822271FD000AD1526 /* main.jsbundle in Resources */,
+				627A955622271F2800AD1526 /* assets in Resources */,
+				627A955D2227221500AD1526 /* OpenSans.ttf in Resources */,
 				029952BE2200FA6700A36D00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +364,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L45B96YPK;
+				FRAMEWORK_SEARCH_PATHS = ../dist/debug;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = ../dist/debug/peerio_chat_framework.framework/Headers;
 				INFOPLIST_FILE = "test-embed-peerio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -393,7 +389,9 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L45B96YPK;
+				FRAMEWORK_SEARCH_PATHS = ../dist/debug;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				HEADER_SEARCH_PATHS = ../dist/debug/peerio_chat_framework.framework/Headers;
 				INFOPLIST_FILE = "test-embed-peerio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
