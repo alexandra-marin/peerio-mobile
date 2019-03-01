@@ -12,6 +12,7 @@ source env.sh
 ./node_modules/.bin/react-native bundle --entry-file index.ios.js --bundle-output dist/debug/main.jsbundle --assets-dest "dist/debug" --platform ios --reset-cache
 
 mkdir dist/release
+cp -r node_modules/\@workjam/react-native-chat-framework/ios/build/release/* dist/release/
 
 ./node_modules/.bin/react-native bundle --dev false --entry-file index.ios.js --bundle-output dist/release/main.jsbundle --assets-dest "dist/release" --platform ios --reset-cache
 
