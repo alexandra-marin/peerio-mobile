@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.437.0"></a>
+# [3.437.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.437.0) (2019-03-01)
+
+
+### Bug Fixes
+
+* file name dialog width [branch ch18416] ([#422](https://github.com/PeerioTechnologies/peerio-mobile/issues/422)) ([e395681](https://github.com/PeerioTechnologies/peerio-mobile/commit/e395681))
+* remove file from inline files when removing non-owned file [ch18434] ([#421](https://github.com/PeerioTechnologies/peerio-mobile/issues/421)) ([c000ca2](https://github.com/PeerioTechnologies/peerio-mobile/commit/c000ca2))
+* safeguard when rendering folders [ch18459] ([a80b32a](https://github.com/PeerioTechnologies/peerio-mobile/commit/a80b32a))
+* tapping dots doesn't work for inline image or file [ch18107] ([7d6c2cb](https://github.com/PeerioTechnologies/peerio-mobile/commit/7d6c2cb))
+
+
+### Features
+
+* add unshare inline files capability to file action sheet [ch18323] ([#418](https://github.com/PeerioTechnologies/peerio-mobile/issues/418)) ([6cc0177](https://github.com/PeerioTechnologies/peerio-mobile/commit/6cc0177))
+* remove account upgrade [ch18356] ([#419](https://github.com/PeerioTechnologies/peerio-mobile/issues/419)) ([3c90d03](https://github.com/PeerioTechnologies/peerio-mobile/commit/3c90d03))
+* use FLAnimatedImage static library instead of a framework ([9fc60e1](https://github.com/PeerioTechnologies/peerio-mobile/commit/9fc60e1))
+
+
+
 <a name="3.436.0"></a>
 # [3.436.0](https://github.com/PeerioTechnologies/peerio-mobile/compare/v3.428.0...v3.436.0) (2019-03-01)
 
