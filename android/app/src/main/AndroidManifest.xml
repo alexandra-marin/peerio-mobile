@@ -25,9 +25,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- image picker plugin end -->
-    <uses-sdk
-        android:minSdkVersion="21"
-        android:targetSdkVersion="27" />
 
     <application
         android:name=".MainApplication"

@@ -88,8 +88,8 @@ def enableSeparateBuildPerCPUArchitecture = true
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     def code = 1000000
     def minor = 0
     def Properties versionProps = new Properties()
@@ -115,7 +115,7 @@ android {
     defaultConfig {
         applicationId "com.peerio.app"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode code
         versionName packageJson.version
         // ndk {
@@ -153,33 +153,33 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-file-picker')
-    compile project(':react-native-mail')
-    compile project(':react-native-key-event')
-    compile project(':react-native-shake-event')
-    compile project(':lottie-react-native')
-    compile project(':react-native-keep-awake')
-    compile project(':react-native-image-crop-picker')
-    compile project(':react-native-contacts')
-    compile project(':react-native-linear-gradient')
-    compile project(':react-native-billing')
-    compile project(':ReactAndroid')
-    compile project(':react-native-vector-icons')
-    compile project(':react-native-sound')
-    compile project(':react-native-share')
-    compile project(':react-native-restart')
-    compile project(':react-native-randombytes')
-    compile project(':react-native-push-notification')
-    compile project(':react-native-image-picker')
-    compile project(':react-native-fs')
-    compile project(':react-native-file-opener')
-    compile project(':react-native-device-info')
-    compile project(':react-native-sqlcipher-storage')
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:27.1.1"
-    compile "com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:1.0.6@aar"
-    // compile "com.facebook.react:react-native:+"  // From node_modules
-    compile ('com.google.android.gms:play-services-gcm:11.2.0') {
+    implementation project(':react-native-file-picker')
+    implementation project(':react-native-mail')
+    implementation project(':react-native-key-event')
+    implementation project(':react-native-shake-event')
+    implementation project(':lottie-react-native')
+    implementation project(':react-native-keep-awake')
+    implementation project(':react-native-image-crop-picker')
+    implementation project(':react-native-contacts')
+    implementation project(':react-native-linear-gradient')
+    implementation project(':react-native-billing')
+    implementation project(':ReactAndroid')
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-sound')
+    implementation project(':react-native-share')
+    implementation project(':react-native-restart')
+    implementation project(':react-native-randombytes')
+    implementation project(':react-native-push-notification')
+    implementation project(':react-native-image-picker')
+    implementation project(':react-native-fs')
+    implementation project(':react-native-file-opener')
+    implementation project(':react-native-device-info')
+    implementation project(':react-native-sqlcipher-storage')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation "com.github.joshjdevl.libsodiumjni:libsodium-jni-aar:1.0.6@aar"
+    // implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation ('com.google.android.gms:play-services-gcm:11.2.0') {
         force = true;
     }
 }
